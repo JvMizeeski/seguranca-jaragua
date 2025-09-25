@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Segurança Jaraguá - Soluções em Monitoramento e Segurança 24h</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a101f;
+            color: #e2e8f0;
+        }
+        .hero-gradient {
+            background: linear-gradient(to top, rgba(10, 16, 31, 1) 5%, rgba(10, 16, 31, 0.7) 50%, rgba(10, 16, 31, 0.3) 100%);
+        }
+        .section-bg {
+            background-color: #10182b;
+        }
+        .brand-green {
+            color: #34d399; /* emerald-400 */
+        }
+        .brand-bg-green {
+            background-color: #10b981; /* emerald-500 */
+        }
+        .brand-bg-green-hover:hover {
+            background-color: #059669; /* emerald-600 */
+        }
+        .card-bg {
+            background-color: #1e293b;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .service-card-img {
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <header id="header" class="bg-slate-900/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300 h-24">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 h-full">
+            <div class="flex items-center justify-between h-full">
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-2">
+                    <img id="header-logo" src="logo_site.png" alt="Segurança Jaraguá Logo" class="h-16 transition-all duration-300">
+                </a>
+                
+                <!-- Navegação Desktop -->
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="#solucoes" class="text-slate-300 hover:text-emerald-400 transition-colors">Soluções</a>
+                    <a href="#sobre" class="text-slate-300 hover:text-emerald-400 transition-colors">Sobre Nós</a>
+                    <a href="#contato" class="text-slate-300 hover:text-emerald-400 transition-colors">Contato</a>
+                    <a href="#contato" class="bg-emerald-500 text-white px-5 py-2 rounded-md font-semibold hover:bg-emerald-600 transition-colors shadow-lg shadow-emerald-500/20">Solicitar Orçamento</a>
+                </nav>
+
+                <!-- Botão Mobile Menu -->
+                <button id="mobile-menu-button" class="md:hidden text-white">
+                    <svg id="menu-open-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                    <svg id="menu-close-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Navegação Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900">
+            <nav class="flex flex-col items-center space-y-4 p-6">
+                <a href="#solucoes" class="text-slate-300 hover:text-emerald-400 transition-colors block w-full text-center py-2">Soluções</a>
+                <a href="#sobre" class="text-slate-300 hover:text-emerald-400 transition-colors block w-full text-center py-2">Sobre Nós</a>
+                <a href="#contato" class="text-slate-300 hover:text-emerald-400 transition-colors block w-full text-center py-2">Contato</a>
+                <a href="#contato" class="bg-emerald-500 text-white px-6 py-3 rounded-md font-semibold hover:bg-emerald-600 transition-colors w-full text-center mt-4">Solicitar Orçamento</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Seção Hero -->
+        <section class="relative h-screen flex items-center justify-center text-center overflow-hidden">
+            <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('hero-banner.webp');"></div>
+            <div class="absolute inset-0 hero-gradient"></div>
+            <div class="relative z-10 px-4">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-4 tracking-tighter fade-in">
+                    Sua tranquilidade, <br class="hidden sm:block"/> nossa <span class="brand-green">prioridade</span>. 24h por dia.
+                </h1>
+                <p class="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto mb-8 fade-in" style="transition-delay: 200ms;">
+                    Soluções completas em segurança e monitoramento para sua residência, empresa ou condomínio. Tecnologia e expertise que protegem o que mais importa para você.
+                </p>
+                <a href="#contato" class="bg-emerald-500 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-emerald-600 transition-all duration-300 transform hover:scale-105 shadow-2xl shadow-emerald-500/30 fade-in" style="transition-delay: 400ms;">
+                    Solicitar Orçamento Gratuito
+                </a>
+            </div>
+        </section>
+        
+        <!-- Seção de Diferenciais -->
+        <section class="py-20 sm:py-24">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                    <div class="fade-in">
+                        <div class="bg-emerald-400/10 inline-block p-4 rounded-full mb-4">
+                            <i data-lucide="shield-check" class="w-8 h-8 brand-green"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Segurança Integrada</h3>
+                        <p class="text-slate-400">Soluções que se conectam para uma proteção completa.</p>
+                    </div>
+                    <div class="fade-in" style="transition-delay: 150ms;">
+                        <div class="bg-emerald-400/10 inline-block p-4 rounded-full mb-4">
+                            <i data-lucide="cpu" class="w-8 h-8 brand-green"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Tecnologia de Ponta</h3>
+                        <p class="text-slate-400">Equipamentos modernos para máxima eficiência.</p>
+                    </div>
+                    <div class="fade-in" style="transition-delay: 300ms;">
+                        <div class="bg-emerald-400/10 inline-block p-4 rounded-full mb-4">
+                            <i data-lucide="users" class="w-8 h-8 brand-green"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Equipe Qualificada</h3>
+                        <p class="text-slate-400">Profissionais treinados e prontos para agir 24h.</p>
+                    </div>
+                    <div class="fade-in" style="transition-delay: 450ms;">
+                        <div class="bg-emerald-400/10 inline-block p-4 rounded-full mb-4">
+                            <i data-lucide="phone-forwarded" class="w-8 h-8 brand-green"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Atendimento Ágil</h3>
+                        <p class="text-slate-400">Suporte rápido e eficiente sempre que você precisar.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Soluções -->
+        <section id="solucoes" class="py-20 sm:py-28 section-bg">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white fade-in">Soluções Completas para Cada <span class="brand-green">Necessidade</span></h2>
+                    <p class="mt-4 text-slate-400 max-w-2xl mx-auto fade-in" style="transition-delay: 100ms;">Encontre o plano de segurança perfeito, seja qual for o seu perfil.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Card de Serviço 1 -->
+                    <div class="card-bg rounded-xl shadow-lg overflow-hidden flex flex-col fade-in group">
+                        <a href="#contato" class="block overflow-hidden">
+                            <img src="https://placehold.co/600x400/1e293b/34d399?text=CFTV" alt="Câmeras de Segurança" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300 ease-in-out">
+                        </a>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold text-white mb-2">Câmeras de Segurança (CFTV)</h3>
+                            <p class="text-slate-400 mb-4 flex-grow">Monitore seu patrimônio em tempo real com imagens de alta definição, de onde estiver.</p>
+                            <a href="#contato" class="mt-auto text-emerald-400 font-semibold hover:text-emerald-300 transition-colors">Saiba Mais &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Card de Serviço 2 -->
+                    <div class="card-bg rounded-xl shadow-lg overflow-hidden flex flex-col fade-in group" style="transition-delay: 150ms;">
+                        <a href="#contato" class="block overflow-hidden">
+                            <img src="https://placehold.co/600x400/1e293b/34d399?text=Alarmes" alt="Sistemas de Alarme" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300 ease-in-out">
+                        </a>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold text-white mb-2">Sistemas de Alarme</h3>
+                            <p class="text-slate-400 mb-4 flex-grow">Sensores inteligentes que detectam qualquer atividade suspeita e acionam nossa central 24h.</p>
+                            <a href="#contato" class="mt-auto text-emerald-400 font-semibold hover:text-emerald-300 transition-colors">Saiba Mais &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Card de Serviço 3 -->
+                    <div class="card-bg rounded-xl shadow-lg overflow-hidden flex flex-col fade-in group" style="transition-delay: 300ms;">
+                        <a href="#contato" class="block overflow-hidden">
+                            <img src="https://placehold.co/600x400/1e293b/34d399?text=Portaria+Virtual" alt="Portaria Virtual" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300 ease-in-out">
+                        </a>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold text-white mb-2">Portaria Virtual e Remota</h3>
+                            <p class="text-slate-400 mb-4 flex-grow">Tecnologia e eficiência para controlar o acesso de condomínios, com mais segurança e economia.</p>
+                            <a href="#contato" class="mt-auto text-emerald-400 font-semibold hover:text-emerald-300 transition-colors">Saiba Mais &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Card de Serviço 4 -->
+                    <div class="card-bg rounded-xl shadow-lg overflow-hidden flex flex-col fade-in group" style="transition-delay: 450ms;">
+                         <a href="#contato" class="block overflow-hidden">
+                            <img src="https://placehold.co/600x400/1e293b/34d399?text=Controle+de+Acesso" alt="Controle de Acesso" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300 ease-in-out">
+                        </a>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold text-white mb-2">Controle de Acesso</h3>
+                            <p class="text-slate-400 mb-4 flex-grow">Gerencie o fluxo de pessoas e veículos em sua empresa ou condomínio com sistemas modernos.</p>
+                             <a href="#contato" class="mt-auto text-emerald-400 font-semibold hover:text-emerald-300 transition-colors">Saiba Mais &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Card de Serviço 5 -->
+                    <div class="card-bg rounded-xl shadow-lg overflow-hidden flex flex-col fade-in group" style="transition-delay: 600ms;">
+                        <a href="#contato" class="block overflow-hidden">
+                            <img src="https://placehold.co/600x400/1e293b/34d399?text=Monitoramento" alt="Monitoramento 24 Horas" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300 ease-in-out">
+                        </a>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold text-white mb-2">Monitoramento 24 Horas</h3>
+                            <p class="text-slate-400 mb-4 flex-grow">Nossa central de operações está sempre alerta para proteger seu patrimônio dia e noite.</p>
+                            <a href="#contato" class="mt-auto text-emerald-400 font-semibold hover:text-emerald-300 transition-colors">Saiba Mais &rarr;</a>
+                        </div>
+                    </div>
+                    <!-- Card de Serviço 6 -->
+                    <div class="card-bg rounded-xl shadow-lg overflow-hidden flex flex-col fade-in group" style="transition-delay: 750ms;">
+                        <a href="#contato" class="block overflow-hidden">
+                            <img src="https://placehold.co/600x400/1e293b/34d399?text=Projetos" alt="Projetos Personalizados" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300 ease-in-out">
+                        </a>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold text-white mb-2">Projetos Personalizados</h3>
+                            <p class="text-slate-400 mb-4 flex-grow">Analisamos cada detalhe para criar um plano de segurança único e sob medida para você.</p>
+                            <a href="#contato" class="mt-auto text-emerald-400 font-semibold hover:text-emerald-300 transition-colors">Saiba Mais &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Seção Sobre -->
+        <section id="sobre" class="py-20 sm:py-28">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="fade-in">
+                        <img src="https://placehold.co/600x450/1e293b/34d399?text=Nossa+Central" alt="Central de Monitoramento da Segurança Jaraguá" class="rounded-xl shadow-2xl w-full">
+                    </div>
+                    <div class="fade-in" style="transition-delay: 200ms;">
+                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Mais de 20 anos <span class="brand-green">protegendo</span> o que é seu</h2>
+                        <p class="text-slate-300 mb-4 text-lg">
+                            Fundada em 2004, a Segurança Jaraguá nasceu com a missão de oferecer mais do que equipamentos: oferecemos tranquilidade. Somos um parceiro estratégico para famílias, empresas e condomínios que buscam soluções de segurança integradas e inteligentes.
+                        </p>
+                        <p class="text-slate-400 mb-8">
+                            Nossa equipe está em constante evolução, sempre buscando as melhores tecnologias e práticas de gestão para simplificar sua vida e otimizar seus custos. Porque, no fim do dia, sua segurança é o nosso maior compromisso.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center border-t border-slate-700 pt-8">
+                            <div>
+                                <span class="text-4xl font-bold brand-green">20+</span>
+                                <p class="text-slate-400 mt-1">Anos de Mercado</p>
+                            </div>
+                            <div>
+                                <span class="text-4xl font-bold brand-green">1.500+</span>
+                                <p class="text-slate-400 mt-1">Clientes Protegidos</p>
+                            </div>
+                            <div>
+                                <span class="text-4xl font-bold brand-green">5.000+</span>
+                                <p class="text-slate-400 mt-1">Projetos Instalados</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Seção CTA -->
+        <section class="py-20 sm:py-24 section-bg">
+             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-gradient-to-r from-emerald-500 to-emerald-700 rounded-xl p-10 md:p-16 text-center shadow-2xl shadow-emerald-500/20 fade-in">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Pronto para elevar o nível da sua segurança?</h2>
+                    <p class="text-emerald-100 text-lg max-w-2xl mx-auto mb-8">Nossos especialistas estão prontos para analisar suas necessidades e oferecer a melhor solução, sem compromisso.</p>
+                    <a href="#contato" class="bg-white text-emerald-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-slate-100 transition-all duration-300 transform hover:scale-105">
+                        Fale com um Especialista Agora
+                    </a>
+                </div>
+             </div>
+        </section>
+
+        <!-- Seção Contato -->
+        <section id="contato" class="py-20 sm:py-28">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white fade-in">Fale <span class="brand-green">Conosco</span></h2>
+                    <p class="mt-4 text-slate-400 max-w-2xl mx-auto fade-in" style="transition-delay: 100ms;">Preencha o formulário ou entre em contato pelos nossos canais de atendimento.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <!-- Formulário -->
+                    <div class="card-bg p-8 rounded-xl shadow-lg border border-slate-700/50 fade-in">
+                        <form action="#" method="POST">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-slate-300 mb-2">Nome</label>
+                                    <input type="text" name="name" id="name" class="w-full bg-slate-700 border border-slate-600 rounded-md py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500" required>
+                                </div>
+                                <div>
+                                    <label for="phone" class="block text-sm font-medium text-slate-300 mb-2">Telefone/WhatsApp</label>
+                                    <input type="tel" name="phone" id="phone" class="w-full bg-slate-700 border border-slate-600 rounded-md py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500" required>
+                                </div>
+                            </div>
+                            <div class="mt-6">
+                                <label for="email" class="block text-sm font-medium text-slate-300 mb-2">Email</label>
+                                <input type="email" name="email" id="email" class="w-full bg-slate-700 border border-slate-600 rounded-md py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500" required>
+                            </div>
+                            <div class="mt-6">
+                                <label for="service" class="block text-sm font-medium text-slate-300 mb-2">Qual solução você busca?</label>
+                                <select id="service" name="service" class="w-full bg-slate-700 border border-slate-600 rounded-md py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                                    <option>Segurança Residencial</option>
+                                    <option>Segurança Empresarial</option>
+                                    <option>Segurança para Condomínios</option>
+                                    <option>Outro</option>
+                                </select>
+                            </div>
+                            <div class="mt-6">
+                                <label for="message" class="block text-sm font-medium text-slate-300 mb-2">Mensagem</label>
+                                <textarea name="message" id="message" rows="4" class="w-full bg-slate-700 border border-slate-600 rounded-md py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500"></textarea>
+                            </div>
+                            <div class="mt-8">
+                                <button type="submit" class="w-full brand-bg-green brand-bg-green-hover text-white font-bold py-3 px-6 rounded-lg transition-colors text-lg">
+                                    Enviar Mensagem
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Informações de Contato -->
+                    <div class="fade-in" style="transition-delay: 200ms;">
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-emerald-400/10 p-3 rounded-lg"><i data-lucide="map-pin" class="w-6 h-6 brand-green"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-white text-lg">Endereço</h4>
+                                    <p class="text-slate-400">R. Expedicionário Antônio Carlos Ferreira, nº 1740<br>Vila Lenzi, Sala 1, Jaraguá do Sul/SC</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-emerald-400/10 p-3 rounded-lg"><i data-lucide="phone" class="w-6 h-6 brand-green"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-white text-lg">Telefone</h4>
+                                    <p class="text-slate-400">(47) 3275-6570</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-emerald-400/10 p-3 rounded-lg"><i data-lucide="smartphone" class="w-6 h-6 brand-green"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-white text-lg">WhatsApp</h4>
+                                    <p class="text-slate-400">(47) 98434-1420</p>
+                                </div>
+                            </div>
+                             <div class="flex items-start space-x-4">
+                                <div class="bg-emerald-400/10 p-3 rounded-lg"><i data-lucide="mail" class="w-6 h-6 brand-green"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-white text-lg">Email</h4>
+                                    <p class="text-slate-400">comercial@segurancajaragua.com.br</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-8">
+                           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3574.62145329598!2d-49.09848868496696!3d-26.37122198336338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94de95e7c813a453%3A0x644265538e3e4a36!2sR.%20Expedicion%C3%A1rio%20Ant%C3%B4nio%20Carlos%20Ferreira%2C%201740%20-%20Vila%20Lenzi%2C%20Jaragu%C3%A1%20do%20Sul%20-%20SC%2C%2089252-300!5e0!3m2!1spt-BR!2sbr!4v1678886453210!5m2!1spt-BR!2sbr" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="rounded-lg"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Rodapé -->
+    <footer class="bg-slate-900 border-t border-slate-800">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                <p class="text-sm text-slate-400">&copy; 2024 Segurança Jaraguá. Todos os direitos reservados.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-slate-400 hover:text-emerald-400"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                    <a href="#" class="text-slate-400 hover:text-emerald-400"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                    <a href="#" class="text-slate-400 hover:text-emerald-400"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // Ícones Lucide
+        lucide.createIcons();
+
+        // Lógica do Menu Mobile
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuOpenIcon = document.getElementById('menu-open-icon');
+        const menuCloseIcon = document.getElementById('menu-close-icon');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            menuOpenIcon.classList.toggle('hidden');
+            menuCloseIcon.classList.toggle('hidden');
+        });
+
+        // Fechar menu mobile ao clicar em um link
+        mobileMenu.addEventListener('click', (event) => {
+            if (event.target.tagName === 'A') {
+                mobileMenu.classList.add('hidden');
+                menuOpenIcon.classList.remove('hidden');
+                menuCloseIcon.classList.add('hidden');
+            }
+        });
+        
+        // Efeito de header dinâmico ao rolar
+        const header = document.getElementById('header');
+        const headerLogo = document.getElementById('header-logo');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.remove('h-24');
+                header.classList.add('h-20', 'shadow-lg');
+                headerLogo.classList.remove('h-16');
+                headerLogo.classList.add('h-12');
+            } else {
+                header.classList.add('h-24');
+                header.classList.remove('h-20', 'shadow-lg');
+                headerLogo.classList.add('h-16');
+                headerLogo.classList.remove('h-12');
+            }
+        });
+
+        // Animação de Fade-in ao rolar
+        const faders = document.querySelectorAll('.fade-in');
+        const appearOptions = {
+            threshold: 0.2,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const appearOnScroll = new IntersectionObserver(function(
+            entries,
+            appearOnScroll
+        ) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add('visible');
+                    appearOnScroll.unobserve(entry.target);
+                }
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+
+    </script>
+</body>
+</html>
+
