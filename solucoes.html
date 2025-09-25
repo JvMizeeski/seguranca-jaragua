@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossas Soluções - Segurança Jaraguá</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a101f;
+            color: #e2e8f0;
+        }
+        .section-bg {
+            background-color: #10182b;
+        }
+        .brand-green {
+            color: #34d399; /* emerald-400 */
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .prose-custom {
+            color: #cbd5e1; /* slate-300 */
+        }
+        .prose-custom h3 {
+            color: #f1f5f9; /* slate-100 */
+            font-weight: 700;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        .prose-custom p {
+            line-height: 1.75;
+            margin-bottom: 1.25em;
+        }
+        .prose-custom ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .prose-custom ul li {
+            position: relative;
+            padding-left: 2em;
+            margin-bottom: 0.75em;
+        }
+        .prose-custom ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5em;
+            width: 0.75em;
+            height: 0.75em;
+            background-color: #34d399;
+            border-radius: 50%;
+        }
+        .sticky-nav a {
+            transition: all 0.2s ease-in-out;
+        }
+        .sticky-nav a.active {
+            background-color: #10b981;
+            color: white;
+            transform: translateX(5px);
+        }
+        /* Ajuste para ancoragem com header fixo */
+        article[id] {
+            scroll-margin-top: 120px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cabeçalho (idêntico ao da home) -->
+    <header id="header" class="bg-slate-900/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300 h-24">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 h-full">
+            <div class="flex items-center justify-between h-full">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <img id="header-logo" src="logo_site.png" alt="Segurança Jaraguá Logo" class="h-16 transition-all duration-300">
+                </a>
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html#solucoes" class="text-slate-300 hover:text-emerald-400 transition-colors">Soluções</a>
+                    <a href="index.html#sobre" class="text-slate-300 hover:text-emerald-400 transition-colors">Sobre Nós</a>
+                    <a href="index.html#contato" class="text-slate-300 hover:text-emerald-400 transition-colors">Contato</a>
+                    <a href="index.html#contato" class="bg-emerald-500 text-white px-5 py-2 rounded-md font-semibold hover:bg-emerald-600 transition-colors shadow-lg shadow-emerald-500/20">Solicitar Orçamento</a>
+                </nav>
+                <button id="mobile-menu-button" class="md:hidden text-white">
+                    <svg id="menu-open-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+                    <svg id="menu-close-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900">
+             <nav class="flex flex-col items-center space-y-4 p-6">
+                <a href="index.html#solucoes" class="text-slate-300 hover:text-emerald-400 transition-colors block w-full text-center py-2">Soluções</a>
+                <a href="index.html#sobre" class="text-slate-300 hover:text-emerald-400 transition-colors block w-full text-center py-2">Sobre Nós</a>
+                <a href="index.html#contato" class="text-slate-300 hover:text-emerald-400 transition-colors block w-full text-center py-2">Contato</a>
+                <a href="index.html#contato" class="bg-emerald-500 text-white px-6 py-3 rounded-md font-semibold hover:bg-emerald-600 transition-colors w-full text-center mt-4">Solicitar Orçamento</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero da Página de Soluções -->
+        <section class="pt-40 pb-20 section-bg text-center">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h1 class="text-4xl md:text-5xl font-black text-white">Nossas <span class="brand-green">Soluções</span></h1>
+                <p class="mt-4 text-lg text-slate-400 max-w-3xl mx-auto">Tecnologia, expertise e atendimento personalizado para garantir a sua total segurança.</p>
+            </div>
+        </section>
+
+        <!-- Seção Principal com Navegação e Conteúdo -->
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+            <div class="lg:flex lg:space-x-12">
+                <!-- Navegação Lateral (Visível em Telas Grandes) -->
+                <aside class="hidden lg:block w-1/4">
+                    <nav id="sticky-nav" class="sticky top-28 space-y-2 sticky-nav">
+                        <h3 class="font-bold text-white text-lg mb-4">Navegue pelas Soluções</h3>
+                        <a href="#cftv" class="block py-2 px-4 rounded-md text-slate-300 hover:bg-slate-700/50 hover:text-white">Câmeras (CFTV)</a>
+                        <a href="#alarmes" class="block py-2 px-4 rounded-md text-slate-300 hover:bg-slate-700/50 hover:text-white">Sistemas de Alarme</a>
+                        <a href="#condominios" class="block py-2 px-4 rounded-md text-slate-300 hover:bg-slate-700/50 hover:text-white">Condomínios Inteligentes</a>
+                        <a href="#telefonia" class="block py-2 px-4 rounded-md text-slate-300 hover:bg-slate-700/50 hover:text-white">Telefonia IP</a>
+                        <a href="#monitoramento" class="block py-2 px-4 rounded-md text-slate-300 hover:bg-slate-700/50 hover:text-white">Monitoramento 24h</a>
+                        <a href="#portaria" class="block py-2 px-4 rounded-md text-slate-300 hover:bg-slate-700/50 hover:text-white">Portaria Virtual e Presencial</a>
+                        <a href="#consultoria" class="block py-2 px-4 rounded-md text-slate-300 hover:bg-slate-700/50 hover:text-white">Consultoria de Segurança</a>
+                    </nav>
+                </aside>
+
+                <!-- Menu Dropdown (Visível em Telas Pequenas) -->
+                 <div class="lg:hidden mb-8">
+                    <label for="solutions-select" class="sr-only">Navegue pelas Soluções</label>
+                    <select id="solutions-select" class="w-full bg-slate-700 border border-slate-600 rounded-md py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                        <option value="">Selecione uma solução...</option>
+                        <option value="#cftv">Câmeras (CFTV)</option>
+                        <option value="#alarmes">Sistemas de Alarme</option>
+                        <option value="#condominios">Condomínios Inteligentes</option>
+                        <option value="#telefonia">Telefonia IP</option>
+                        <option value="#monitoramento">Monitoramento 24h</option>
+                        <option value="#portaria">Portaria Virtual e Presencial</option>
+                        <option value="#consultoria">Consultoria de Segurança</option>
+                    </select>
+                </div>
+
+                <!-- Conteúdo das Soluções -->
+                <div class="lg:w-3/4 prose-custom">
+                    
+                    <article id="cftv" class="fade-in mb-24">
+                        <h2 class="text-3xl font-bold text-white mb-6 border-b border-slate-700 pb-4">Câmeras de Segurança <span class="brand-green">(CFTV)</span></h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                            <div>
+                                <p>O Circuito Fechado de Televisão (CFTV) é fundamental nas estratégias de segurança. Ele assegura o controle de acesso de pessoas, mercadorias e veículos, permitindo maior fiscalização dos procedimentos por todos que transitam na área monitorada.</p>
+                                <p>Um projeto especializado possui um excelente custo-benefício, pois ajuda a prevenir assaltos e invasões. Pense no sistema de câmeras como uma proteção para seu patrimônio no presente e a longo prazo.</p>
+                                <p class="font-bold text-emerald-300">Lembre-se: economizar em segurança pode trazer danos irreversíveis.</p>
+                            </div>
+                            <img src="https://placehold.co/500x350/1e293b/34d399?text=CFTV" alt="Sistema de CFTV" class="rounded-lg shadow-lg">
+                        </div>
+                        <h3 class="text-2xl mt-12">Tecnologia e Acesso Remoto</h3>
+                        <p>A SEGURANÇA JARAGUÁ disponibiliza a mais alta tecnologia em sistema de câmeras com imagens de alta definição. Para um projeto profissional, os equipamentos são escolhidos conforme a estrutura e o estudo de vulnerabilidades do local. Desconfie de empresas que não oferecem este levantamento antes de precificar o projeto.</p>
+                        <p>Disponibilizamos um sistema facilitado, onde o cliente consegue acompanhar as imagens em tempo real através de software para smartphone, tablet e computador, garantindo tranquilidade para visualizar seu patrimônio mesmo à distância.</p>
+                    </article>
+
+                    <article id="alarmes" class="fade-in mb-24">
+                        <h2 class="text-3xl font-bold text-white mb-6 border-b border-slate-700 pb-4">Sistemas de <span class="brand-green">Alarme</span></h2>
+                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                            <img src="https://placehold.co/500x350/1e293b/34d399?text=Alarmes" alt="Central de Alarme" class="rounded-lg shadow-lg order-last md:order-first">
+                             <div>
+                                <p>Mesmo quando o cliente não opta pelo serviço de monitoramento 24h, o proprietário pode ter total controle sobre o sistema, sendo o único a ter acesso às ocorrências do local onde o alarme está instalado. </p>
+                                <p>Através de um aplicativo, é possível visualizar as câmeras (se houver) e receber notificações instantâneas quando o alarme é disparado.</p>
+                                <h3 class="text-2xl mt-8 mb-4">Sensores Mais Comuns:</h3>
+                                <ul>
+                                    <li><strong>Sensor de Barreira:</strong> Emite feixes de luz invisível. Quando interrompidos, notifica a central.</li>
+                                    <li><strong>Sensores Magnéticos:</strong> Detectam a abertura indevida de portas e janelas.</li>
+                                    <li><strong>Sensor de Impacto:</strong> Usados para proteger estruturas, detectando impactos, perfurações ou arrombamentos.</li>
+                                    <li><strong>Infravermelho (IVP):</strong> Captam a movimentação de pessoas no ambiente por meio do calor gerado pelo corpo.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article id="condominios" class="fade-in mb-24">
+                        <h2 class="text-3xl font-bold text-white mb-6 border-b border-slate-700 pb-4">Condomínios <span class="brand-green">Inteligentes</span></h2>
+                        <p>Um condomínio inteligente é planejado para ser prático e seguro desde sua construção, prevendo a instalação de tecnologias que garantem mais conforto e proteção aos moradores e trabalhadores, como fibra óptica, vigilância avançada e portaria remota.</p>
+                        <h3 class="text-2xl">Características Principais:</h3>
+                        <ul>
+                            <li><strong>Identificação Biométrica e Facial:</strong> Libera o acesso de moradores por impressão digital ou reconhecimento facial, oferecendo mais segurança que senhas ou chaves.</li>
+                            <li><strong>Interfones com Atendimento Remoto:</strong> Moradores podem atender chamadas do interfone pelo celular, mesmo quando não estão em casa, agilizando o atendimento.</li>
+                            <li><strong>Porteiros Eletrônicos:</strong> Monitoramento de acesso por áudio e vídeo, permitindo acionar ajuda em emergências sem colocar funcionários em risco.</li>
+                            <li><strong>Monitoramento Avançado:</strong> Câmeras com análise de vídeo que geram alertas automáticos para a central em caso de atividades suspeitas.</li>
+                            <li><strong>Botão de Pânico:</strong> Uma forma discreta de solicitar ajuda da empresa de segurança em caso de emergência, podendo ser integrado ao sistema de biometria ("dedo de pânico").</li>
+                        </ul>
+                    </article>
+
+                    <article id="telefonia" class="fade-in mb-24">
+                        <h2 class="text-3xl font-bold text-white mb-6 border-b border-slate-700 pb-4">Telefonia <span class="brand-green">IP</span></h2>
+                        <p>A tecnologia de Telefonia IP utiliza a rede de internet para realizar chamadas, sendo uma opção estratégica para empresas que buscam reduzir custos e aumentar a qualidade da comunicação.</p>
+                        <h3 class="text-2xl">Benefícios da Telefonia IP:</h3>
+                        <ul>
+                           <li><strong>Redução de Custos:</strong> As ligações são feitas via internet, diminuindo drasticamente os custos com operadoras de telefonia tradicionais.</li>
+                           <li><strong>Aproveitamento de Infraestrutura:</strong> Utiliza a mesma estrutura de cabeamento da sua rede de computadores, economizando em instalações.</li>
+                           <li><strong>Qualidade nas Chamadas:</strong> A voz em alta definição (HD) proporciona conversas mais claras e sem ruídos.</li>
+                           <li><strong>Mobilidade e Facilidade:</strong> Leve seu ramal para qualquer lugar. Basta conectar o aparelho de telefone IP em uma rede de internet para usá-lo, sem necessidade de reconfiguração.</li>
+                        </ul>
+                    </article>
+
+                    <article id="monitoramento" class="fade-in mb-24">
+                        <h2 class="text-3xl font-bold text-white mb-6 border-b border-slate-700 pb-4">Monitoramento <span class="brand-green">24 Horas</span></h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                            <div>
+                               <p>Nossa base de monitoramento 24h conta com profissionais altamente capacitados para acompanhar as ocorrências sinalizadas pelo seu sistema e tomar todas as providências com rapidez e eficiência, incluindo o acionamento do nosso suporte tático e da Polícia, se necessário.</p>
+                               <h3 class="text-2xl mt-8">Como Funciona:</h3>
+                               <ul>
+                                   <li><strong>Monitoramento de Alarme:</strong> Utiliza centrais, sensores e sirenes conectados à nossa base por GPRS, IP ou linha telefônica para uma resposta imediata.</li>
+                                   <li><strong>Monitoramento de Câmeras:</strong> Câmeras de alta resolução (HD, Full HD e IP) que permitem à nossa equipe visualizar o local em tempo real, agilizando a verificação e a tomada de decisão.</li>
+                               </ul>
+                           </div>
+                           <img src="https://placehold.co/500x350/1e293b/34d399?text=Central+24h" alt="Central de monitoramento" class="rounded-lg shadow-lg">
+                        </div>
+                    </article>
+
+                    <article id="portaria" class="fade-in mb-24">
+                        <h2 class="text-3xl font-bold text-white mb-6 border-b border-slate-700 pb-4">Portaria Virtual e <span class="brand-green">Presencial</span></h2>
+                        <p>Modernize a segurança e o controle de acesso do seu condomínio com soluções que se adaptam à sua necessidade, agilizando o fluxo de entrada e saída, especialmente em horários de pico.</p>
+                        <h3 class="text-2xl">Portaria Presencial</h3>
+                        <p>Garante a presença de um profissional 24 horas por dia, oferecendo segurança, conforto e suporte no recebimento de encomendas e na intermediação de contatos, com monitoramento constante das áreas comuns.</p>
+                        <h3 class="text-2xl">Portaria Remota (Virtual)</h3>
+                        <p>Funciona como uma portaria convencional, só que à distância. Nossa central gerencia a segurança, o acesso de moradores e visitantes, e monitora o condomínio 24/7, agindo em tempo real. A tecnologia inclui eclusas para controle de acesso, registro detalhado de todas as entradas e saídas e dispositivos de emergência.</p>
+                    </article>
+
+                    <article id="consultoria" class="fade-in">
+                        <h2 class="text-3xl font-bold text-white mb-6 border-b border-slate-700 pb-4">Consultoria de <span class="brand-green">Segurança</span></h2>
+                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                           <img src="https://placehold.co/500x350/1e293b/34d399?text=Consultoria" alt="Reunião de consultoria" class="rounded-lg shadow-lg order-last md:order-first">
+                            <div>
+                               <p>Nosso serviço de consultoria em segurança patrimonial tem como principal função analisar as vulnerabilidades do seu imóvel ou empresa e determinar as estratégias e mecanismos necessários para garantir sua total proteção.</p>
+                               <h3 class="text-2xl mt-8">Vantagens da Contratação:</h3>
+                               <ul>
+                                   <li><strong>Análise de Risco:</strong> Mapeamento estratégico que identifica pontos de vulnerabilidade e sugere as soluções mais eficazes.</li>
+                                   <li><strong>Projeto Personalizado:</strong> Acesso a um plano de segurança com os equipamentos de mais alta tecnologia, como CFTV, alarmes e controle de acesso.</li>
+                                   <li><strong>Acompanhamento Completo:</strong> Suporte em todas as etapas, desde a compra dos materiais até a análise e os testes dos equipamentos.</li>
+                               </ul>
+                           </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    
+    <footer class="bg-slate-900 border-t border-slate-800">
+         <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                <p class="text-sm text-slate-400">&copy; 2024 Segurança Jaraguá. Todos os direitos reservados.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-slate-400 hover:text-emerald-400"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                    <a href="#" class="text-slate-400 hover:text-emerald-400"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                    <a href="#" class="text-slate-400 hover:text-emerald-400"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        lucide.createIcons();
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuOpenIcon = document.getElementById('menu-open-icon');
+        const menuCloseIcon = document.getElementById('menu-close-icon');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            menuOpenIcon.classList.toggle('hidden');
+            menuCloseIcon.classList.toggle('hidden');
+        });
+        mobileMenu.addEventListener('click', (event) => {
+            if (event.target.tagName === 'A') {
+                mobileMenu.classList.add('hidden');
+                menuOpenIcon.classList.remove('hidden');
+                menuCloseIcon.classList.add('hidden');
+            }
+        });
+        
+        const header = document.getElementById('header');
+        const headerLogo = document.getElementById('header-logo');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.remove('h-24');
+                header.classList.add('h-20', 'shadow-lg');
+                headerLogo.classList.remove('h-16');
+                headerLogo.classList.add('h-12');
+            } else {
+                header.classList.add('h-24');
+                header.classList.remove('h-20', 'shadow-lg');
+                headerLogo.classList.add('h-16');
+                headerLogo.classList.remove('h-12');
+            }
+        });
+
+        const faders = document.querySelectorAll('.fade-in');
+        const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) { return; } 
+                else {
+                    entry.target.classList.add('visible');
+                    appearOnScroll.unobserve(entry.target);
+                }
+            });
+        }, appearOptions);
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+
+        // Navegação por select em mobile
+        const solutionsSelect = document.getElementById('solutions-select');
+        solutionsSelect.addEventListener('change', (e) => {
+            if(e.target.value) {
+                const targetElement = document.querySelector(e.target.value);
+                if (targetElement) {
+                    const headerOffset = 120;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+            }
+        });
+
+        // Highlight de navegação lateral com scroll
+        const sections = document.querySelectorAll('article[id]');
+        const navLinks = document.querySelectorAll('#sticky-nav a');
+
+        const handleIntersection = (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href').substring(1) === entry.target.id) {
+                            link.classList.add('active');
+                            if(window.innerWidth < 1024) {
+                                solutionsSelect.value = `#${entry.target.id}`;
+                            }
+                        }
+                    });
+                }
+            });
+        };
+
+        const observerOptions = {
+            root: null,
+            rootMargin: "-40% 0px -50% 0px",
+            threshold: 0
+        };
+        const observer = new IntersectionObserver(handleIntersection, observerOptions);
+        sections.forEach(section => observer.observe(section));
+
+        // Smooth scroll for nav links considering header
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    const headerOffset = 120; // Corresponds to scroll-margin-top
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>
+
