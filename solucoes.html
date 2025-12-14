@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nossas Soluções - Segurança Jaraguá</title>
+    <title>Soluções - Segurança Jaraguá</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         body {
@@ -15,253 +15,521 @@
             background-color: #0a101f;
             color: #e2e8f0;
         }
-        .section-bg {
-            background-color: #10182b;
+        /* Utilitários de Cores da Marca */
+        .brand-green { color: #34d399; } /* emerald-400 */
+        .text-brand-hover:hover { color: #34d399; }
+        .bg-brand { background-color: #10b981; } /* emerald-500 */
+        .bg-brand-hover:hover { background-color: #059669; } /* emerald-600 */
+        
+        /* Fundos das Seções */
+        .card-bg { background-color: #1e293b; } /* slate-800 */
+
+        /* Gradientes e Efeitos */
+        .hero-gradient {
+            background: linear-gradient(to top, rgba(10, 16, 31, 1) 10%, rgba(10, 16, 31, 0.8) 60%, rgba(10, 16, 31, 0.5) 100%);
         }
-        .brand-green {
-            color: #34d399; /* emerald-400 */
+        .brand-gradient {
+             background: linear-gradient(135deg, #10b981 0%, #059669 100%);
         }
+
+        /* Animações */
         .fade-in {
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            transform: translateY(25px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
         }
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
-        .prose-custom {
-            color: #cbd5e1; /* slate-300 */
+
+        /* Dropdown Menu Desktop */
+        .group:hover .group-hover\:block {
+            display: block;
         }
-        .prose-custom h3 {
-            color: #f1f5f9; /* slate-100 */
-            font-weight: 700;
-            margin-top: 2em;
-            margin-bottom: 1em;
+        .dropdown-menu {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
         }
-        .prose-custom p {
-            line-height: 1.75;
-            margin-bottom: 1.25em;
+        .dropdown-item:hover {
+            background-color: #334155;
+            color: #34d399;
         }
-        .prose-custom ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-        .prose-custom ul li {
-            position: relative;
-            padding-left: 2em;
-            margin-bottom: 0.75em;
-        }
-        .prose-custom ul li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0.5em;
-            width: 0.75em;
-            height: 0.75em;
-            background-color: #34d399;
-            border-radius: 50%;
-        }
-        .sticky-nav a {
-            transition: all 0.2s ease-in-out;
-        }
-        .sticky-nav a.active {
-            background-color: #10b981;
-            color: white;
-            transform: translateX(5px);
-        }
-        /* Ajuste para ancoragem com header fixo */
+
+        /* Scroll Offset para Header Fixo/Ancoragem */
         article[id] {
-            scroll-margin-top: 120px;
+            scroll-margin-top: 140px;
+        }
+
+        /* Estilo da Navegação Lateral Ativa */
+        .nav-link.active {
+            color: #34d399;
+            border-left-color: #34d399;
+            background-color: rgba(52, 211, 153, 0.1);
         }
     </style>
 </head>
 <body>
 
-    <!-- Cabeçalho (idêntico ao da home) -->
-    <header id="header" class="bg-slate-900/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300 h-24">
+    <!-- Barra Superior de Contato -->
+    <div class="bg-slate-950 text-slate-400 py-2 text-sm hidden md:block relative z-50 border-b border-slate-800">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <div class="flex space-x-6">
+                <a href="tel:+554732756570" class="flex items-center hover:text-emerald-400 transition-colors">
+                    <i data-lucide="phone" class="w-4 h-4 mr-2 brand-green"></i> (47) 3275-6570
+                </a>
+                <a href="https://wa.me/5547984341420" target="_blank" class="flex items-center hover:text-emerald-400 transition-colors">
+                    <i data-lucide="message-circle" class="w-4 h-4 mr-2 brand-green"></i> (47) 98434-1420
+                </a>
+            </div>
+            <div class="flex items-center truncate max-w-md">
+                <i data-lucide="map-pin" class="w-4 h-4 mr-2 brand-green flex-shrink-0"></i>
+                <span class="truncate">Vila Lenzi, Jaraguá do Sul/SC</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cabeçalho Principal -->
+    <header id="header" class="bg-slate-900/90 backdrop-blur-md absolute top-0 left-0 right-0 z-40 md:top-[37px] h-20 shadow-sm border-b border-slate-800/50">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 h-full">
             <div class="flex items-center justify-between h-full">
-                <a href="index.html" class="flex items-center space-x-2">
-                    <img id="header-logo" src="logo_site.png" alt="Segurança Jaraguá Logo" class="h-16 transition-all duration-300">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center flex-shrink-0">
+                    <img id="header-logo" src="logo_site.png" alt="Segurança Jaraguá Logo" class="h-12 transition-all duration-300">
                 </a>
-                <nav class="hidden md:flex space-x-8 items-center">
-                    <a href="index.html#solucoes" class="text-slate-300 hover:text-emerald-400 transition-colors">Soluções</a>
-                    <a href="index.html#sobre" class="text-slate-300 hover:text-emerald-400 transition-colors">Sobre Nós</a>
-                    <a href="index.html#contato" class="text-slate-300 hover:text-emerald-400 transition-colors">Contato</a>
-                    <a href="index.html#contato" class="bg-emerald-500 text-white px-5 py-2 rounded-md font-semibold hover:bg-emerald-600 transition-colors shadow-lg shadow-emerald-500/20">Solicitar Orçamento</a>
+                
+                <!-- Navegação Desktop -->
+                <nav class="hidden lg:flex space-x-1 items-center font-medium">
+                    <!-- Dropdown: Condomínios -->
+                    <div class="relative group px-3 py-2">
+                        <button class="flex items-center text-slate-300 text-brand-hover transition-colors">
+                            <span>Condomínios</span>
+                            <i data-lucide="chevron-down" class="w-4 h-4 ml-1 opacity-70 group-hover:rotate-180 transition-transform duration-200"></i>
+                        </button>
+                        <div class="absolute left-0 mt-2 w-56 rounded-md shadow-lg dropdown-menu hidden group-hover:block py-1 z-50 ring-1 ring-black ring-opacity-5 focus:outline-none">
+                            <a href="index.html#portaria-remota-info" class="block px-4 py-2 text-sm text-slate-200 dropdown-item transition-colors">Portaria Remota</a>
+                            <a href="index.html#solucoes" class="block px-4 py-2 text-sm text-slate-200 dropdown-item transition-colors">Controle de Acesso</a>
+                            <a href="index.html#solucoes" class="block px-4 py-2 text-sm text-slate-200 dropdown-item transition-colors">Monitoramento 24h</a>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown: Empresas -->
+                    <div class="relative group px-3 py-2">
+                        <button class="flex items-center text-slate-300 text-brand-hover transition-colors">
+                            <span>Empresas</span>
+                            <i data-lucide="chevron-down" class="w-4 h-4 ml-1 opacity-70 group-hover:rotate-180 transition-transform duration-200"></i>
+                        </button>
+                         <div class="absolute left-0 mt-2 w-56 rounded-md shadow-lg dropdown-menu hidden group-hover:block py-1 z-50 ring-1 ring-black ring-opacity-5 focus:outline-none">
+                            <a href="index.html#solucoes" class="block px-4 py-2 text-sm text-slate-200 dropdown-item transition-colors">Alarmes Monitorados</a>
+                            <a href="index.html#solucoes" class="block px-4 py-2 text-sm text-slate-200 dropdown-item transition-colors">CFTV Inteligente</a>
+                             <a href="index.html#solucoes" class="block px-4 py-2 text-sm text-slate-200 dropdown-item transition-colors">Projetos Personalizados</a>
+                        </div>
+                    </div>
+
+                    <!-- Link Simples: Casas -->
+                     <a href="index.html#solucoes" class="px-3 py-2 text-slate-300 text-brand-hover transition-colors">Casas</a>
+                    
+                     <!-- Links Institucionais -->
+                    <a href="index.html#sobre" class="px-3 py-2 text-slate-300 text-brand-hover transition-colors">Sobre Nós</a>
+                    <a href="index.html#blog" class="px-3 py-2 text-slate-300 text-brand-hover transition-colors">Blog</a>
                 </nav>
-                <button id="mobile-menu-button" class="md:hidden text-white">
-                    <svg id="menu-open-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
-                    <svg id="menu-close-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+
+                <!-- Botão CTA Desktop -->
+                <div class="hidden lg:block pl-4">
+                    <a href="index.html#contato" class="bg-brand text-white px-5 py-2.5 rounded-md font-semibold hover:bg-emerald-600 transition-all shadow-lg shadow-emerald-500/10 hover:shadow-emerald-500/30 flex items-center">
+                        <i data-lucide="message-square" class="w-4 h-4 mr-2"></i>
+                        Solicitar Orçamento
+                    </a>
+                </div>
+
+                <!-- Botão Mobile Menu -->
+                <button id="mobile-menu-button" class="lg:hidden text-slate-300 hover:text-white p-2" aria-label="Abrir Menu">
+                    <i id="menu-icon" data-lucide="menu" class="h-7 w-7"></i>
                 </button>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-slate-900">
-             <nav class="flex flex-col items-center space-y-4 p-6">
-                <a href="index.html#solucoes" class="text-slate-300 hover:text-emerald-400 transition-colors block w-full text-center py-2">Soluções</a>
-                <a href="index.html#sobre" class="text-slate-300 hover:text-emerald-400 transition-colors block w-full text-center py-2">Sobre Nós</a>
-                <a href="index.html#contato" class="text-slate-300 hover:text-emerald-400 transition-colors block w-full text-center py-2">Contato</a>
-                <a href="index.html#contato" class="bg-emerald-500 text-white px-6 py-3 rounded-md font-semibold hover:bg-emerald-600 transition-colors w-full text-center mt-4">Solicitar Orçamento</a>
+
+        <!-- Navegação Mobile -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-slate-900 border-b border-slate-800 shadow-2xl absolute w-full left-0 top-20 z-30 overflow-y-auto max-h-[calc(100vh-5rem)]">
+            <nav class="flex flex-col p-4 space-y-2">
+                <div class="pb-2 border-b border-slate-800">
+                    <span class="block px-4 py-2 text-xs uppercase tracking-wider text-slate-500 font-bold">Segmentos</span>
+                    <a href="index.html#solucoes" class="block px-4 py-2 text-slate-200 font-medium hover:bg-slate-800 rounded-md">Condomínios</a>
+                    <a href="index.html#solucoes" class="block px-4 py-2 text-slate-200 font-medium hover:bg-slate-800 rounded-md">Empresas</a>
+                    <a href="index.html#solucoes" class="block px-4 py-2 text-slate-200 font-medium hover:bg-slate-800 rounded-md">Casas</a>
+                </div>
+                <div class="py-2">
+                    <a href="index.html#sobre" class="block px-4 py-2 text-slate-300 hover:text-emerald-400 transition-colors rounded-md">Sobre Nós</a>
+                    <a href="index.html#blog" class="block px-4 py-2 text-slate-300 hover:text-emerald-400 transition-colors rounded-md">Blog</a>
+                     <a href="index.html#contato" class="block px-4 py-2 text-slate-300 hover:text-emerald-400 transition-colors rounded-md">Contato</a>
+                </div>
+                <a href="index.html#contato" class="bg-brand text-white px-6 py-3.5 rounded-md font-bold text-center hover:bg-emerald-600 transition-colors w-full mt-2 shadow-md flex justify-center items-center">
+                     <i data-lucide="message-square" class="w-5 h-5 mr-2"></i>
+                    Solicitar Orçamento
+                </a>
             </nav>
         </div>
     </header>
 
-    <main>
+    <main class="md:mt-[37px]">
+        
         <!-- Hero da Página de Soluções -->
-        <section class="pt-40 pb-20 section-bg text-center">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <h1 class="text-4xl md:text-5xl font-black text-white">Nossas <span class="brand-green">Soluções</span></h1>
-                <p class="mt-4 text-lg text-slate-400 max-w-3xl mx-auto">Tecnologia, expertise e atendimento personalizado para garantir a sua total segurança.</p>
+        <section class="relative py-32 md:py-48 flex items-center justify-center text-center overflow-hidden bg-slate-900">
+            <!-- Background Image -->
+            <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30" style="background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop');"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-900/90 via-slate-900/80 to-[#0a101f]"></div>
+            
+            <div class="relative z-10 px-4 max-w-4xl mx-auto">
+                <span class="text-emerald-400 font-bold tracking-wider uppercase text-sm mb-4 block fade-in">Portfólio Completo</span>
+                <h1 class="text-4xl md:text-6xl font-black text-white mb-6 fade-in" style="transition-delay: 100ms;">
+                    Nossas <span class="text-transparent bg-clip-text brand-gradient">Soluções</span>
+                </h1>
+                <p class="text-lg md:text-xl text-slate-300 leading-relaxed fade-in" style="transition-delay: 200ms;">
+                    Tecnologia avançada, expertise humana e atendimento personalizado para garantir a proteção total do seu patrimônio.
+                </p>
             </div>
         </section>
 
         <!-- Seção Principal com Navegação e Conteúdo -->
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
-            <div class="lg:flex lg:space-x-12">
-                <!-- Navegação Lateral (Visível em Telas Grandes) -->
-                <aside class="hidden lg:block w-1/4">
-                    <nav id="sticky-nav" class="sticky top-28 space-y-2 sticky-nav">
-                        <h3 class="font-bold text-white text-lg mb-4">Navegue pelas Soluções</h3>
-                        <a href="#cftv" class="block py-2 px-4 rounded-md text-slate-300 hover:bg-slate-700/50 hover:text-white">Câmeras (CFTV)</a>
-                        <a href="#alarmes" class="block py-2 px-4 rounded-md text-slate-300 hover:bg-slate-700/50 hover:text-white">Sistemas de Alarme</a>
-                        <a href="#condominios" class="block py-2 px-4 rounded-md text-slate-300 hover:bg-slate-700/50 hover:text-white">Condomínios Inteligentes</a>
-                        <a href="#telefonia" class="block py-2 px-4 rounded-md text-slate-300 hover:bg-slate-700/50 hover:text-white">Telefonia IP</a>
-                        <a href="#monitoramento" class="block py-2 px-4 rounded-md text-slate-300 hover:bg-slate-700/50 hover:text-white">Monitoramento 24h</a>
-                        <a href="#portaria" class="block py-2 px-4 rounded-md text-slate-300 hover:bg-slate-700/50 hover:text-white">Portaria Virtual e Presencial</a>
-                        <a href="#consultoria" class="block py-2 px-4 rounded-md text-slate-300 hover:bg-slate-700/50 hover:text-white">Consultoria de Segurança</a>
+            <div class="lg:flex lg:space-x-12 relative">
+                
+                <!-- Navegação Lateral (Desktop - Sticky) -->
+                <aside class="hidden lg:block w-1/4 relative">
+                    <nav id="sticky-nav" class="sticky top-32 space-y-1">
+                        <h3 class="font-bold text-white text-xs uppercase tracking-wider mb-4 px-4 text-slate-500">Navegue</h3>
+                        <a href="#cftv" class="nav-link block py-3 px-4 rounded-r-lg border-l-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/50 transition-all text-sm font-medium">Câmeras (CFTV)</a>
+                        <a href="#alarmes" class="nav-link block py-3 px-4 rounded-r-lg border-l-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/50 transition-all text-sm font-medium">Sistemas de Alarme</a>
+                        <a href="#condominios" class="nav-link block py-3 px-4 rounded-r-lg border-l-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/50 transition-all text-sm font-medium">Condomínios Inteligentes</a>
+                        <a href="#telefonia" class="nav-link block py-3 px-4 rounded-r-lg border-l-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/50 transition-all text-sm font-medium">Telefonia IP</a>
+                        <a href="#monitoramento" class="nav-link block py-3 px-4 rounded-r-lg border-l-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/50 transition-all text-sm font-medium">Monitoramento 24h</a>
+                        <a href="#portaria" class="nav-link block py-3 px-4 rounded-r-lg border-l-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/50 transition-all text-sm font-medium">Portaria Virtual e Presencial</a>
+                        <a href="#consultoria" class="nav-link block py-3 px-4 rounded-r-lg border-l-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/50 transition-all text-sm font-medium">Consultoria de Segurança</a>
                     </nav>
                 </aside>
 
-                <!-- Menu Dropdown (Visível em Telas Pequenas) -->
-                 <div class="lg:hidden mb-8">
-                    <label for="solutions-select" class="sr-only">Navegue pelas Soluções</label>
-                    <select id="solutions-select" class="w-full bg-slate-700 border border-slate-600 rounded-md py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500">
-                        <option value="">Selecione uma solução...</option>
-                        <option value="#cftv">Câmeras (CFTV)</option>
-                        <option value="#alarmes">Sistemas de Alarme</option>
-                        <option value="#condominios">Condomínios Inteligentes</option>
-                        <option value="#telefonia">Telefonia IP</option>
-                        <option value="#monitoramento">Monitoramento 24h</option>
-                        <option value="#portaria">Portaria Virtual e Presencial</option>
-                        <option value="#consultoria">Consultoria de Segurança</option>
-                    </select>
+                <!-- Menu Dropdown (Mobile) -->
+                <div class="lg:hidden mb-12 sticky top-24 z-30 bg-[#0a101f]/90 backdrop-blur-md py-4 -mx-4 px-4 border-b border-slate-800">
+                    <label for="solutions-select" class="block text-xs font-bold text-emerald-400 uppercase mb-2">Ir para solução:</label>
+                    <div class="relative">
+                        <select id="solutions-select" class="w-full bg-slate-800 border border-slate-700 rounded-lg py-3 px-4 text-white appearance-none focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                            <option value="" disabled selected>Selecione...</option>
+                            <option value="#cftv">Câmeras (CFTV)</option>
+                            <option value="#alarmes">Sistemas de Alarme</option>
+                            <option value="#condominios">Condomínios Inteligentes</option>
+                            <option value="#telefonia">Telefonia IP</option>
+                            <option value="#monitoramento">Monitoramento 24h</option>
+                            <option value="#portaria">Portaria Virtual e Presencial</option>
+                            <option value="#consultoria">Consultoria de Segurança</option>
+                        </select>
+                        <i data-lucide="chevron-down" class="absolute right-4 top-3.5 w-5 h-5 text-slate-400 pointer-events-none"></i>
+                    </div>
                 </div>
 
                 <!-- Conteúdo das Soluções -->
-                <div class="lg:w-3/4 prose-custom">
+                <div class="lg:w-3/4 space-y-24">
                     
-                    <article id="cftv" class="fade-in mb-24">
-                        <h2 class="text-3xl font-bold text-white mb-6 border-b border-slate-700 pb-4">Câmeras de Segurança <span class="brand-green">(CFTV)</span></h2>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                            <div>
-                                <p>O Circuito Fechado de Televisão (CFTV) é fundamental nas estratégias de segurança. Ele assegura o controle de acesso de pessoas, mercadorias e veículos, permitindo maior fiscalização dos procedimentos por todos que transitam na área monitorada.</p>
-                                <p>Um projeto especializado possui um excelente custo-benefício, pois ajuda a prevenir assaltos e invasões. Pense no sistema de câmeras como uma proteção para seu patrimônio no presente e a longo prazo.</p>
-                                <p class="font-bold text-emerald-300">Lembre-se: economizar em segurança pode trazer danos irreversíveis.</p>
+                    <!-- CFTV -->
+                    <article id="cftv" class="fade-in scroll-mt-32">
+                        <div class="card-bg rounded-3xl overflow-hidden border border-slate-800 shadow-2xl">
+                            <div class="md:grid md:grid-cols-2">
+                                <div class="h-64 md:h-auto relative">
+                                    <img src="imgs-solucoes/cftv.jpg" onerror="this.src='https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=2070&auto=format&fit=crop'" alt="Sistema de CFTV" class="absolute inset-0 w-full h-full object-cover">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent md:bg-gradient-to-r"></div>
+                                </div>
+                                <div class="p-8 md:p-10">
+                                    <div class="flex items-center mb-4">
+                                        <div class="p-2 bg-emerald-500/10 rounded-lg mr-3"><i data-lucide="camera" class="w-6 h-6 text-emerald-400"></i></div>
+                                        <h2 class="text-2xl font-bold text-white">Câmeras (CFTV)</h2>
+                                    </div>
+                                    <p class="text-slate-400 leading-relaxed mb-6">
+                                        O Circuito Fechado de Televisão é fundamental para assegurar o controle visual de pessoas e veículos. Um projeto especializado possui excelente custo-benefício para prevenir incidentes.
+                                    </p>
+                                    <h3 class="text-white font-semibold text-lg mb-3">Destaques:</h3>
+                                    <ul class="space-y-2 mb-6">
+                                        <li class="flex items-start text-slate-400 text-sm"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0"></i> Imagens em Alta Definição (Full HD/4K)</li>
+                                        <li class="flex items-start text-slate-400 text-sm"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0"></i> Acesso remoto via Smartphone e Tablet</li>
+                                        <li class="flex items-start text-slate-400 text-sm"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0"></i> Estudo de vulnerabilidade do local</li>
+                                    </ul>
+                                    <a href="index.html#contato" class="text-emerald-400 font-bold text-sm hover:text-emerald-300 inline-flex items-center group">
+                                        Solicitar Orçamento CFTV <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                                    </a>
+                                </div>
                             </div>
-                            <img src="imgs-solucoes/cftv.jpg" alt="Sistema de CFTV" class="rounded-lg shadow-lg">
                         </div>
-                        <h3 class="text-2xl mt-12">Tecnologia e Acesso Remoto</h3>
-                        <p>A SEGURANÇA JARAGUÁ disponibiliza a mais alta tecnologia em sistema de câmeras com imagens de alta definição. Para um projeto profissional, os equipamentos são escolhidos conforme a estrutura e o estudo de vulnerabilidades do local. Desconfie de empresas que não oferecem este levantamento antes de precificar o projeto.</p>
-                        <p>Disponibilizamos um sistema facilitado, onde o cliente consegue acompanhar as imagens em tempo real através de software para smartphone, tablet e computador, garantindo tranquilidade para visualizar seu patrimônio mesmo à distância.</p>
                     </article>
 
-                    <article id="alarmes" class="fade-in mb-24">
-                        <h2 class="text-3xl font-bold text-white mb-6 border-b border-slate-700 pb-4">Sistemas de <span class="brand-green">Alarme</span></h2>
-                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                            <img src="imgs-solucoes/alarmes.jpg" alt="Central de Alarme" class="rounded-lg shadow-lg order-last md:order-first">
-                             <div>
-                                <p>Mesmo quando o cliente não opta pelo serviço de monitoramento 24h, o proprietário pode ter total controle sobre o sistema, sendo o único a ter acesso às ocorrências do local onde o alarme está instalado. </p>
-                                <p>Através de um aplicativo, é possível visualizar as câmeras (se houver) e receber notificações instantâneas quando o alarme é disparado.</p>
-                                <h3 class="text-2xl mt-8 mb-4">Sensores Mais Comuns:</h3>
-                                <ul>
-                                    <li><strong>Sensor de Barreira:</strong> Emite feixes de luz invisível. Quando interrompidos, notifica a central.</li>
-                                    <li><strong>Sensores Magnéticos:</strong> Detectam a abertura indevida de portas e janelas.</li>
-                                    <li><strong>Sensor de Impacto:</strong> Usados para proteger estruturas, detectando impactos, perfurações ou arrombamentos.</li>
-                                    <li><strong>Infravermelho (IVP):</strong> Captam a movimentação de pessoas no ambiente por meio do calor gerado pelo corpo.</li>
+                    <!-- Alarmes -->
+                    <article id="alarmes" class="fade-in scroll-mt-32">
+                        <div class="card-bg rounded-3xl overflow-hidden border border-slate-800 shadow-2xl">
+                            <div class="md:grid md:grid-cols-2">
+                                <div class="p-8 md:p-10 order-2 md:order-1">
+                                    <div class="flex items-center mb-4">
+                                        <div class="p-2 bg-emerald-500/10 rounded-lg mr-3"><i data-lucide="bell-ring" class="w-6 h-6 text-emerald-400"></i></div>
+                                        <h2 class="text-2xl font-bold text-white">Sistemas de Alarme</h2>
+                                    </div>
+                                    <p class="text-slate-400 leading-relaxed mb-6">
+                                        Tenha controle total sobre a segurança do seu imóvel. Receba notificações instantâneas no seu celular sempre que houver disparo ou arme/desarme do sistema.
+                                    </p>
+                                    <h3 class="text-white font-semibold text-lg mb-3">Sensores Disponíveis:</h3>
+                                    <div class="grid grid-cols-1 gap-2 mb-6">
+                                        <div class="flex items-center text-slate-400 text-sm bg-slate-900/50 p-2 rounded"><i data-lucide="scan-line" class="w-4 h-4 text-emerald-500 mr-2"></i> Sensor de Barreira (Perímetro)</div>
+                                        <div class="flex items-center text-slate-400 text-sm bg-slate-900/50 p-2 rounded"><i data-lucide="door-open" class="w-4 h-4 text-emerald-500 mr-2"></i> Magnéticos (Portas/Janelas)</div>
+                                        <div class="flex items-center text-slate-400 text-sm bg-slate-900/50 p-2 rounded"><i data-lucide="activity" class="w-4 h-4 text-emerald-500 mr-2"></i> Sensor de Movimento (IVP)</div>
+                                    </div>
+                                    <a href="index.html#contato" class="text-emerald-400 font-bold text-sm hover:text-emerald-300 inline-flex items-center group">
+                                        Cotar Sistema de Alarme <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                                    </a>
+                                </div>
+                                <div class="h-64 md:h-auto relative order-1 md:order-2">
+                                    <img src="imgs-solucoes/alarmes.jpg" onerror="this.src='https://images.unsplash.com/photo-1558002038-1091a1661116?q=80&w=2070&auto=format&fit=crop'" alt="Sistema de Alarme" class="absolute inset-0 w-full h-full object-cover">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent md:bg-gradient-to-l"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Condomínios -->
+                    <article id="condominios" class="fade-in scroll-mt-32">
+                        <div class="border-l-4 border-emerald-500 pl-6 py-2 mb-6">
+                            <h2 class="text-3xl font-bold text-white mb-2">Condomínios Inteligentes</h2>
+                            <p class="text-emerald-400 font-medium">Tecnologia integrada para gestão e segurança</p>
+                        </div>
+                        <p class="text-slate-300 text-lg mb-8 leading-relaxed">
+                            Transforme seu condomínio em um ambiente mais seguro e valorizado. Planejamos a infraestrutura desde a construção ou adaptamos sistemas existentes para garantir conforto e proteção.
+                        </p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-emerald-500/50 transition-colors">
+                                <i data-lucide="fingerprint" class="w-8 h-8 text-emerald-400 mb-4"></i>
+                                <h3 class="text-white font-bold mb-2">Biometria & Facial</h3>
+                                <p class="text-slate-400 text-sm">Acesso sem chaves, usando impressão digital ou reconhecimento facial de alta precisão.</p>
+                            </div>
+                            <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-emerald-500/50 transition-colors">
+                                <i data-lucide="smartphone" class="w-8 h-8 text-emerald-400 mb-4"></i>
+                                <h3 class="text-white font-bold mb-2">Interfone Mobile</h3>
+                                <p class="text-slate-400 text-sm">Atenda o interfone pelo celular onde estiver, simulando presença em casa.</p>
+                            </div>
+                            <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-emerald-500/50 transition-colors">
+                                <i data-lucide="alert-circle" class="w-8 h-8 text-emerald-400 mb-4"></i>
+                                <h3 class="text-white font-bold mb-2">Botão de Pânico</h3>
+                                <p class="text-slate-400 text-sm">Dispositivos discretos ou "dedo de pânico" na biometria para solicitar socorro silencioso.</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Telefonia -->
+                    <article id="telefonia" class="fade-in scroll-mt-32">
+                        <div class="card-bg rounded-3xl overflow-hidden border border-slate-800 shadow-2xl p-8 md:p-12 relative">
+                            <div class="absolute top-0 right-0 -mt-10 -mr-10 w-32 h-32 bg-emerald-500/20 rounded-full blur-2xl"></div>
+                            
+                            <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-8">
+                                <div>
+                                    <h2 class="text-2xl font-bold text-white mb-2">Telefonia IP</h2>
+                                    <p class="text-slate-400">Comunicação empresarial moderna e econômica.</p>
+                                </div>
+                                <div class="mt-4 md:mt-0 p-3 bg-emerald-500/10 rounded-full">
+                                    <i data-lucide="phone-call" class="w-8 h-8 text-emerald-400"></i>
+                                </div>
+                            </div>
+
+                            <div class="space-y-4">
+                                <div class="flex gap-4">
+                                    <div class="w-12 h-12 rounded-full bg-slate-900 flex items-center justify-center shrink-0 border border-slate-700 text-emerald-400 font-bold">1</div>
+                                    <div>
+                                        <h3 class="text-white font-bold text-lg">Redução Drástica de Custos</h3>
+                                        <p class="text-slate-400 text-sm mt-1">Ligações via internet eliminam as altas tarifas das operadoras tradicionais.</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4">
+                                    <div class="w-12 h-12 rounded-full bg-slate-900 flex items-center justify-center shrink-0 border border-slate-700 text-emerald-400 font-bold">2</div>
+                                    <div>
+                                        <h3 class="text-white font-bold text-lg">Infraestrutura Simplificada</h3>
+                                        <p class="text-slate-400 text-sm mt-1">Utiliza o mesmo cabeamento da rede de computadores, sem obras extras.</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4">
+                                    <div class="w-12 h-12 rounded-full bg-slate-900 flex items-center justify-center shrink-0 border border-slate-700 text-emerald-400 font-bold">3</div>
+                                    <div>
+                                        <h3 class="text-white font-bold text-lg">Mobilidade Total</h3>
+                                        <p class="text-slate-400 text-sm mt-1">Leve seu ramal para qualquer lugar com internet. Conectou, funcionou.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Monitoramento -->
+                    <article id="monitoramento" class="fade-in scroll-mt-32">
+                        <div class="card-bg rounded-3xl overflow-hidden border border-slate-800 shadow-2xl">
+                            <div class="md:grid md:grid-cols-2">
+                                <div class="h-64 md:h-auto relative">
+                                    <img src="imgs-solucoes/monitoramento.jpg" onerror="this.src='https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2032&auto=format&fit=crop'" alt="Central de Monitoramento" class="absolute inset-0 w-full h-full object-cover">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent md:bg-gradient-to-r"></div>
+                                </div>
+                                <div class="p-8 md:p-10">
+                                    <div class="flex items-center mb-4">
+                                        <div class="p-2 bg-emerald-500/10 rounded-lg mr-3"><i data-lucide="eye" class="w-6 h-6 text-emerald-400"></i></div>
+                                        <h2 class="text-2xl font-bold text-white">Monitoramento 24 Horas</h2>
+                                    </div>
+                                    <p class="text-slate-400 leading-relaxed mb-6">
+                                        Nossa base tática acompanha ocorrências em tempo real. Utilizamos conexão via GPRS, IP e linha telefônica para garantir que o sinal de alerta chegue sempre.
+                                    </p>
+                                    <div class="space-y-4 mb-6">
+                                        <div class="bg-slate-900/50 p-4 rounded-lg border-l-2 border-emerald-500">
+                                            <h4 class="text-white font-bold text-sm">Pronta Resposta</h4>
+                                            <p class="text-slate-400 text-xs mt-1">Acionamento imediato de equipe tática e Polícia em caso de invasão confirmada.</p>
+                                        </div>
+                                        <div class="bg-slate-900/50 p-4 rounded-lg border-l-2 border-emerald-500">
+                                            <h4 class="text-white font-bold text-sm">Verificação por Vídeo</h4>
+                                            <p class="text-slate-400 text-xs mt-1">Acesso às câmeras do local para confirmar a ocorrência e evitar falsos alarmes.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Portaria -->
+                    <article id="portaria" class="fade-in scroll-mt-32">
+                        <h2 class="text-3xl font-bold text-white mb-6 flex items-center">
+                            <i data-lucide="building-2" class="w-8 h-8 text-emerald-400 mr-3"></i>
+                            Portaria Virtual e Presencial
+                        </h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="card-bg p-8 rounded-2xl border border-slate-800 hover:border-emerald-500/30 transition-all">
+                                <h3 class="text-xl font-bold text-white mb-4">Portaria Remota (Virtual)</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                                    Controle de acesso feito à distância pela nossa central blindada.
+                                </p>
+                                <ul class="space-y-2 mb-6">
+                                    <li class="flex items-center text-slate-400 text-sm"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2"></i> Redução de até 50% nos custos</li>
+                                    <li class="flex items-center text-slate-400 text-sm"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2"></i> Monitoramento de entradas/saídas</li>
+                                    <li class="flex items-center text-slate-400 text-sm"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2"></i> Eclusas de segurança</li>
                                 </ul>
+                                <a href="index.html#portaria-remota-info" class="text-emerald-400 text-sm font-bold hover:underline">Saiba mais sobre Remota &rarr;</a>
+                            </div>
+                            <div class="card-bg p-8 rounded-2xl border border-slate-800 hover:border-emerald-500/30 transition-all">
+                                <h3 class="text-xl font-bold text-white mb-4">Portaria Presencial</h3>
+                                <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                                    Profissional qualificado in-loco 24 horas por dia.
+                                </p>
+                                <ul class="space-y-2 mb-6">
+                                    <li class="flex items-center text-slate-400 text-sm"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2"></i> Recebimento de encomendas</li>
+                                    <li class="flex items-center text-slate-400 text-sm"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2"></i> Contato humano direto</li>
+                                    <li class="flex items-center text-slate-400 text-sm"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2"></i> Ronda nas áreas comuns</li>
+                                </ul>
+                                <a href="index.html#contato" class="text-emerald-400 text-sm font-bold hover:underline">Cotar Presencial &rarr;</a>
                             </div>
                         </div>
                     </article>
-                    
-                    <article id="condominios" class="fade-in mb-24">
-                        <h2 class="text-3xl font-bold text-white mb-6 border-b border-slate-700 pb-4">Condomínios <span class="brand-green">Inteligentes</span></h2>
-                        <p>Um condomínio inteligente é planejado para ser prático e seguro desde sua construção, prevendo a instalação de tecnologias que garantem mais conforto e proteção aos moradores e trabalhadores, como fibra óptica, vigilância avançada e portaria remota.</p>
-                        <h3 class="text-2xl">Características Principais:</h3>
-                        <ul>
-                            <li><strong>Identificação Biométrica e Facial:</strong> Libera o acesso de moradores por impressão digital ou reconhecimento facial, oferecendo mais segurança que senhas ou chaves.</li>
-                            <li><strong>Interfones com Atendimento Remoto:</strong> Moradores podem atender chamadas do interfone pelo celular, mesmo quando não estão em casa, agilizando o atendimento.</li>
-                            <li><strong>Porteiros Eletrônicos:</strong> Monitoramento de acesso por áudio e vídeo, permitindo acionar ajuda em emergências sem colocar funcionários em risco.</li>
-                            <li><strong>Monitoramento Avançado:</strong> Câmeras com análise de vídeo que geram alertas automáticos para a central em caso de atividades suspeitas.</li>
-                            <li><strong>Botão de Pânico:</strong> Uma forma discreta de solicitar ajuda da empresa de segurança em caso de emergência, podendo ser integrado ao sistema de biometria ("dedo de pânico").</li>
-                        </ul>
-                    </article>
 
-                    <article id="telefonia" class="fade-in mb-24">
-                        <h2 class="text-3xl font-bold text-white mb-6 border-b border-slate-700 pb-4">Telefonia <span class="brand-green">IP</span></h2>
-                        <p>A tecnologia de Telefonia IP utiliza a rede de internet para realizar chamadas, sendo uma opção estratégica para empresas que buscam reduzir custos e aumentar a qualidade da comunicação.</p>
-                        <h3 class="text-2xl">Benefícios da Telefonia IP:</h3>
-                        <ul>
-                           <li><strong>Redução de Custos:</strong> As ligações são feitas via internet, diminuindo drasticamente os custos com operadoras de telefonia tradicionais.</li>
-                           <li><strong>Aproveitamento de Infraestrutura:</strong> Utiliza a mesma estrutura de cabeamento da sua rede de computadores, economizando em instalações.</li>
-                           <li><strong>Qualidade nas Chamadas:</strong> A voz em alta definição (HD) proporciona conversas mais claras e sem ruídos.</li>
-                           <li><strong>Mobilidade e Facilidade:</strong> Leve seu ramal para qualquer lugar. Basta conectar o aparelho de telefone IP em uma rede de internet para usá-lo, sem necessidade de reconfiguração.</li>
-                        </ul>
-                    </article>
-
-                    <article id="monitoramento" class="fade-in mb-24">
-                        <h2 class="text-3xl font-bold text-white mb-6 border-b border-slate-700 pb-4">Monitoramento <span class="brand-green">24 Horas</span></h2>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                            <div>
-                               <p>Nossa base de monitoramento 24h conta com profissionais altamente capacitados para acompanhar as ocorrências sinalizadas pelo seu sistema e tomar todas as providências com rapidez e eficiência, incluindo o acionamento do nosso suporte tático e da Polícia, se necessário.</p>
-                               <h3 class="text-2xl mt-8">Como Funciona:</h3>
-                               <ul>
-                                   <li><strong>Monitoramento de Alarme:</strong> Utiliza centrais, sensores e sirenes conectados à nossa base por GPRS, IP ou linha telefônica para uma resposta imediata.</li>
-                                   <li><strong>Monitoramento de Câmeras:</strong> Câmeras de alta resolução (HD, Full HD e IP) que permitem à nossa equipe visualizar o local em tempo real, agilizando a verificação e a tomada de decisão.</li>
-                               </ul>
-                           </div>
-                           <img src="imgs-solucoes/monitoramento.jpg" alt="Central de monitoramento" class="rounded-lg shadow-lg">
+                    <!-- Consultoria -->
+                    <article id="consultoria" class="fade-in scroll-mt-32">
+                        <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl p-8 md:p-12 border border-slate-700">
+                            <div class="flex flex-col items-center text-center">
+                                <div class="w-16 h-16 bg-emerald-500 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-emerald-500/20">
+                                    <i data-lucide="clipboard-list" class="w-8 h-8 text-white"></i>
+                                </div>
+                                <h2 class="text-3xl font-bold text-white mb-4">Consultoria de Segurança</h2>
+                                <p class="text-slate-300 text-lg max-w-2xl mx-auto mb-8">
+                                    Não vendemos apenas equipamentos. Analisamos as vulnerabilidades do seu imóvel e desenhamos a estratégia perfeita para proteger o que é seu.
+                                </p>
+                                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full mb-8">
+                                    <div class="bg-slate-950/50 p-4 rounded-lg">
+                                        <span class="block text-emerald-400 font-bold mb-1">Análise</span>
+                                        <span class="text-slate-400 text-sm">Mapeamento de riscos</span>
+                                    </div>
+                                    <div class="bg-slate-950/50 p-4 rounded-lg">
+                                        <span class="block text-emerald-400 font-bold mb-1">Projeto</span>
+                                        <span class="text-slate-400 text-sm">Plano personalizado</span>
+                                    </div>
+                                    <div class="bg-slate-950/50 p-4 rounded-lg">
+                                        <span class="block text-emerald-400 font-bold mb-1">Suporte</span>
+                                        <span class="text-slate-400 text-sm">Acompanhamento total</span>
+                                    </div>
+                                </div>
+                                <a href="index.html#contato" class="bg-emerald-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-emerald-600 transition-colors shadow-lg">
+                                    Agendar Consultoria Gratuita
+                                </a>
+                            </div>
                         </div>
                     </article>
 
-                    <article id="portaria" class="fade-in mb-24">
-                        <h2 class="text-3xl font-bold text-white mb-6 border-b border-slate-700 pb-4">Portaria Virtual e <span class="brand-green">Presencial</span></h2>
-                        <p>Modernize a segurança e o controle de acesso do seu condomínio com soluções que se adaptam à sua necessidade, agilizando o fluxo de entrada e saída, especialmente em horários de pico.</p>
-                        <h3 class="text-2xl">Portaria Presencial</h3>
-                        <p>Garante a presença de um profissional 24 horas por dia, oferecendo segurança, conforto e suporte no recebimento de encomendas e na intermediação de contatos, com monitoramento constante das áreas comuns.</p>
-                        <h3 class="text-2xl">Portaria Remota (Virtual)</h3>
-                        <p>Funciona como uma portaria convencional, só que à distância. Nossa central gerencia a segurança, o acesso de moradores e visitantes, e monitora o condomínio 24/7, agindo em tempo real. A tecnologia inclui eclusas para controle de acesso, registro detalhado de todas as entradas e saídas e dispositivos de emergência.</p>
-                    </article>
-
-                    <article id="consultoria" class="fade-in">
-                        <h2 class="text-3xl font-bold text-white mb-6 border-b border-slate-700 pb-4">Consultoria de <span class="brand-green">Segurança</span></h2>
-                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                           <img src="imgs-solucoes/consultoria de segunraça.jpg" alt="Reunião de consultoria" class="rounded-lg shadow-lg order-last md:order-first">
-                            <div>
-                               <p>Nosso serviço de consultoria em segurança patrimonial tem como principal função analisar as vulnerabilidades do seu imóvel ou empresa e determinar as estratégias e mecanismos necessários para garantir sua total proteção.</p>
-                               <h3 class="text-2xl mt-8">Vantagens da Contratação:</h3>
-                               <ul>
-                                   <li><strong>Análise de Risco:</strong> Mapeamento estratégico que identifica pontos de vulnerabilidade e sugere as soluções mais eficazes.</li>
-                                   <li><strong>Projeto Personalizado:</strong> Acesso a um plano de segurança com os equipamentos de mais alta tecnologia, como CFTV, alarmes e controle de acesso.</li>
-                                   <li><strong>Acompanhamento Completo:</strong> Suporte em todas as etapas, desde a compra dos materiais até a análise e os testes dos equipamentos.</li>
-                               </ul>
-                           </div>
-                        </div>
-                    </article>
                 </div>
             </div>
         </div>
 
     </main>
     
-    <footer class="bg-slate-900 border-t border-slate-800">
-         <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-                <p class="text-sm text-slate-400">&copy; 2025 Segurança Jaraguá. Todos os direitos reservados.</p>
-                <div class="flex space-x-4">
-                    <a href="https://www.facebook.com/segurancajaragua/?locale=pt_BR" class="text-slate-400 hover:text-emerald-400"><i data-lucide="facebook" class="w-5 h-5"></i></a>
-                    <a href="https://www.instagram.com/segurancajaragua/" class="text-slate-400 hover:text-emerald-400"><i data-lucide="instagram" class="w-5 h-5"></i></a>
-                    <a href="https://www.linkedin.com/company/segurancajaragua/?originalSubdomain=br" class="text-slate-400 hover:text-emerald-400"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+    <!-- Rodapé -->
+    <footer class="bg-slate-950 border-t border-slate-900 pt-16 pb-8 relative z-20">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <!-- Coluna 1 -->
+                <div class="space-y-6">
+                     <a href="index.html" class="inline-block">
+                        <img src="logo_site.png" alt="Segurança Jaraguá Logo" class="h-12 opacity-80 hover:opacity-100 transition-opacity">
+                    </a>
+                    <p class="text-slate-400 leading-relaxed text-sm">
+                        Soluções avançadas em segurança eletrônica e monitoramento 24h para Jaraguá do Sul e região.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/segurancajaragua/?locale=pt_BR" target="_blank" class="bg-slate-800 p-3 rounded-full text-slate-400 hover:text-white hover:bg-emerald-500 transition-all">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://www.instagram.com/segurancajaragua/" target="_blank" class="bg-slate-800 p-3 rounded-full text-slate-400 hover:text-white hover:bg-emerald-500 transition-all">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/segurancajaragua/?originalSubdomain=br" target="_blank" class="bg-slate-800 p-3 rounded-full text-slate-400 hover:text-white hover:bg-emerald-500 transition-all">
+                            <i data-lucide="linkedin" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                 <!-- Coluna 2 -->
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-6">Links Rápidos</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html#solucoes" class="text-slate-400 hover:text-emerald-400 transition-colors text-sm flex items-center"><i data-lucide="chevron-right" class="w-4 h-4 mr-2 opacity-50"></i> Soluções para Condomínios</a></li>
+                        <li><a href="index.html#solucoes" class="text-slate-400 hover:text-emerald-400 transition-colors text-sm flex items-center"><i data-lucide="chevron-right" class="w-4 h-4 mr-2 opacity-50"></i> Soluções para Empresas</a></li>
+                        <li><a href="index.html#solucoes" class="text-slate-400 hover:text-emerald-400 transition-colors text-sm flex items-center"><i data-lucide="chevron-right" class="w-4 h-4 mr-2 opacity-50"></i> Soluções Residenciais</a></li>
+                        <li><a href="index.html#sobre" class="text-slate-400 hover:text-emerald-400 transition-colors text-sm flex items-center"><i data-lucide="chevron-right" class="w-4 h-4 mr-2 opacity-50"></i> Quem Somos</a></li>
+                        <li><a href="index.html#blog" class="text-slate-400 hover:text-emerald-400 transition-colors text-sm flex items-center"><i data-lucide="chevron-right" class="w-4 h-4 mr-2 opacity-50"></i> Blog</a></li>
+                         <li><a href="index.html#contato" class="text-slate-400 hover:text-emerald-400 transition-colors text-sm flex items-center"><i data-lucide="chevron-right" class="w-4 h-4 mr-2 opacity-50"></i> Fale Conosco</a></li>
+                    </ul>
+                </div>
+
+                 <!-- Coluna 3 -->
+                <div>
+                     <h4 class="text-white font-bold text-lg mb-6">Central de Atendimento</h4>
+                     <ul class="space-y-4">
+                         <li class="flex items-start">
+                             <i data-lucide="phone" class="w-5 h-5 text-emerald-500 mr-3 mt-1"></i>
+                             <span class="text-slate-400 text-sm font-medium">(47) 3275-6570</span>
+                         </li>
+                         <li class="flex items-start">
+                             <i data-lucide="message-circle" class="w-5 h-5 text-emerald-500 mr-3 mt-1"></i>
+                             <span class="text-slate-400 text-sm font-medium">(47) 98434-1420 (WhatsApp)</span>
+                         </li>
+                         <li class="flex items-start">
+                             <i data-lucide="mail" class="w-5 h-5 text-emerald-500 mr-3 mt-1"></i>
+                             <span class="text-slate-400 text-sm break-all">comercial@segurancajaragua.com.br</span>
+                         </li>
+                         <li class="flex items-start">
+                            <i data-lucide="clock" class="w-5 h-5 text-emerald-500 mr-3 mt-1"></i>
+                            <span class="text-slate-400 text-sm">Monitoramento 24h / Comercial Seg-Sex 8h-18h</span>
+                        </li>
+                     </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-900 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-sm">
+                <p class="text-slate-500">&copy; 2025 Segurança Jaraguá. Todos os direitos reservados.</p>
+                <div class="flex space-x-6 text-slate-500">
+                    <a href="#" class="hover:text-slate-300 transition-colors">Política de Privacidade</a>
+                    <a href="#" class="hover:text-slate-300 transition-colors">Termos de Uso</a>
                 </div>
             </div>
         </div>
@@ -269,84 +537,64 @@
 
 
     <script>
+        // Ícones Lucide
         lucide.createIcons();
+
+        // Lógica do Menu Mobile Principal (Hambúrguer)
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-        const menuOpenIcon = document.getElementById('menu-open-icon');
-        const menuCloseIcon = document.getElementById('menu-close-icon');
-        mobileMenuButton.addEventListener('click', () => {
+        const menuIcon = document.getElementById('menu-icon');
+        let isMenuOpen = false;
+
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
             mobileMenu.classList.toggle('hidden');
-            menuOpenIcon.classList.toggle('hidden');
-            menuCloseIcon.classList.toggle('hidden');
-        });
-        mobileMenu.addEventListener('click', (event) => {
-            if (event.target.tagName === 'A') {
-                mobileMenu.classList.add('hidden');
-                menuOpenIcon.classList.remove('hidden');
-                menuCloseIcon.classList.add('hidden');
-            }
-        });
-        
-        const header = document.getElementById('header');
-        const headerLogo = document.getElementById('header-logo');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.remove('h-24');
-                header.classList.add('h-20', 'shadow-lg');
-                headerLogo.classList.remove('h-16');
-                headerLogo.classList.add('h-12');
+            if (isMenuOpen) {
+                menuIcon.setAttribute('data-lucide', 'x');
             } else {
-                header.classList.add('h-24');
-                header.classList.remove('h-20', 'shadow-lg');
-                headerLogo.classList.add('h-16');
-                headerLogo.classList.remove('h-12');
+                menuIcon.setAttribute('data-lucide', 'menu');
+            }
+            lucide.createIcons();
+        }
+
+        mobileMenuButton.addEventListener('click', toggleMenu);
+        mobileMenu.addEventListener('click', (event) => {
+            if (event.target.closest('a')) {
+                if (isMenuOpen) toggleMenu();
             }
         });
 
-        const faders = document.querySelectorAll('.fade-in');
-        const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
-        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) { return; } 
-                else {
-                    entry.target.classList.add('visible');
-                    appearOnScroll.unobserve(entry.target);
-                }
-            });
-        }, appearOptions);
-        faders.forEach(fader => {
-            appearOnScroll.observe(fader);
-        });
-
-        // Navegação por select em mobile
+        // Navegação por Select em Mobile (Dropdown de Soluções)
         const solutionsSelect = document.getElementById('solutions-select');
         solutionsSelect.addEventListener('change', (e) => {
             if(e.target.value) {
-                const targetElement = document.querySelector(e.target.value);
+                const targetId = e.target.value.substring(1);
+                const targetElement = document.getElementById(targetId);
                 if (targetElement) {
-                    const headerOffset = 120;
-                    const elementPosition = targetElement.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                    
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: "smooth"
-                    });
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
                 }
             }
         });
 
-        // Highlight de navegação lateral com scroll
+        // Highlight de navegação lateral com Scroll (ScrollSpy)
         const sections = document.querySelectorAll('article[id]');
-        const navLinks = document.querySelectorAll('#sticky-nav a');
+        const navLinks = document.querySelectorAll('.nav-link');
 
-        const handleIntersection = (entries) => {
+        const observerOptions = {
+            root: null,
+            rootMargin: "-20% 0px -60% 0px", // Ajuste fino para detectar a seção no meio da tela
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     navLinks.forEach(link => {
-                        link.classList.remove('active');
+                        link.classList.remove('active', 'text-emerald-400', 'bg-slate-800/50');
                         if (link.getAttribute('href').substring(1) === entry.target.id) {
-                            link.classList.add('active');
+                            link.classList.add('active', 'text-emerald-400', 'bg-slate-800/50');
+                            
+                            // Atualiza o select mobile também se estiver visível
                             if(window.innerWidth < 1024) {
                                 solutionsSelect.value = `#${entry.target.id}`;
                             }
@@ -354,38 +602,28 @@
                     });
                 }
             });
-        };
+        }, observerOptions);
 
-        const observerOptions = {
-            root: null,
-            rootMargin: "-40% 0px -50% 0px",
-            threshold: 0
-        };
-        const observer = new IntersectionObserver(handleIntersection, observerOptions);
         sections.forEach(section => observer.observe(section));
 
-        // Smooth scroll for nav links considering header
-        navLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    const headerOffset = 120; // Corresponds to scroll-margin-top
-                    const elementPosition = targetElement.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
-                }
+        // Animação Fade-in
+        const faders = document.querySelectorAll('.fade-in');
+        const appearOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('visible');
+                appearOnScroll.unobserve(entry.target);
             });
+        }, appearOptions);
+        faders.forEach(fader => appearOnScroll.observe(fader));
+
+        // Adiciona classe 'group' aos dropdowns do header
+        document.querySelectorAll('.dropdown-menu').forEach(menu => {
+            menu.parentElement.classList.add('group');
         });
 
     </script>
-    <script src="https://whatsa.me/bt-min.js?link=https://whatsa.me/554799710819/?t=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20seus%20servi%C3%A7os."></script>
+    <script src="https://whatsa.me/bt-min.js?link=https://whatsa.me/5547984341420/?t=Ol%C3%A1,%20gostaria%20de%20saber%20mais%20sobre%20as%20solu%C3%A7%C3%B5es%20de%20seguran%C3%A7a."></script>
 </body>
 </html>
-
