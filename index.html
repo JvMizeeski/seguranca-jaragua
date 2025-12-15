@@ -12,26 +12,33 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0a101f;
-            color: #e2e8f0;
+            background-color: #f1f5f9; /* slate-100 - Um cinza levemente mais presente que o branco */
+            color: #334155; /* slate-700 */
         }
         /* Utilitários de Cores da Marca */
-        .brand-green { color: #34d399; } /* emerald-400 */
-        .text-brand-hover:hover { color: #34d399; }
+        .brand-green { color: #10b981; } /* emerald-500 */
+        .text-brand-hover:hover { color: #059669; } /* emerald-600 */
         .bg-brand { background-color: #10b981; } /* emerald-500 */
         .bg-brand-hover:hover { background-color: #059669; } /* emerald-600 */
         
-        /* Fundos das Seções */
-        .section-bg-dark { background-color: #0a101f; }
-        .section-bg-darker { background-color: #0f172a; } /* slate-900 */
-        .card-bg { background-color: #1e293b; } /* slate-800 */
+        /* Utilitários de Fundo Híbrido */
+        .section-bg-dark { background-color: #0f172a; color: #f8fafc; } /* slate-900 */
+        .section-bg-light { background-color: #f1f5f9; } /* slate-100 */
+        .section-bg-white { background-color: #ffffff; } 
+        
+        .card-bg { background-color: #ffffff; } 
+        
+        /* Sombras mais marcadas para o tema claro */
+        .card-shadow { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
+        .card-shadow-hover:hover { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
 
         /* Gradientes e Efeitos */
         .hero-gradient {
-            background: linear-gradient(to top, rgba(10, 16, 31, 1) 10%, rgba(10, 16, 31, 0.8) 60%, rgba(10, 16, 31, 0.5) 100%);
+            /* Gradiente escuro em cima da imagem, transicionando para o cinza claro do corpo */
+            background: linear-gradient(to top, #f1f5f9 2%, rgba(15, 23, 42, 0.8) 50%, rgba(15, 23, 42, 0.95) 100%);
         }
         .brand-gradient {
-             background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+             background: linear-gradient(135deg, #10b981 0%, #047857 100%);
         }
 
         /* Animações */
@@ -45,24 +52,25 @@
             transform: translateY(0);
         }
 
-        /* Dropdown Menu Desktop */
+        /* Dropdown Menu - Estilo Escuro/Híbrido */
         .group:hover .group-hover\:block {
             display: block;
         }
         .dropdown-menu {
-            background-color: #1e293b; /* slate-800 */
-            border: 1px solid #334155; /* slate-700 */
+            background-color: #1e293b; /* slate-800 - Menu Escuro para contraste */
+            border: 1px solid #334155;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
         }
+        .dropdown-item { color: #e2e8f0; }
         .dropdown-item:hover {
-            background-color: #334155; /* slate-700 */
+            background-color: #334155;
             color: #34d399;
         }
     </style>
 </head>
 <body>
 
-    <!-- Barra Superior de Contato (Top Bar) -->
+    <!-- Barra Superior de Contato (Top Bar) - Mantida Escura para Contraste -->
     <div class="bg-slate-950 text-slate-400 py-2 text-sm hidden md:block relative z-50 border-b border-slate-800">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
             <div class="flex space-x-6">
@@ -80,8 +88,8 @@
         </div>
     </div>
 
-    <!-- Cabeçalho Principal (Alterado para Absolute - Não fixa ao rolar) -->
-    <header id="header" class="bg-slate-900/90 backdrop-blur-md absolute top-0 left-0 right-0 z-40 md:top-[37px] h-20 shadow-sm border-b border-slate-800/50">
+    <!-- Cabeçalho Principal - VOLTA A SER ESCURO (Meio Termo: Interface Escura, Conteúdo Claro) -->
+    <header id="header" class="bg-slate-900/95 backdrop-blur-md absolute top-0 left-0 right-0 z-40 md:top-[37px] h-20 shadow-lg border-b border-slate-800">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 h-full">
             <div class="flex items-center justify-between h-full">
                 <!-- Logo -->
@@ -90,46 +98,46 @@
                     <img id="header-logo" src="logo_site.png" alt="Segurança Jaraguá Logo" class="h-12 transition-all duration-300">
                 </a>
                 
-                <!-- Navegação Desktop (Segmentada e Renomeada) -->
+                <!-- Navegação Desktop (Texto Claro sobre Fundo Escuro) -->
                 <nav class="hidden lg:flex space-x-1 items-center font-medium">
                     
                     <!-- Dropdown: Condomínios -->
                     <div class="relative group px-3 py-2">
-                        <button class="flex items-center text-slate-300 text-brand-hover transition-colors">
+                        <button class="flex items-center text-slate-300 text-brand-hover transition-colors font-medium">
                             <span>Condomínios</span>
                             <i data-lucide="chevron-down" class="w-4 h-4 ml-1 opacity-70 group-hover:rotate-180 transition-transform duration-200"></i>
                         </button>
                         <div class="absolute left-0 mt-2 w-56 rounded-md shadow-lg dropdown-menu hidden group-hover:block py-1 z-50 ring-1 ring-black ring-opacity-5 focus:outline-none">
-                            <a href="#portaria-remota-info" class="block px-4 py-2 text-sm text-slate-200 dropdown-item transition-colors">Portaria Remota</a>
-                            <a href="#solucoes" class="block px-4 py-2 text-sm text-slate-200 dropdown-item transition-colors">Controle de Acesso</a>
-                            <a href="#solucoes" class="block px-4 py-2 text-sm text-slate-200 dropdown-item transition-colors">Monitoramento 24h</a>
+                            <a href="#portaria-remota-info" class="block px-4 py-2 text-sm dropdown-item transition-colors">Portaria Remota</a>
+                            <a href="#solucoes" class="block px-4 py-2 text-sm dropdown-item transition-colors">Controle de Acesso</a>
+                            <a href="#solucoes" class="block px-4 py-2 text-sm dropdown-item transition-colors">Monitoramento 24h</a>
                         </div>
                     </div>
 
                     <!-- Dropdown: Empresas -->
                     <div class="relative group px-3 py-2">
-                        <button class="flex items-center text-slate-300 text-brand-hover transition-colors">
+                        <button class="flex items-center text-slate-300 text-brand-hover transition-colors font-medium">
                             <span>Empresas</span>
                             <i data-lucide="chevron-down" class="w-4 h-4 ml-1 opacity-70 group-hover:rotate-180 transition-transform duration-200"></i>
                         </button>
                          <div class="absolute left-0 mt-2 w-56 rounded-md shadow-lg dropdown-menu hidden group-hover:block py-1 z-50 ring-1 ring-black ring-opacity-5 focus:outline-none">
-                            <a href="#solucoes" class="block px-4 py-2 text-sm text-slate-200 dropdown-item transition-colors">Alarmes Monitorados</a>
-                            <a href="#solucoes" class="block px-4 py-2 text-sm text-slate-200 dropdown-item transition-colors">CFTV Inteligente</a>
-                             <a href="#solucoes" class="block px-4 py-2 text-sm text-slate-200 dropdown-item transition-colors">Projetos Personalizados</a>
+                            <a href="#solucoes" class="block px-4 py-2 text-sm dropdown-item transition-colors">Alarmes Monitorados</a>
+                            <a href="#solucoes" class="block px-4 py-2 text-sm dropdown-item transition-colors">CFTV Inteligente</a>
+                             <a href="#solucoes" class="block px-4 py-2 text-sm dropdown-item transition-colors">Projetos Personalizados</a>
                         </div>
                     </div>
 
-                    <!-- Link Simples: Casas -->
-                     <a href="#solucoes" class="px-3 py-2 text-slate-300 text-brand-hover transition-colors">Casas</a>
+                    <!-- Link Simples: Residencias -->
+                     <a href="#solucoes" class="px-3 py-2 text-slate-300 text-brand-hover transition-colors font-medium">Residencias</a>
                     
                      <!-- Links Institucionais -->
-                    <a href="#sobre" class="px-3 py-2 text-slate-300 text-brand-hover transition-colors">Sobre Nós</a>
-                    <a href="#blog" class="px-3 py-2 text-slate-300 text-brand-hover transition-colors">Blog</a>
+                    <a href="#sobre" class="px-3 py-2 text-slate-300 text-brand-hover transition-colors font-medium">Sobre Nós</a>
+                    <a href="#blog" class="px-3 py-2 text-slate-300 text-brand-hover transition-colors font-medium">Blog</a>
                 </nav>
 
                 <!-- Botão CTA Desktop -->
                 <div class="hidden lg:block pl-4">
-                    <a href="#contato" class="bg-brand text-white px-5 py-2.5 rounded-md font-semibold hover:bg-emerald-600 transition-all shadow-lg shadow-emerald-500/10 hover:shadow-emerald-500/30 flex items-center">
+                    <a href="#contato" class="bg-brand text-white px-5 py-2.5 rounded-md font-semibold hover:bg-emerald-600 transition-all shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/40 flex items-center">
                         <i data-lucide="message-square" class="w-4 h-4 mr-2"></i>
                         Solicitar Orçamento
                     </a>
@@ -142,15 +150,15 @@
             </div>
         </div>
 
-        <!-- Navegação Mobile -->
+        <!-- Navegação Mobile (Fundo Escuro) -->
         <div id="mobile-menu" class="hidden lg:hidden bg-slate-900 border-b border-slate-800 shadow-2xl absolute w-full left-0 top-20 z-30 overflow-y-auto max-h-[calc(100vh-5rem)]">
             <nav class="flex flex-col p-4 space-y-2">
                 <!-- Segmentos Mobile (Lista Simples) -->
                 <div class="pb-2 border-b border-slate-800">
                     <span class="block px-4 py-2 text-xs uppercase tracking-wider text-slate-500 font-bold">Segmentos</span>
-                    <a href="#solucoes" class="block px-4 py-2 text-slate-200 font-medium hover:bg-slate-800 rounded-md">Condomínios</a>
-                    <a href="#solucoes" class="block px-4 py-2 text-slate-200 font-medium hover:bg-slate-800 rounded-md">Empresas</a>
-                    <a href="#solucoes" class="block px-4 py-2 text-slate-200 font-medium hover:bg-slate-800 rounded-md">Casas</a>
+                    <a href="#solucoes" class="block px-4 py-2 text-slate-300 font-medium hover:bg-slate-800 hover:text-emerald-400 rounded-md">Condomínios</a>
+                    <a href="#solucoes" class="block px-4 py-2 text-slate-300 font-medium hover:bg-slate-800 hover:text-emerald-400 rounded-md">Empresas</a>
+                    <a href="#solucoes" class="block px-4 py-2 text-slate-300 font-medium hover:bg-slate-800 hover:text-emerald-400 rounded-md">Residencias</a>
                 </div>
                 
                 <div class="py-2">
@@ -173,19 +181,21 @@
         </div>
     </header>
 
-    <main class="md:mt-[37px]"> <!-- Margem superior para compensar a Top Bar em desktop -->
+    <main class="md:mt-[37px]">
         
-        <!-- Seção Hero -->
-        <section class="relative h-[90vh] min-h-[600px] flex items-center justify-center text-center overflow-hidden">
-            <!-- Imagem de Fundo (Substitua por uma imagem de alta qualidade) -->
+        <!-- Seção Hero - VOLTA A SER ESCURA (Impacto Visual) -->
+        <section class="relative h-[90vh] min-h-[600px] flex items-center justify-center text-center overflow-hidden bg-slate-900">
+            <!-- Imagem de Fundo -->
             <div class="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105 animate-[kenburns_20s_infinite_alternate]" style="background-image: url('hero-banner.webp');"></div>
+            <!-- Gradiente (Transição do Escuro para o Cinza Claro do Corpo) -->
             <div class="absolute inset-0 hero-gradient"></div>
+            
             <div class="relative z-10 px-4 max-w-5xl mx-auto">
-                <span class="inline-block mb-4 text-sm font-bold tracking-widest text-emerald-400 uppercase bg-emerald-400/10 px-3 py-1 rounded-full fade-in">Líder em Segurança Eletrônica</span>
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-6 tracking-tight fade-in" style="transition-delay: 100ms;">
+                <span class="inline-block mb-4 text-sm font-bold tracking-widest text-emerald-400 uppercase bg-emerald-400/10 border border-emerald-500/20 px-3 py-1 rounded-full fade-in">Líder em Segurança Eletrônica</span>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-6 tracking-tight fade-in drop-shadow-lg" style="transition-delay: 100ms;">
                     Sua tranquilidade é a nossa <span class="text-transparent bg-clip-text brand-gradient">prioridade</span>.
                 </h1>
-                <p class="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed fade-in" style="transition-delay: 200ms;">
+                <p class="text-lg md:text-xl text-slate-200 max-w-3xl mx-auto mb-10 leading-relaxed fade-in drop-shadow-md" style="transition-delay: 200ms;">
                     Soluções inteligentes e integradas de monitoramento para proteger sua família, seu patrimônio e seu negócio, 24 horas por dia.
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4 fade-in" style="transition-delay: 300ms;">
@@ -193,116 +203,110 @@
                         Solicitar Proposta
                         <i data-lucide="arrow-right" class="w-5 h-5 ml-2"></i>
                     </a>
-                    <a href="#solucoes" class="w-full sm:w-auto px-8 py-4 rounded-lg font-bold text-lg text-white border-2 border-slate-600 hover:border-emerald-400 hover:text-emerald-400 transition-all duration-300 flex items-center justify-center bg-slate-900/50 backdrop-blur-sm">
+                    <a href="#solucoes" class="w-full sm:w-auto px-8 py-4 rounded-lg font-bold text-lg text-white border-2 border-slate-600 hover:border-emerald-400 hover:text-emerald-400 hover:bg-slate-900/50 transition-all duration-300 flex items-center justify-center backdrop-blur-sm">
                         Conhecer Soluções
                     </a>
                 </div>
             </div>
         </section>
         
-        <!-- Seção de Diferenciais (Ícones) -->
-        <section class="py-16 bg-slate-900 border-b border-slate-800 relative z-20 -mt-10 rounded-t-[2.5rem] shadow-[0_-10px_40px_-15px_rgba(0,0,0,0.5)]">
+        <!-- Seção de Diferenciais - Fundo Branco (Destaque sobre o cinza do corpo) -->
+        <section class="py-16 bg-white border-b border-slate-200 relative z-20 -mt-10 rounded-t-[2.5rem] shadow-[0_-10px_40px_-15px_rgba(0,0,0,0.2)]">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-12 text-center">
-                    <div class="fade-in p-4 hover:bg-slate-800/50 rounded-xl transition-colors">
-                        <div class="bg-emerald-400/10 inline-flex p-3 rounded-xl mb-4 shadow-lg shadow-emerald-500/5">
-                            <i data-lucide="shield-check" class="w-8 h-8 brand-green"></i>
+                    <div class="fade-in p-4 hover:bg-slate-50 rounded-xl transition-colors group">
+                        <div class="bg-emerald-100 inline-flex p-3 rounded-xl mb-4 shadow-md group-hover:scale-110 transition-transform duration-300">
+                            <i data-lucide="shield-check" class="w-8 h-8 text-emerald-600"></i>
                         </div>
-                        <h3 class="text-lg font-bold text-white mb-2">Segurança Integrada</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">Soluções que se conectam para uma proteção 360º.</p>
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">Segurança Integrada</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">Soluções que se conectam para uma proteção 360º.</p>
                     </div>
-                    <div class="fade-in p-4 hover:bg-slate-800/50 rounded-xl transition-colors" style="transition-delay: 100ms;">
-                        <div class="bg-emerald-400/10 inline-flex p-3 rounded-xl mb-4 shadow-lg shadow-emerald-500/5">
-                            <i data-lucide="cpu" class="w-8 h-8 brand-green"></i>
+                    <div class="fade-in p-4 hover:bg-slate-50 rounded-xl transition-colors group" style="transition-delay: 100ms;">
+                        <div class="bg-emerald-100 inline-flex p-3 rounded-xl mb-4 shadow-md group-hover:scale-110 transition-transform duration-300">
+                            <i data-lucide="cpu" class="w-8 h-8 text-emerald-600"></i>
                         </div>
-                        <h3 class="text-lg font-bold text-white mb-2">Tecnologia IA</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">Análise inteligente de vídeo para detecção precisa.</p>
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">Tecnologia IA</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">Análise inteligente de vídeo para detecção precisa.</p>
                     </div>
-                    <div class="fade-in p-4 hover:bg-slate-800/50 rounded-xl transition-colors" style="transition-delay: 200ms;">
-                        <div class="bg-emerald-400/10 inline-flex p-3 rounded-xl mb-4 shadow-lg shadow-emerald-500/5">
-                            <i data-lucide="clock" class="w-8 h-8 brand-green"></i>
+                    <div class="fade-in p-4 hover:bg-slate-50 rounded-xl transition-colors group" style="transition-delay: 200ms;">
+                        <div class="bg-emerald-100 inline-flex p-3 rounded-xl mb-4 shadow-md group-hover:scale-110 transition-transform duration-300">
+                            <i data-lucide="clock" class="w-8 h-8 text-emerald-600"></i>
                         </div>
-                        <h3 class="text-lg font-bold text-white mb-2">Central 24h</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">Monitoramento ininterrupto com pronta resposta.</p>
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">Central 24h</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">Monitoramento ininterrupto com pronta resposta.</p>
                     </div>
-                    <div class="fade-in p-4 hover:bg-slate-800/50 rounded-xl transition-colors" style="transition-delay: 300ms;">
-                        <div class="bg-emerald-400/10 inline-flex p-3 rounded-xl mb-4 shadow-lg shadow-emerald-500/5">
-                            <i data-lucide="headset" class="w-8 h-8 brand-green"></i>
+                    <div class="fade-in p-4 hover:bg-slate-50 rounded-xl transition-colors group" style="transition-delay: 300ms;">
+                        <div class="bg-emerald-100 inline-flex p-3 rounded-xl mb-4 shadow-md group-hover:scale-110 transition-transform duration-300">
+                            <i data-lucide="headset" class="w-8 h-8 text-emerald-600"></i>
                         </div>
-                        <h3 class="text-lg font-bold text-white mb-2">Suporte Ágil</h3>
-                        <p class="text-slate-400 text-sm leading-relaxed">Atendimento técnico rápido e humanizado.</p>
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">Suporte Ágil</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">Atendimento técnico rápido e humanizado.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- NOVA SEÇÃO: NOSSOS PILARES (Alarme 365, Imagem, Capital Humano) -->
-        <section class="py-20 bg-slate-950 relative z-10">
+        <!-- NOSSOS PILARES - Fundo Cinza Claro (slate-100) -->
+        <section class="py-20 bg-slate-100 relative z-10 border-b border-slate-200">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16 fade-in">
-                    <span class="text-emerald-400 font-bold tracking-wider uppercase text-sm mb-2 block">Diferenciais Exclusivos</span>
-                    <h2 class="text-3xl md:text-4xl font-black text-white mb-6">Nossos Pilares de <span class="text-transparent bg-clip-text brand-gradient">Segurança</span></h2>
+                    <span class="text-emerald-600 font-bold tracking-wider uppercase text-sm mb-2 block">Diferenciais Exclusivos</span>
+                    <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-6">Nossos Pilares de <span class="text-transparent bg-clip-text brand-gradient">Segurança</span></h2>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     
-                    <!-- Card 1: Alarme 365 -->
-                    <div class="bg-slate-900 rounded-3xl p-8 border border-slate-800 hover:border-emerald-500/50 transition-all duration-300 fade-in group hover:bg-slate-800/50 hover:shadow-2xl hover:shadow-emerald-900/20">
-                        <div class="mb-6 bg-slate-950 p-4 rounded-2xl w-fit border border-slate-800 group-hover:border-emerald-500/30">
-                            <i data-lucide="bell-ring" class="w-10 h-10 text-emerald-400"></i>
+                    <!-- Card 1 -->
+                    <div class="bg-white rounded-3xl p-8 border border-slate-200 card-shadow hover:border-emerald-400 transition-all duration-300 fade-in group card-shadow-hover relative overflow-hidden">
+                         <div class="absolute top-0 right-0 w-24 h-24 bg-emerald-50 rounded-bl-full -mr-4 -mt-4 opacity-50 group-hover:scale-110 transition-transform"></div>
+                        <div class="mb-6 bg-slate-50 p-4 rounded-2xl w-fit border border-slate-100 group-hover:border-emerald-200 shadow-sm">
+                            <i data-lucide="eye" class="w-10 h-10 text-emerald-500"></i>
                         </div>
-                        <h3 class="text-2xl font-black text-white mb-2 group-hover:text-emerald-400 transition-colors">ALARME 365</h3>
-                        <p class="text-emerald-500 font-bold text-sm uppercase tracking-wide mb-4">Melhor em tudo, perfeito para todos</p>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-6 border-b border-slate-800 pb-4">
-                            Melhor por ter tecnologia de ponta com uso de IA e perfeito por ser prático, eficiente e acessível.
-                        </p>
-                        <p class="text-white font-semibold mb-4 text-sm">Para residências e comércios.</p>
-                        <ul class="space-y-3 text-slate-300 text-sm">
-                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0"></i> Instalação imediata sem fio e sem obras</li>
-                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0"></i> Verificação por imagem sem falsos alarmes</li>
-                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0"></i> Sistema Fala e Escuta</li>
-                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0"></i> Função SOS</li>
-                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0"></i> Garantia Vitalícia</li>
-                        </ul>
-                    </div>
-
-                    <!-- Card 2: Alarme e Imagem -->
-                    <div class="bg-slate-900 rounded-3xl p-8 border border-slate-800 hover:border-emerald-500/50 transition-all duration-300 fade-in group hover:bg-slate-800/50 hover:shadow-2xl hover:shadow-emerald-900/20" style="transition-delay: 100ms;">
-                        <div class="mb-6 bg-slate-950 p-4 rounded-2xl w-fit border border-slate-800 group-hover:border-emerald-500/30">
-                            <i data-lucide="eye" class="w-10 h-10 text-emerald-400"></i>
-                        </div>
-                        <h3 class="text-2xl font-black text-white mb-2 group-hover:text-emerald-400 transition-colors">ALARME E IMAGEM</h3>
-                        <p class="text-emerald-500 font-bold text-sm uppercase tracking-wide mb-4">Monitoramos tudo, protegemos todos</p>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-6 border-b border-slate-800 pb-4">
+                        <h3 class="text-2xl font-black text-slate-800 mb-2 group-hover:text-emerald-600 transition-colors">ALARME E IMAGEM</h3>
+                        <p class="text-emerald-600 font-bold text-sm uppercase tracking-wide mb-4">Monitoramos tudo, protegemos todos</p>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-6 border-b border-slate-100 pb-4">
                             Monitoramento remoto de alarme 24 horas que integra alta tecnologia e inteligência.
                         </p>
-                        <p class="text-white font-semibold mb-4 text-sm">Para áreas externas de grandes empresas, indústrias e condomínios.</p>
-                        <ul class="space-y-3 text-slate-300 text-sm">
-                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0"></i> Menor tempo de resposta comprovado</li>
-                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0"></i> Portal do Cliente com eventos em tempo real</li>
-                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0"></i> Plataforma própria de monitoramento inteligente</li>
-                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0"></i> Inteligência Artificial aplicada a segurança</li>
-                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0"></i> A maior e mais moderna Central de Monitoramento do país</li>
+                        <ul class="space-y-3 text-slate-600 text-sm">
+                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0"></i> Menor tempo de resposta</li>
+                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0"></i> Inteligência Artificial aplicada</li>
+                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0"></i> Central 24h Própria</li>
                         </ul>
                     </div>
 
-                    <!-- Card 3: Capital Humano -->
-                    <div class="bg-slate-900 rounded-3xl p-8 border border-slate-800 hover:border-emerald-500/50 transition-all duration-300 fade-in group hover:bg-slate-800/50 hover:shadow-2xl hover:shadow-emerald-900/20" style="transition-delay: 200ms;">
-                        <div class="mb-6 bg-slate-950 p-4 rounded-2xl w-fit border border-slate-800 group-hover:border-emerald-500/30">
-                            <i data-lucide="users" class="w-10 h-10 text-emerald-400"></i>
+                    <!-- Card 2 -->
+                    <div class="bg-white rounded-3xl p-8 border border-slate-200 card-shadow hover:border-emerald-400 transition-all duration-300 fade-in group card-shadow-hover relative overflow-hidden" style="transition-delay: 100ms;">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-blue-50 rounded-bl-full -mr-4 -mt-4 opacity-50 group-hover:scale-110 transition-transform"></div>
+                        <div class="mb-6 bg-slate-50 p-4 rounded-2xl w-fit border border-slate-100 group-hover:border-emerald-200 shadow-sm">
+                            <i data-lucide="smartphone" class="w-10 h-10 text-emerald-500"></i>
                         </div>
-                        <h3 class="text-2xl font-black text-white mb-2 group-hover:text-emerald-400 transition-colors">CAPITAL HUMANO</h3>
-                        <p class="text-emerald-500 font-bold text-sm uppercase tracking-wide mb-4">Gerimos tudo, cuidamos de todos</p>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-6 border-b border-slate-800 pb-4">
+                        <h3 class="text-2xl font-black text-slate-800 mb-2 group-hover:text-emerald-600 transition-colors">CONDOMÍNIO AUTÔNOMO</h3>
+                        <p class="text-emerald-600 font-bold text-sm uppercase tracking-wide mb-4">Gestão inteligente na palma da mão</p>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-6 border-b border-slate-100 pb-4">
+                            Controle total de acessos via aplicativo. Autonomia para moradores com a segurança de um sistema integrado.
+                        </p>
+                        <ul class="space-y-3 text-slate-600 text-sm">
+                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0"></i> App exclusivo para moradores</li>
+                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0"></i> Chaves Virtuais (QR Code)</li>
+                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0"></i> Redução de custos</li>
+                        </ul>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="bg-white rounded-3xl p-8 border border-slate-200 card-shadow hover:border-emerald-400 transition-all duration-300 fade-in group card-shadow-hover relative overflow-hidden" style="transition-delay: 200ms;">
+                         <div class="absolute top-0 right-0 w-24 h-24 bg-slate-50 rounded-bl-full -mr-4 -mt-4 opacity-50 group-hover:scale-110 transition-transform"></div>
+                        <div class="mb-6 bg-slate-50 p-4 rounded-2xl w-fit border border-slate-100 group-hover:border-emerald-200 shadow-sm">
+                            <i data-lucide="users" class="w-10 h-10 text-emerald-500"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-slate-800 mb-2 group-hover:text-emerald-600 transition-colors">CAPITAL HUMANO</h3>
+                        <p class="text-emerald-600 font-bold text-sm uppercase tracking-wide mb-4">Gerimos tudo, cuidamos de todos</p>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-6 border-b border-slate-100 pb-4">
                             Excelência na prestação de serviços especializados e segurança patrimonial, com a garantia de profissionais qualificados.
                         </p>
-                        <p class="text-white font-semibold mb-4 text-sm">Serviços Especializados.</p>
-                        <ul class="space-y-3 text-slate-300 text-sm">
-                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0"></i> Profissionais altamente capacitados</li>
-                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0"></i> Gestão de Pessoal em tempo real</li>
-                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0"></i> Reposição garantida</li>
-                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0"></i> Supervisão operacional inteligente</li>
-                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0"></i> Segurança jurídica, trabalhista e fiscal</li>
+                        <ul class="space-y-3 text-slate-600 text-sm">
+                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0"></i> Profissionais qualificados</li>
+                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0"></i> Supervisão operacional</li>
+                            <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0"></i> Segurança jurídica total</li>
                         </ul>
                     </div>
 
@@ -310,40 +314,35 @@
             </div>
         </section>
 
-        <!-- Seção Informativa: Como Funciona (Portaria Remota) -->
-        <section id="portaria-remota-info" class="py-20 sm:py-28 bg-slate-950 overflow-hidden relative border-t border-slate-900">
-             <!-- Elementos de fundo decorativos -->
-            <div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
-            <div class="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+        <!-- Seção Informativa: Como Funciona - Fundo Branco -->
+        <section id="portaria-remota-info" class="py-20 sm:py-28 bg-white overflow-hidden relative">
+             <!-- Elementos de fundo decorativos sutis -->
+            <div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-emerald-100/50 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+            <div class="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-64 h-64 bg-blue-100/50 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
 
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                
-                <!-- Cabeçalho da Seção -->
                 <div class="text-center mb-16 max-w-3xl mx-auto fade-in">
-                    <span class="text-emerald-400 font-bold tracking-wider uppercase text-sm mb-2 block">Inovação para Condomínios</span>
-                    <h2 class="text-3xl md:text-4xl font-black text-white mb-6">Entenda a <span class="text-transparent bg-clip-text brand-gradient">Portaria Remota</span></h2>
-                    <p class="text-slate-400 text-lg leading-relaxed">
-                        Mais segurança, economia de até 50% na folha do condomínio e controle total de acesso com tecnologia de ponta. Veja como o fluxo funciona na prática.
+                    <span class="text-emerald-600 font-bold tracking-wider uppercase text-sm mb-2 block">Inovação para Condomínios</span>
+                    <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-6">Entenda a <span class="text-transparent bg-clip-text brand-gradient">Portaria Remota</span></h2>
+                    <p class="text-slate-500 text-lg leading-relaxed">
+                        Mais segurança, economia de até 50% na folha do condomínio e controle total de acesso com tecnologia de ponta.
                     </p>
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     <!-- Coluna de Imagem/Gráfico -->
                     <div class="relative fade-in order-2 lg:order-1">
-                        <!-- Imagem ilustrativa de um sistema de portaria -->
-                         <div class="rounded-2xl overflow-hidden shadow-2xl border border-slate-800 relative">
-                            <img src="portaria.jpg" alt="Ilustração do funcionamento da Portaria Remota" class="w-full h-auto object-cover opacity-90">
-                            <!-- Overlay Gradiente -->
-                             <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
-                             <!-- Destaque sobre a imagem -->
-                             <div class="absolute bottom-6 left-6 right-6 bg-slate-900/80 backdrop-blur-md p-6 rounded-xl border border-slate-700">
+                         <div class="rounded-2xl overflow-hidden shadow-2xl border border-slate-200 relative">
+                            <img src="portaria.jpg" alt="Ilustração do funcionamento da Portaria Remota" class="w-full h-auto object-cover">
+                             <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent"></div>
+                             <div class="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md p-6 rounded-xl border border-white/50 shadow-lg">
                                  <div class="flex items-start mb-4">
-                                     <div class="bg-emerald-500/20 p-2 rounded-lg mr-4">
-                                         <i data-lucide="eye" class="w-6 h-6 brand-green"></i>
+                                     <div class="bg-emerald-100 p-2 rounded-lg mr-4">
+                                         <i data-lucide="eye" class="w-6 h-6 text-emerald-600"></i>
                                      </div>
                                      <div>
-                                         <h4 class="text-white font-bold text-lg">Visão Total 24h</h4>
-                                         <p class="text-slate-300 text-sm">Nossa central monitora todas as entradas e saídas com áudio e vídeo em tempo real.</p>
+                                         <h4 class="text-slate-900 font-bold text-lg">Visão Total 24h</h4>
+                                         <p class="text-slate-600 text-sm">Nossa central monitora todas as entradas e saídas com áudio e vídeo em tempo real.</p>
                                      </div>
                                  </div>
                              </div>
@@ -353,46 +352,39 @@
                     <!-- Coluna de Texto/Passos -->
                     <div class="fade-in order-1 lg:order-2 lg:pl-8" style="transition-delay: 200ms;">
                         <div class="space-y-8">
-                            <!-- Passo 1 -->
+                            <!-- Passos estilizados -->
                             <div class="flex items-start group">
                                 <div class="flex-shrink-0 relative mr-6">
-                                    <div class="w-12 h-12 flex items-center justify-center rounded-full bg-slate-800 border-2 border-slate-700 group-hover:border-emerald-500 transition-colors z-10 relative font-bold text-white">1</div>
-                                    <!-- Linha conectora -->
-                                    <div class="absolute top-12 left-1/2 -translate-x-1/2 w-0.5 h-full bg-slate-800 group-hover:bg-slate-700 transition-colors -z-0"></div>
+                                    <div class="w-12 h-12 flex items-center justify-center rounded-full bg-slate-100 border-2 border-slate-200 group-hover:border-emerald-500 group-hover:bg-emerald-50 transition-colors z-10 relative font-bold text-emerald-600">1</div>
+                                    <div class="absolute top-12 left-1/2 -translate-x-1/2 w-0.5 h-full bg-slate-200 group-hover:bg-emerald-200 transition-colors -z-0"></div>
                                 </div>
                                 <div>
-                                    <h3 class="text-xl font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors">Chegada do Visitante</h3>
-                                    <p class="text-slate-400 leading-relaxed">O visitante aciona o interfone. A chamada é direcionada instantaneamente para nossa Central de Monitoramento Blindada.</p>
+                                    <h3 class="text-xl font-bold text-slate-800 mb-3 group-hover:text-emerald-600 transition-colors">Chegada do Visitante</h3>
+                                    <p class="text-slate-500 leading-relaxed">O visitante aciona o interfone. A chamada é direcionada instantaneamente para nossa Central de Monitoramento.</p>
                                 </div>
                             </div>
-
-                            <!-- Passo 2 -->
                             <div class="flex items-start group">
                                 <div class="flex-shrink-0 relative mr-6">
-                                     <div class="w-12 h-12 flex items-center justify-center rounded-full bg-slate-800 border-2 border-slate-700 group-hover:border-emerald-500 transition-colors z-10 relative font-bold text-white">2</div>
-                                     <!-- Linha conectora -->
-                                    <div class="absolute top-12 left-1/2 -translate-x-1/2 w-0.5 h-full bg-slate-800 group-hover:bg-slate-700 transition-colors -z-0"></div>
+                                     <div class="w-12 h-12 flex items-center justify-center rounded-full bg-slate-100 border-2 border-slate-200 group-hover:border-emerald-500 group-hover:bg-emerald-50 transition-colors z-10 relative font-bold text-emerald-600">2</div>
+                                    <div class="absolute top-12 left-1/2 -translate-x-1/2 w-0.5 h-full bg-slate-200 group-hover:bg-emerald-200 transition-colors -z-0"></div>
                                 </div>
                                 <div>
-                                    <h3 class="text-xl font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors">Triagem e Identificação</h3>
-                                    <p class="text-slate-400 leading-relaxed">Um operador qualificado atende, visualiza o visitante pelas câmeras, solicita identificação e contata o morador para autorização.</p>
+                                    <h3 class="text-xl font-bold text-slate-800 mb-3 group-hover:text-emerald-600 transition-colors">Triagem e Identificação</h3>
+                                    <p class="text-slate-500 leading-relaxed">O operador visualiza o visitante, solicita identificação e contata o morador para autorização.</p>
                                 </div>
                             </div>
-
-                             <!-- Passo 3 -->
                             <div class="flex items-start group">
                                 <div class="flex-shrink-0 relative mr-6">
-                                    <div class="w-12 h-12 flex items-center justify-center rounded-full bg-slate-800 border-2 border-slate-700 group-hover:border-emerald-500 transition-colors z-10 relative font-bold text-white">3</div>
+                                    <div class="w-12 h-12 flex items-center justify-center rounded-full bg-slate-100 border-2 border-slate-200 group-hover:border-emerald-500 group-hover:bg-emerald-50 transition-colors z-10 relative font-bold text-emerald-600">3</div>
                                 </div>
                                 <div>
-                                    <h3 class="text-xl font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors">Acesso Liberado</h3>
-                                    <p class="text-slate-400 leading-relaxed">Após autorização do morador, a central libera o acesso remotamente. Todo o processo é gravado e registrado em sistema.</p>
+                                    <h3 class="text-xl font-bold text-slate-800 mb-3 group-hover:text-emerald-600 transition-colors">Acesso Liberado</h3>
+                                    <p class="text-slate-500 leading-relaxed">Após autorização, a central libera o acesso remotamente. Tudo fica registrado no sistema.</p>
                                 </div>
                             </div>
                         </div>
-                        
                         <div class="mt-12">
-                            <a href="#contato" class="inline-flex items-center text-emerald-400 font-bold hover:text-emerald-300 transition-colors group">
+                            <a href="#contato" class="inline-flex items-center text-emerald-600 font-bold hover:text-emerald-500 transition-colors group">
                                 Solicitar estudo para meu condomínio
                                 <i data-lucide="arrow-right" class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform"></i>
                             </a>
@@ -402,141 +394,135 @@
             </div>
         </section>
 
-        <!-- Seção de Soluções (Grid de Cards) -->
-        <section id="solucoes" class="py-20 sm:py-28 bg-slate-900 relative z-10 shadow-[0_-10px_30px_-15px_rgba(0,0,0,0.8)]">
+        <!-- Seção de Soluções - Fundo Cinza Claro (slate-100) -->
+        <section id="solucoes" class="py-20 sm:py-28 bg-slate-100 relative z-10 border-t border-slate-200">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16 fade-in">
-                    <span class="text-emerald-400 font-bold tracking-wider uppercase text-sm mb-2 block">Nosso Portfólio</span>
-                    <h2 class="text-3xl md:text-4xl font-black text-white mb-6">Soluções que se adaptam ao seu <span class="text-transparent bg-clip-text brand-gradient">Perfil</span></h2>
-                    <p class="text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+                    <span class="text-emerald-600 font-bold tracking-wider uppercase text-sm mb-2 block">Nosso Portfólio</span>
+                    <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-6">Soluções que se adaptam ao seu <span class="text-transparent bg-clip-text brand-gradient">Perfil</span></h2>
+                    <p class="text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
                         Tecnologia avançada dividida em pilares estratégicos para atender exatamente o que sua casa, empresa ou condomínio precisa.
                     </p>
                 </div>
 
-                <!-- Filtros/Pilares (Visual apenas por enquanto) -->
+                <!-- Filtros -->
                 <div class="flex flex-wrap justify-center gap-4 mb-12 fade-in" style="transition-delay: 100ms;">
-                    <span class="px-4 py-2 rounded-full bg-slate-800 text-slate-300 text-sm font-medium border border-slate-700 flex items-center"><i data-lucide="building-2" class="w-4 h-4 mr-2 brand-green"></i> Condomínios</span>
-                    <span class="px-4 py-2 rounded-full bg-slate-800 text-slate-300 text-sm font-medium border border-slate-700 flex items-center"><i data-lucide="briefcase" class="w-4 h-4 mr-2 brand-green"></i> Empresas</span>
-                     <span class="px-4 py-2 rounded-full bg-slate-800 text-slate-300 text-sm font-medium border border-slate-700 flex items-center"><i data-lucide="home" class="w-4 h-4 mr-2 brand-green"></i> Casas</span>
+                    <span class="px-4 py-2 rounded-full bg-white text-slate-600 text-sm font-medium border border-slate-200 shadow-sm flex items-center"><i data-lucide="building-2" class="w-4 h-4 mr-2 text-emerald-500"></i> Condomínios</span>
+                    <span class="px-4 py-2 rounded-full bg-white text-slate-600 text-sm font-medium border border-slate-200 shadow-sm flex items-center"><i data-lucide="briefcase" class="w-4 h-4 mr-2 text-emerald-500"></i> Empresas</span>
+                     <span class="px-4 py-2 rounded-full bg-white text-slate-600 text-sm font-medium border border-slate-200 shadow-sm flex items-center"><i data-lucide="home" class="w-4 h-4 mr-2 text-emerald-500"></i> Residencias</span>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Card 1: Portaria Remota -->
-                    <div class="card-bg rounded-2xl overflow-hidden fade-in group hover:shadow-2xl hover:shadow-emerald-500/10 transition-all duration-300 border border-slate-800 hover:border-emerald-500/30 flex flex-col">
+                    <!-- Card 1 -->
+                    <div class="bg-white rounded-2xl overflow-hidden fade-in group card-shadow hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-emerald-300 flex flex-col">
                         <div class="h-56 overflow-hidden relative">
-                            <!-- Link na Imagem -->
                             <a href="solucoes.html#portaria" class="block w-full h-full cursor-pointer hover:opacity-90 transition-opacity">
                                 <img src="imgs-solucoes/portaria virtual.jpg" alt="Portaria Virtual" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80"></div>
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-80"></div>
                                 <div class="absolute bottom-4 left-4 bg-emerald-500 text-xs font-bold px-3 py-1 rounded-full text-white uppercase tracking-wider">Condomínios</div>
                             </a>
                         </div>
                         <div class="p-8 flex flex-col flex-grow relative">
-                             <h3 class="text-xl font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors">Portaria Remota 24h</h3>
-                            <p class="text-slate-400 mb-6 leading-relaxed flex-grow">Reduza custos e aumente a segurança do seu condomínio com controle de acesso monitorado remotamente por especialistas.</p>
-                            <a href="#contato" class="inline-flex items-center text-emerald-400 font-semibold hover:text-emerald-300 transition-colors mt-auto">
+                             <h3 class="text-xl font-bold text-slate-800 mb-3 group-hover:text-emerald-600 transition-colors">Portaria Remota 24h</h3>
+                            <p class="text-slate-500 mb-6 leading-relaxed flex-grow">Reduza custos e aumente a segurança do seu condomínio com controle de acesso monitorado remotamente.</p>
+                            <a href="#contato" class="inline-flex items-center text-emerald-600 font-semibold hover:text-emerald-500 transition-colors mt-auto">
                                 Solicitar Orçamento <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
                             </a>
                         </div>
                     </div>
 
-                    <!-- Card 2: Monitoramento de Alarmes -->
-                     <div class="card-bg rounded-2xl overflow-hidden fade-in group hover:shadow-2xl hover:shadow-emerald-500/10 transition-all duration-300 border border-slate-800 hover:border-emerald-500/30 flex flex-col" style="transition-delay: 100ms;">
+                    <!-- Card 2 -->
+                     <div class="bg-white rounded-2xl overflow-hidden fade-in group card-shadow hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-emerald-300 flex flex-col" style="transition-delay: 100ms;">
                         <div class="h-56 overflow-hidden relative">
-                            <!-- Link na Imagem -->
                             <a href="solucoes.html#alarmes" class="block w-full h-full cursor-pointer hover:opacity-90 transition-opacity">
                                 <img src="imgs-solucoes/alarmes.jpg" alt="Sistemas de Alarme" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80"></div>
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-80"></div>
                                 <div class="absolute top-4 right-4 flex gap-2">
-                                    <span class="bg-slate-700/80 backdrop-blur-sm text-xs font-bold px-3 py-1 rounded-full text-white">Empresas</span>
-                                    <span class="bg-slate-700/80 backdrop-blur-sm text-xs font-bold px-3 py-1 rounded-full text-white">Casas</span>
+                                    <span class="bg-white/80 backdrop-blur-sm text-xs font-bold px-3 py-1 rounded-full text-slate-800">Empresas</span>
+                                    <span class="bg-white/80 backdrop-blur-sm text-xs font-bold px-3 py-1 rounded-full text-slate-800">Residencias</span>
                                 </div>
                             </a>
                         </div>
                         <div class="p-8 flex flex-col flex-grow relative">
-                            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors">Alarmes Monitorados</h3>
-                            <p class="text-slate-400 mb-6 leading-relaxed flex-grow">Proteção contra intrusões com sensores de alta tecnologia conectados à nossa central de operações 24/7.</p>
-                            <a href="#contato" class="inline-flex items-center text-emerald-400 font-semibold hover:text-emerald-300 transition-colors mt-auto">
+                            <h3 class="text-xl font-bold text-slate-800 mb-3 group-hover:text-emerald-600 transition-colors">Alarmes Monitorados</h3>
+                            <p class="text-slate-500 mb-6 leading-relaxed flex-grow">Proteção contra intrusões com sensores de alta tecnologia conectados à nossa central de operações 24/7.</p>
+                            <a href="#contato" class="inline-flex items-center text-emerald-600 font-semibold hover:text-emerald-500 transition-colors mt-auto">
                                 Solicitar Orçamento <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
                             </a>
                         </div>
                     </div>
 
-                    <!-- Card 3: CFTV Inteligente -->
-                    <div class="card-bg rounded-2xl overflow-hidden fade-in group hover:shadow-2xl hover:shadow-emerald-500/10 transition-all duration-300 border border-slate-800 hover:border-emerald-500/30 flex flex-col" style="transition-delay: 200ms;">
+                    <!-- Card 3 -->
+                    <div class="bg-white rounded-2xl overflow-hidden fade-in group card-shadow hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-emerald-300 flex flex-col" style="transition-delay: 200ms;">
                         <div class="h-56 overflow-hidden relative">
-                            <!-- Link na Imagem -->
                             <a href="solucoes.html#cftv" class="block w-full h-full cursor-pointer hover:opacity-90 transition-opacity">
                                 <img src="imgs-solucoes/cameras.jpg" alt="Câmeras de Segurança" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80"></div>
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-80"></div>
                                 <div class="absolute top-4 right-4 flex gap-2">
-                                    <span class="bg-slate-700/80 backdrop-blur-sm text-xs font-bold px-3 py-1 rounded-full text-white">Todos os Perfis</span>
+                                    <span class="bg-white/80 backdrop-blur-sm text-xs font-bold px-3 py-1 rounded-full text-slate-800">Todos os Perfis</span>
                                 </div>
                             </a>
                         </div>
                         <div class="p-8 flex flex-col flex-grow relative">
-                            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors">CFTV Inteligente</h3>
-                            <p class="text-slate-400 mb-6 leading-relaxed flex-grow">Câmeras de alta definição com acesso via aplicativo e análise de vídeo (IA) para detecção proativa de ameaças.</p>
-                            <a href="#contato" class="inline-flex items-center text-emerald-400 font-semibold hover:text-emerald-300 transition-colors mt-auto">
+                            <h3 class="text-xl font-bold text-slate-800 mb-3 group-hover:text-emerald-600 transition-colors">CFTV Inteligente</h3>
+                            <p class="text-slate-500 mb-6 leading-relaxed flex-grow">Câmeras de alta definição com acesso via aplicativo e análise de vídeo (IA) para detecção proativa de ameaças.</p>
+                            <a href="#contato" class="inline-flex items-center text-emerald-600 font-semibold hover:text-emerald-500 transition-colors mt-auto">
                                 Solicitar Orçamento <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
                             </a>
                         </div>
                     </div>
 
-                    <!-- Card 4: Controle de Acesso -->
-                     <div class="card-bg rounded-2xl overflow-hidden fade-in group hover:shadow-2xl hover:shadow-emerald-500/10 transition-all duration-300 border border-slate-800 hover:border-emerald-500/30 flex flex-col" style="transition-delay: 300ms;">
+                    <!-- Card 4 -->
+                     <div class="bg-white rounded-2xl overflow-hidden fade-in group card-shadow hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-emerald-300 flex flex-col" style="transition-delay: 300ms;">
                         <div class="h-56 overflow-hidden relative">
-                            <!-- Link na Imagem -->
                             <a href="solucoes.html#condominios" class="block w-full h-full cursor-pointer hover:opacity-90 transition-opacity">
                                 <img src="imgs-solucoes/acesso.png" alt="Controle de Acesso" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80"></div>
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-80"></div>
                                 <div class="absolute bottom-4 left-4 bg-emerald-500 text-xs font-bold px-3 py-1 rounded-full text-white uppercase tracking-wider">Condomínios & Empresas</div>
                             </a>
                         </div>
                         <div class="p-8 flex flex-col flex-grow relative">
-                            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors">Controle de Acesso</h3>
-                            <p class="text-slate-400 mb-6 leading-relaxed flex-grow">Gestão moderna de fluxo de pessoas e veículos via biometria, tags, reconhecimento facial ou QR Code.</p>
-                             <a href="#contato" class="inline-flex items-center text-emerald-400 font-semibold hover:text-emerald-300 transition-colors mt-auto">
+                            <h3 class="text-xl font-bold text-slate-800 mb-3 group-hover:text-emerald-600 transition-colors">Controle de Acesso</h3>
+                            <p class="text-slate-500 mb-6 leading-relaxed flex-grow">Gestão moderna de fluxo de pessoas e veículos via biometria, tags, reconhecimento facial ou QR Code.</p>
+                             <a href="#contato" class="inline-flex items-center text-emerald-600 font-semibold hover:text-emerald-500 transition-colors mt-auto">
                                 Solicitar Orçamento <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
                             </a>
                         </div>
                     </div>
 
-                    <!-- Card 5: Segurança Patrimonial -->
-                    <div class="card-bg rounded-2xl overflow-hidden fade-in group hover:shadow-2xl hover:shadow-emerald-500/10 transition-all duration-300 border border-slate-800 hover:border-emerald-500/30 flex flex-col" style="transition-delay: 400ms;">
+                    <!-- Card 5 -->
+                    <div class="bg-white rounded-2xl overflow-hidden fade-in group card-shadow hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-emerald-300 flex flex-col" style="transition-delay: 400ms;">
                         <div class="h-56 overflow-hidden relative">
-                            <!-- Link na Imagem -->
                             <a href="solucoes.html#monitoramento" class="block w-full h-full cursor-pointer hover:opacity-90 transition-opacity">
                                 <img src="imgs-solucoes/monitoramento.jpg" alt="Segurança Patrimonial" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80"></div>
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-80"></div>
                                 <div class="absolute bottom-4 left-4 bg-emerald-500 text-xs font-bold px-3 py-1 rounded-full text-white uppercase tracking-wider">Empresas & Indústrias</div>
                             </a>
                         </div>
                         <div class="p-8 flex flex-col flex-grow relative">
-                            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors">Segurança Patrimonial</h3>
-                            <p class="text-slate-400 mb-6 leading-relaxed flex-grow">Soluções robustas para proteção de grandes perímetros, indústrias e comércios, integrando tecnologia e tática.</p>
-                             <a href="#contato" class="inline-flex items-center text-emerald-400 font-semibold hover:text-emerald-300 transition-colors mt-auto">
+                            <h3 class="text-xl font-bold text-slate-800 mb-3 group-hover:text-emerald-600 transition-colors">Segurança Patrimonial</h3>
+                            <p class="text-slate-500 mb-6 leading-relaxed flex-grow">Soluções robustas para proteção de grandes perímetros, indústrias e comércios, integrando tecnologia e tática.</p>
+                             <a href="#contato" class="inline-flex items-center text-emerald-600 font-semibold hover:text-emerald-500 transition-colors mt-auto">
                                 Solicitar Orçamento <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
                             </a>
                         </div>
                     </div>
 
-                     <!-- Card 6: Projetos Personalizados -->
-                    <div class="card-bg rounded-2xl overflow-hidden fade-in group hover:shadow-2xl hover:shadow-emerald-500/10 transition-all duration-300 border border-slate-800 hover:border-emerald-500/30 flex flex-col" style="transition-delay: 500ms;">
+                     <!-- Card 6 -->
+                    <div class="bg-white rounded-2xl overflow-hidden fade-in group card-shadow hover:shadow-2xl transition-all duration-300 border border-slate-200 hover:border-emerald-300 flex flex-col" style="transition-delay: 500ms;">
                         <div class="h-56 overflow-hidden relative">
-                            <!-- Link na Imagem -->
                             <a href="solucoes.html#consultoria" class="block w-full h-full cursor-pointer hover:opacity-90 transition-opacity">
                                 <img src="imgs-solucoes/personalizado.jpg" alt="Projetos Personalizados" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80"></div>
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-80"></div>
                                 <div class="absolute top-4 right-4 flex gap-2">
-                                    <span class="bg-slate-700/80 backdrop-blur-sm text-xs font-bold px-3 py-1 rounded-full text-white">Consultoria</span>
+                                    <span class="bg-white/80 backdrop-blur-sm text-xs font-bold px-3 py-1 rounded-full text-slate-800">Consultoria</span>
                                 </div>
                             </a>
                         </div>
                         <div class="p-8 flex flex-col flex-grow relative">
-                             <h3 class="text-xl font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors">Projetos Sob Medida</h3>
-                            <p class="text-slate-400 mb-6 leading-relaxed flex-grow">Análise de risco detalhada e desenvolvimento de um plano de segurança exclusivo para sua necessidade específica.</p>
-                             <a href="#contato" class="inline-flex items-center text-emerald-400 font-semibold hover:text-emerald-300 transition-colors mt-auto">
+                             <h3 class="text-xl font-bold text-slate-800 mb-3 group-hover:text-emerald-600 transition-colors">Projetos Sob Medida</h3>
+                            <p class="text-slate-500 mb-6 leading-relaxed flex-grow">Análise de risco detalhada e desenvolvimento de um plano de segurança exclusivo para sua necessidade específica.</p>
+                             <a href="#contato" class="inline-flex items-center text-emerald-600 font-semibold hover:text-emerald-500 transition-colors mt-auto">
                                 Solicitar Consultoria <i data-lucide="chevron-right" class="w-4 h-4 ml-1"></i>
                             </a>
                         </div>
@@ -545,43 +531,42 @@
             </div>
         </section>
         
-        <!-- Seção Sobre Nós (Com Nova Imagem Gerada por IA) -->
-        <section id="sobre" class="py-20 sm:py-28 bg-slate-950 relative overflow-hidden">
-             <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 pointer-events-none"></div>
+        <!-- Seção Sobre Nós - Fundo Branco -->
+        <section id="sobre" class="py-20 sm:py-28 bg-white relative overflow-hidden border-t border-slate-200">
+             <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 pointer-events-none"></div>
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     <div class="fade-in relative group">
-                        <div class="absolute -inset-4 bg-gradient-to-r from-emerald-500 to-blue-600 rounded-3xl opacity-20 group-hover:opacity-40 transition duration-500 blur-2xl"></div>
-                        <!-- NOVA IMAGEM GERADA POR IA AQUI -->
-                        <img src="monitorando.jpg" alt="Central de Monitoramento de Alta Tecnologia da Segurança Jaraguá" class="rounded-2xl shadow-2xl w-full relative z-10 border-2 border-slate-800/50 object-cover h-[500px]">
-                         <div class="absolute bottom-8 left-8 right-8 bg-slate-900/90 backdrop-blur-md p-6 rounded-xl border border-slate-700 z-20">
-                             <p class="text-emerald-400 font-bold text-lg">Tecnologia de Ponta</p>
-                             <p class="text-slate-300 text-sm">Nossa central de operações funciona 24/7 com os sistemas mais avançados do mercado.</p>
+                        <div class="absolute -inset-4 bg-gradient-to-r from-emerald-500 to-blue-600 rounded-3xl opacity-10 group-hover:opacity-20 transition duration-500 blur-2xl"></div>
+                        <img src="monitorando.jpg" alt="Central de Monitoramento" class="rounded-2xl shadow-2xl w-full relative z-10 border border-slate-200 object-cover h-[500px]">
+                         <div class="absolute bottom-8 left-8 right-8 bg-white/90 backdrop-blur-md p-6 rounded-xl border border-slate-100 shadow-xl z-20">
+                             <p class="text-emerald-600 font-bold text-lg">Tecnologia de Ponta</p>
+                             <p class="text-slate-600 text-sm">Nossa central de operações funciona 24/7 com os sistemas mais avançados do mercado.</p>
                           </div>
                     </div>
                     <div class="fade-in lg:pl-12" style="transition-delay: 200ms;">
-                        <span class="text-emerald-400 font-bold tracking-wider uppercase text-sm mb-4 block">Nossa História & Missão</span>
-                        <h2 class="text-3xl md:text-4xl font-black text-white mb-8 leading-tight">Mais de duas décadas <span class="text-transparent bg-clip-text brand-gradient">protegendo</span> o que realmente importa.</h2>
-                        <p class="text-slate-300 mb-6 text-lg leading-relaxed">
+                        <span class="text-emerald-600 font-bold tracking-wider uppercase text-sm mb-4 block">Nossa História & Missão</span>
+                        <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-8 leading-tight">Mais de duas décadas <span class="text-transparent bg-clip-text brand-gradient">protegendo</span> o que realmente importa.</h2>
+                        <p class="text-slate-700 mb-6 text-lg leading-relaxed">
                             Fundada em 2004, a Segurança Jaraguá consolidou-se como referência em Jaraguá do Sul e região. Não vendemos apenas equipamentos; entregamos a tranquilidade que você precisa para focar no seu negócio e na sua família.
                         </p>
-                        <p class="text-slate-400 mb-10 leading-relaxed">
-                            Combinamos expertise humana com as tecnologias mais inovadoras do setor para oferecer soluções de segurança proativas, eficientes e personalizadas para cada perfil de cliente.
+                        <p class="text-slate-500 mb-10 leading-relaxed">
+                            Combinamos expertise humana com as tecnologias mais inovadoras do setor para oferecer soluções de segurança proativas, eficientes e personalizadas.
                         </p>
 
                         <!-- Estatísticas -->
-                        <div class="grid grid-cols-3 gap-8 pt-8 border-t border-slate-800">
+                        <div class="grid grid-cols-3 gap-8 pt-8 border-t border-slate-200">
                             <div>
-                                <span class="block text-4xl lg:text-5xl font-black text-white mb-2 brand-gradient text-transparent bg-clip-text">20+</span>
-                                <p class="text-slate-500 font-medium uppercase text-sm tracking-wider">Anos de<br>Experiência</p>
+                                <span class="block text-4xl lg:text-5xl font-black text-slate-800 mb-2 brand-gradient text-transparent bg-clip-text">20+</span>
+                                <p class="text-slate-400 font-medium uppercase text-sm tracking-wider">Anos de<br>Experiência</p>
                             </div>
                             <div>
-                                <span class="block text-4xl lg:text-5xl font-black text-white mb-2 brand-gradient text-transparent bg-clip-text">1.5k+</span>
-                                <p class="text-slate-500 font-medium uppercase text-sm tracking-wider">Clientes<br>Atendidos</p>
+                                <span class="block text-4xl lg:text-5xl font-black text-slate-800 mb-2 brand-gradient text-transparent bg-clip-text">1.5k+</span>
+                                <p class="text-slate-400 font-medium uppercase text-sm tracking-wider">Clientes<br>Atendidos</p>
                             </div>
                             <div>
-                                <span class="block text-4xl lg:text-5xl font-black text-white mb-2 brand-gradient text-transparent bg-clip-text">24h</span>
-                                <p class="text-slate-500 font-medium uppercase text-sm tracking-wider">Monitoramento<br>Contínuo</p>
+                                <span class="block text-4xl lg:text-5xl font-black text-slate-800 mb-2 brand-gradient text-transparent bg-clip-text">24h</span>
+                                <p class="text-slate-400 font-medium uppercase text-sm tracking-wider">Monitoramento<br>Contínuo</p>
                             </div>
                         </div>
                     </div>
@@ -589,67 +574,65 @@
             </div>
         </section>
 
-        <!-- Seção de Blog (Nova) -->
-        <section id="blog" class="py-20 sm:py-28 bg-slate-900 relative z-10 shadow-[0_-10px_30px_-15px_rgba(0,0,0,0.8)]">
+        <!-- Seção de Blog - Fundo Cinza Claro (slate-100) -->
+        <section id="blog" class="py-20 sm:py-28 bg-slate-100 relative z-10 border-t border-slate-200">
              <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16 fade-in">
-                    <span class="text-emerald-400 font-bold tracking-wider uppercase text-sm mb-2 block">Conteúdo Educativo</span>
-                    <h2 class="text-3xl md:text-4xl font-black text-white mb-6">Blog de <span class="text-transparent bg-clip-text brand-gradient">Segurança</span></h2>
-                    <p class="text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+                    <span class="text-emerald-600 font-bold tracking-wider uppercase text-sm mb-2 block">Conteúdo Educativo</span>
+                    <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-6">Blog de <span class="text-transparent bg-clip-text brand-gradient">Segurança</span></h2>
+                    <p class="text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
                         Artigos, dicas e novidades sobre o mercado de segurança eletrônica para manter você sempre informado.
                     </p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 fade-in" style="transition-delay: 200ms;">
-                    <!-- Artigo 1 -->
-                    <article class="card-bg rounded-2xl overflow-hidden border border-slate-800 hover:border-emerald-500/50 transition-all group flex flex-col">
+                    <!-- Artigos (estilização mantida) -->
+                    <article class="bg-white rounded-2xl overflow-hidden border border-slate-200 card-shadow hover:shadow-xl transition-all group flex flex-col">
                         <a href="blog-post-1.html" class="block h-48 overflow-hidden relative">
                             <img src="https://images.unsplash.com/photo-1582139329536-e7284fece509?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Imagem do Artigo 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <div class="absolute top-4 left-4 bg-slate-900/80 backdrop-blur-sm text-emerald-400 text-xs font-bold px-3 py-1 rounded-full uppercase">Condomínios</div>
+                            <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-emerald-600 text-xs font-bold px-3 py-1 rounded-full uppercase">Condomínios</div>
                         </a>
                         <div class="p-6 flex flex-col flex-grow">
-                            <span class="text-slate-500 text-sm mb-3 block">12 de Março, 2025</span>
-                            <h3 class="text-xl font-bold text-white mb-3 leading-tight group-hover:text-emerald-400 transition-colors">
+                            <span class="text-slate-400 text-sm mb-3 block">12 de Março, 2025</span>
+                            <h3 class="text-xl font-bold text-slate-800 mb-3 leading-tight group-hover:text-emerald-600 transition-colors">
                                 <a href="blog-post-1.html">5 Vantagens da Portaria Remota que você precisa conhecer</a>
                             </h3>
-                            <p class="text-slate-400 mb-6 text-sm leading-relaxed flex-grow">Descubra como essa tecnologia pode aumentar a segurança e reduzir custos drasticamente no seu condomínio.</p>
-                             <a href="blog-post-1.html" class="inline-flex items-center text-emerald-400 font-semibold text-sm hover:text-emerald-300 transition-colors mt-auto">
+                            <p class="text-slate-500 mb-6 text-sm leading-relaxed flex-grow">Descubra como essa tecnologia pode aumentar a segurança e reduzir custos drasticamente no seu condomínio.</p>
+                             <a href="blog-post-1.html" class="inline-flex items-center text-emerald-600 font-semibold text-sm hover:text-emerald-500 transition-colors mt-auto">
                                 Ler Artigo Completo <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
                             </a>
                         </div>
                     </article>
 
-                    <!-- Artigo 2 -->
-                    <article class="card-bg rounded-2xl overflow-hidden border border-slate-800 hover:border-emerald-500/50 transition-all group flex flex-col">
+                    <article class="bg-white rounded-2xl overflow-hidden border border-slate-200 card-shadow hover:shadow-xl transition-all group flex flex-col">
                         <a href="blog-post-2.html" class="block h-48 overflow-hidden relative">
                             <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Imagem do Artigo 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                             <div class="absolute top-4 left-4 bg-slate-900/80 backdrop-blur-sm text-emerald-400 text-xs font-bold px-3 py-1 rounded-full uppercase">Empresas</div>
+                             <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-emerald-600 text-xs font-bold px-3 py-1 rounded-full uppercase">Empresas</div>
                         </a>
                         <div class="p-6 flex flex-col flex-grow">
-                            <span class="text-slate-500 text-sm mb-3 block">05 de Março, 2025</span>
-                            <h3 class="text-xl font-bold text-white mb-3 leading-tight group-hover:text-emerald-400 transition-colors">
+                            <span class="text-slate-400 text-sm mb-3 block">05 de Março, 2025</span>
+                            <h3 class="text-xl font-bold text-slate-800 mb-3 leading-tight group-hover:text-emerald-600 transition-colors">
                                 <a href="blog-post-2.html">CFTV Inteligente: Como a IA está revolucionando a segurança corporativa</a>
                             </h3>
-                            <p class="text-slate-400 mb-6 text-sm leading-relaxed flex-grow">Entenda como a análise de vídeo baseada em inteligência artificial previne incidentes antes que eles ocorram.</p>
-                             <a href="blog-post-2.html" class="inline-flex items-center text-emerald-400 font-semibold text-sm hover:text-emerald-300 transition-colors mt-auto">
+                            <p class="text-slate-500 mb-6 text-sm leading-relaxed flex-grow">Entenda como a análise de vídeo baseada em inteligência artificial previne incidentes antes que eles ocorram.</p>
+                             <a href="blog-post-2.html" class="inline-flex items-center text-emerald-600 font-semibold text-sm hover:text-emerald-500 transition-colors mt-auto">
                                 Ler Artigo Completo <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
                             </a>
                         </div>
                     </article>
 
-                     <!-- Artigo 3 -->
-                    <article class="card-bg rounded-2xl overflow-hidden border border-slate-800 hover:border-emerald-500/50 transition-all group flex flex-col">
+                    <article class="bg-white rounded-2xl overflow-hidden border border-slate-200 card-shadow hover:shadow-xl transition-all group flex flex-col">
                         <a href="blog-post-3.html" class="block h-48 overflow-hidden relative">
                             <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1973&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Imagem do Artigo 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                             <div class="absolute top-4 left-4 bg-slate-900/80 backdrop-blur-sm text-emerald-400 text-xs font-bold px-3 py-1 rounded-full uppercase">Residencial</div>
+                             <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-emerald-600 text-xs font-bold px-3 py-1 rounded-full uppercase">Residencial</div>
                         </a>
                         <div class="p-6 flex flex-col flex-grow">
-                            <span class="text-slate-500 text-sm mb-3 block">28 de Fevereiro, 2025</span>
-                            <h3 class="text-xl font-bold text-white mb-3 leading-tight group-hover:text-emerald-400 transition-colors">
+                            <span class="text-slate-400 text-sm mb-3 block">28 de Fevereiro, 2025</span>
+                            <h3 class="text-xl font-bold text-slate-800 mb-3 leading-tight group-hover:text-emerald-600 transition-colors">
                                 <a href="blog-post-3.html">Dicas essenciais para proteger sua casa durante as férias</a>
                             </h3>
-                            <p class="text-slate-400 mb-6 text-sm leading-relaxed flex-grow">Vai viajar? Confira um checklist prático de medidas de segurança para deixar sua residência protegida na sua ausência.</p>
-                             <a href="blog-post-3.html" class="inline-flex items-center text-emerald-400 font-semibold text-sm hover:text-emerald-300 transition-colors mt-auto">
+                            <p class="text-slate-500 mb-6 text-sm leading-relaxed flex-grow">Vai viajar? Confira um checklist prático de medidas de segurança para deixar sua residência protegida na sua ausência.</p>
+                             <a href="blog-post-3.html" class="inline-flex items-center text-emerald-600 font-semibold text-sm hover:text-emerald-500 transition-colors mt-auto">
                                 Ler Artigo Completo <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
                             </a>
                         </div>
@@ -658,22 +641,21 @@
             </div>
         </section>
         
-        <!-- Seção CTA -->
-        <section class="py-20 sm:py-24 bg-slate-950 relative overflow-hidden">
-             <!-- Elemento de fundo -->
-             <div class="absolute inset-0 bg-brand-gradient opacity-10 blur-3xl pointer-events-none scale-150"></div>
+        <!-- Seção CTA (Mantida clara com gradiente) -->
+        <section class="py-20 sm:py-24 bg-white relative overflow-hidden border-t border-slate-200">
+             <div class="absolute inset-0 bg-brand-gradient opacity-5 blur-3xl pointer-events-none scale-150"></div>
              
              <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-10 md:p-20 text-center shadow-2xl border border-slate-700/50 fade-in relative overflow-hidden">
-                     <div class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-emerald-500/20 rounded-full blur-2xl"></div>
+                <div class="bg-gradient-to-br from-emerald-600 to-teal-700 rounded-3xl p-10 md:p-20 text-center shadow-2xl border border-emerald-500/50 fade-in relative overflow-hidden">
+                     <div class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
                      <div class="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-blue-500/20 rounded-full blur-2xl"></div>
 
                     <h2 class="text-3xl md:text-5xl font-black text-white mb-6 leading-tight">Pronto para elevar o nível da sua segurança?</h2>
-                    <p class="text-slate-300 text-lg md:text-xl max-w-3xl mx-auto mb-10 leading-relaxed">
-                        Nossos especialistas estão prontos para analisar suas necessidades e desenhar a solução perfeita, sem compromisso. Proteja o que você conquistou.
+                    <p class="text-emerald-50 text-lg md:text-xl max-w-3xl mx-auto mb-10 leading-relaxed">
+                        Nossos especialistas estão prontos para analisar suas necessidades e desenhar a solução perfeita, sem compromisso.
                     </p>
                     <a href="#contato" 
-                       class="inline-flex items-center bg-brand text-white px-8 py-4 text-lg rounded-xl font-bold hover:bg-emerald-600 transition-all duration-300 transform hover:scale-105 shadow-xl shadow-emerald-500/20 group">
+                       class="inline-flex items-center bg-white text-emerald-700 px-8 py-4 text-lg rounded-xl font-bold hover:bg-emerald-50 transition-all duration-300 transform hover:scale-105 shadow-xl shadow-black/10 group">
                         Fale com um Especialista Agora
                         <i data-lucide="arrow-right" class="w-6 h-6 ml-2 group-hover:translate-x-1 transition-transform"></i>
                     </a>
@@ -681,76 +663,77 @@
              </div>
         </section>
 
-        <!-- Seção Contato -->
-        <section id="contato" class="py-20 sm:py-28 bg-slate-900 relative z-10 shadow-[0_-10px_30px_-15px_rgba(0,0,0,0.8)]">
+        <!-- Seção Contato - Fundo Cinza Claro (slate-100) -->
+        <section id="contato" class="py-20 sm:py-28 bg-slate-100 relative z-10 border-t border-slate-200">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                  <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
                     <!-- Informações de Contato -->
                     <div class="fade-in lg:pr-12">
-                        <span class="text-emerald-400 font-bold tracking-wider uppercase text-sm mb-4 block">Fale Conosco</span>
-                        <h2 class="text-3xl md:text-4xl font-black text-white mb-8 leading-tight">Vamos conversar sobre o seu <span class="text-transparent bg-clip-text brand-gradient">projeto</span>?</h2>
-                        <p class="text-slate-300 mb-12 text-lg leading-relaxed">
+                        <span class="text-emerald-600 font-bold tracking-wider uppercase text-sm mb-4 block">Fale Conosco</span>
+                        <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-8 leading-tight">Vamos conversar sobre o seu <span class="text-transparent bg-clip-text brand-gradient">projeto</span>?</h2>
+                        <p class="text-slate-600 mb-12 text-lg leading-relaxed">
                             Entre em contato pelos nossos canais oficiais, visite nosso escritório ou preencha o formulário. Estamos prontos para lhe atender.
                         </p>
 
                         <div class="space-y-8">
                             <div class="flex items-start space-x-6 group">
-                                <div class="bg-slate-800 p-4 rounded-xl shadow-lg border border-slate-700 group-hover:border-emerald-500 transition-colors shrink-0">
-                                    <i data-lucide="map-pin" class="w-7 h-7 brand-green"></i>
+                                <div class="bg-white p-4 rounded-xl shadow-md border border-slate-200 group-hover:border-emerald-500 transition-colors shrink-0">
+                                    <i data-lucide="map-pin" class="w-7 h-7 text-emerald-600"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-white text-xl mb-2">Nosso Endereço</h4>
-                                    <p class="text-slate-400 text-lg leading-relaxed">R. Expedicionário Antônio Carlos Ferreira, nº 1740<br>Vila Lenzi, Sala 1, Jaraguá do Sul/SC</p>
+                                    <h4 class="font-bold text-slate-800 text-xl mb-2">Nosso Endereço</h4>
+                                    <p class="text-slate-500 text-lg leading-relaxed">R. Expedicionário Antônio Carlos Ferreira, nº 1740<br>Vila Lenzi, Sala 1, Jaraguá do Sul/SC</p>
                                 </div>
                             </div>
                             <div class="flex items-start space-x-6 group">
-                                <div class="bg-slate-800 p-4 rounded-xl shadow-lg border border-slate-700 group-hover:border-emerald-500 transition-colors shrink-0">
-                                    <i data-lucide="phone-call" class="w-7 h-7 brand-green"></i>
+                                <div class="bg-white p-4 rounded-xl shadow-md border border-slate-200 group-hover:border-emerald-500 transition-colors shrink-0">
+                                    <i data-lucide="phone-call" class="w-7 h-7 text-emerald-600"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-white text-xl mb-2">Telefones</h4>
-                                    <p class="text-slate-400 text-lg leading-relaxed font-medium">
-                                        <a href="tel:+554732756570" class="hover:text-emerald-400 transition-colors">(47) 3275-6570</a>
+                                    <h4 class="font-bold text-slate-800 text-xl mb-2">Telefones</h4>
+                                    <p class="text-slate-500 text-lg leading-relaxed font-medium">
+                                        <a href="tel:+554732756570" class="hover:text-emerald-600 transition-colors">(47) 3275-6570</a>
                                         <br>
-                                        <a href="https://wa.me/5547984341420" target="_blank" class="hover:text-emerald-400 transition-colors flex items-center mt-1">
+                                        <a href="https://wa.me/5547984341420" target="_blank" class="hover:text-emerald-600 transition-colors flex items-center mt-1">
                                             <i data-lucide="message-circle" class="w-5 h-5 mr-2 text-emerald-500"></i> (47) 98434-1420 (WhatsApp)
                                         </a>
                                     </p>
                                 </div>
                             </div>
                              <div class="flex items-start space-x-6 group">
-                                <div class="bg-slate-800 p-4 rounded-xl shadow-lg border border-slate-700 group-hover:border-emerald-500 transition-colors shrink-0">
-                                    <i data-lucide="mail" class="w-7 h-7 brand-green"></i>
+                                <div class="bg-white p-4 rounded-xl shadow-md border border-slate-200 group-hover:border-emerald-500 transition-colors shrink-0">
+                                    <i data-lucide="mail" class="w-7 h-7 text-emerald-600"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-white text-xl mb-2">Email Comercial</h4>
-                                    <a href="mailto:comercial@segurancajaragua.com.br" class="text-slate-400 text-lg leading-relaxed hover:text-emerald-400 transition-colors break-all">comercial@segurancajaragua.com.br</a>
+                                    <h4 class="font-bold text-slate-800 text-xl mb-2">Email Comercial</h4>
+                                    <a href="mailto:comercial@segurancajaragua.com.br" class="text-slate-500 text-lg leading-relaxed hover:text-emerald-600 transition-colors break-all">comercial@segurancajaragua.com.br</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Formulário -->
-                    <div class="card-bg p-8 md:p-10 rounded-3xl shadow-2xl border border-slate-800 fade-in" style="transition-delay: 200ms;">
-                        <h3 class="text-2xl font-bold text-white mb-8">Solicite seu Orçamento</h3>
+                    <div class="bg-white p-8 md:p-10 rounded-3xl shadow-2xl border border-slate-200 fade-in" style="transition-delay: 200ms;">
+                        <h3 class="text-2xl font-bold text-slate-800 mb-8">Solicite seu Orçamento</h3>
                         <form action="#" method="POST" class="space-y-6">
+                            <!-- Inputs Mantidos -->
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 <div class="space-y-2">
-                                    <label for="name" class="block text-sm font-medium text-slate-300">Nome Completo *</label>
-                                    <input type="text" name="name" id="name" class="w-full bg-slate-900/50 border border-slate-700 rounded-lg py-3 px-4 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all" placeholder="Seu nome" required>
+                                    <label for="name" class="block text-sm font-medium text-slate-600">Nome Completo *</label>
+                                    <input type="text" name="name" id="name" class="w-full bg-slate-50 border border-slate-300 rounded-lg py-3 px-4 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all" placeholder="Seu nome" required>
                                 </div>
                                 <div class="space-y-2">
-                                    <label for="phone" class="block text-sm font-medium text-slate-300">Telefone/WhatsApp *</label>
-                                    <input type="tel" name="phone" id="phone" class="w-full bg-slate-900/50 border border-slate-700 rounded-lg py-3 px-4 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all" placeholder="(DD) 99999-9999" required>
+                                    <label for="phone" class="block text-sm font-medium text-slate-600">Telefone/WhatsApp *</label>
+                                    <input type="tel" name="phone" id="phone" class="w-full bg-slate-50 border border-slate-300 rounded-lg py-3 px-4 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all" placeholder="(DD) 99999-9999" required>
                                 </div>
                             </div>
                             <div class="space-y-2">
-                                <label for="email" class="block text-sm font-medium text-slate-300">Email *</label>
-                                <input type="email" name="email" id="email" class="w-full bg-slate-900/50 border border-slate-700 rounded-lg py-3 px-4 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all" placeholder="seu@email.com" required>
+                                <label for="email" class="block text-sm font-medium text-slate-600">Email *</label>
+                                <input type="email" name="email" id="email" class="w-full bg-slate-50 border border-slate-300 rounded-lg py-3 px-4 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all" placeholder="seu@email.com" required>
                             </div>
                             <div class="space-y-2">
-                                <label for="segment" class="block text-sm font-medium text-slate-300">Qual seu perfil? *</label>
-                                <select id="segment" name="segment" class="w-full bg-slate-900/50 border border-slate-700 rounded-lg py-3 px-4 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all appearance-none" style="background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23cbd5e1%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; background-position: right 1rem center; background-size: 0.75rem auto;" required>
+                                <label for="segment" class="block text-sm font-medium text-slate-600">Qual seu perfil? *</label>
+                                <select id="segment" name="segment" class="w-full bg-slate-50 border border-slate-300 rounded-lg py-3 px-4 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all appearance-none" style="background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2364748b%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; background-position: right 1rem center; background-size: 0.75rem auto;" required>
                                     <option value="" disabled selected>Selecione uma opção</option>
                                     <option value="condominio">Condomínio</option>
                                     <option value="empresa">Empresa/Comércio</option>
@@ -758,8 +741,8 @@
                                 </select>
                             </div>
                              <div class="space-y-2">
-                                <label for="service_interest" class="block text-sm font-medium text-slate-300">Solução de Interesse</label>
-                                 <select id="service_interest" name="service_interest" class="w-full bg-slate-900/50 border border-slate-700 rounded-lg py-3 px-4 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all appearance-none" style="background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23cbd5e1%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; background-position: right 1rem center; background-size: 0.75rem auto;">
+                                <label for="service_interest" class="block text-sm font-medium text-slate-600">Solução de Interesse</label>
+                                 <select id="service_interest" name="service_interest" class="w-full bg-slate-50 border border-slate-300 rounded-lg py-3 px-4 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all appearance-none" style="background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2364748b%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; background-position: right 1rem center; background-size: 0.75rem auto;">
                                     <option value="" disabled selected>Selecione (Opcional)</option>
                                     <option value="portaria">Portaria Remota</option>
                                     <option value="alarme">Alarme Monitorado</option>
@@ -769,28 +752,28 @@
                                 </select>
                             </div>
                             <div class="space-y-2">
-                                <label for="message" class="block text-sm font-medium text-slate-300">Mensagem (Opcional)</label>
-                                <textarea name="message" id="message" rows="4" class="w-full bg-slate-900/50 border border-slate-700 rounded-lg py-3 px-4 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all resize-none" placeholder="Descreva sua necessidade..."></textarea>
+                                <label for="message" class="block text-sm font-medium text-slate-600">Mensagem (Opcional)</label>
+                                <textarea name="message" id="message" rows="4" class="w-full bg-slate-50 border border-slate-300 rounded-lg py-3 px-4 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all resize-none" placeholder="Descreva sua necessidade..."></textarea>
                             </div>
                             <button type="submit" class="w-full bg-brand brand-bg-hover text-white font-bold py-4 px-6 rounded-xl transition-all text-lg hover:shadow-lg hover:shadow-emerald-500/20 flex items-center justify-center group">
                                 Enviar Solicitação
                                 <i data-lucide="send" class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"></i>
                             </button>
-                            <p class="text-xs text-slate-500 text-center mt-4">Prometemos não enviar spam. Seus dados estão seguros conosco.</p>
+                            <p class="text-xs text-slate-400 text-center mt-4">Prometemos não enviar spam. Seus dados estão seguros conosco.</p>
                         </form>
                     </div>
                 </div>
                  <!-- Mapa -->
-                <div class="mt-20 fade-in rounded-3xl overflow-hidden shadow-2xl border border-slate-800 h-[400px] relative z-10">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3574.62145329598!2d-49.09848868496696!3d-26.37122198336338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94de95e7c813a453%3A0x644265538e3e4a36!2sR.%20Expedicion%C3%A1rio%20Ant%C3%B4nio%20Carlos%20Ferreira%2C%201740%20-%20Vila%20Lenzi%2C%20Jaragu%C3%A1%20do%20Sul%20-%20SC%2C%2089252-300!5e0!3m2!1spt-BR!2sbr!4v1678886453210!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0; filter: grayscale(1) contrast(1.2) brightness(0.8) invert(92%) hue-rotate(180deg);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="mt-20 fade-in rounded-3xl overflow-hidden shadow-2xl border border-slate-200 h-[400px] relative z-10">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3574.62145329598!2d-49.09848868496696!3d-26.37122198336338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94de95e7c813a453%3A0x644265538e3e4a36!2sR.%20Expedicion%C3%A1rio%20Ant%C3%B4nio%20Carlos%20Ferreira%2C%201740%20-%20Vila%20Lenzi%2C%20Jaragu%C3%A1%20do%20Sul%20-%20SC%2C%2089252-300!5e0!3m2!1spt-BR!2sbr!4v1678886453210!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </section>
 
     </main>
     
-    <!-- Rodapé -->
-    <footer class="bg-slate-950 border-t border-slate-900 pt-16 pb-8 relative z-20">
+    <!-- Rodapé - MANTIDO ESCURO (para fechar o layout) -->
+    <footer class="bg-slate-900 border-t border-slate-800 pt-16 pb-8 relative z-20">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
                 <!-- Coluna 1: Logo e Sobre -->
@@ -846,14 +829,15 @@
                          </li>
                          <li class="flex items-start">
                             <i data-lucide="clock" class="w-5 h-5 text-emerald-500 mr-3 mt-1"></i>
-                            <span class="text-slate-400 text-sm">Monitoramento 24h / Comercial Seg-Sex 8h-18h</span>
+                            <span class="text-slate-400 text-sm">Monitoramento 24h / Comercial Seg-Sex 7:30h-17:18h</span>
                         </li>
                      </ul>
                 </div>
             </div>
 
-            <div class="border-t border-slate-900 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-sm">
-                <p class="text-slate-500">&copy; 2025 Segurança Jaraguá. Todos os direitos reservados. CNPJ: XX.XXX.XXX/0001-XX</p>
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-sm">
+                <!-- CNPJ ATUALIZADO AQUI -->
+                <p class="text-slate-500">&copy; 2025 Segurança Jaraguá. Todos os direitos reservados. CNPJ: 26.682.630/0001-87</p>
                 <div class="flex space-x-6 text-slate-500">
                     <a href="#" class="hover:text-slate-300 transition-colors">Política de Privacidade</a>
                     <a href="#" class="hover:text-slate-300 transition-colors">Termos de Uso</a>
@@ -894,9 +878,6 @@
                 if (isMenuOpen) toggleMenu();
             }
         });
-        
-        // --- Efeito de header dinâmico ao rolar REMOVIDO conforme solicitado ---
-        // O header agora é absolute (não acompanha o scroll), então não precisa mudar de cor.
         
         // Animação de Fade-in ao rolar (Intersection Observer)
         const faders = document.querySelectorAll('.fade-in');
