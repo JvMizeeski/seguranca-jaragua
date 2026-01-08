@@ -12,24 +12,24 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0a101f;
-            color: #e2e8f0;
+            background-color: #f1f5f9; /* slate-100 - Fundo claro */
+            color: #334155; /* slate-700 - Texto escuro */
         }
         /* Utilitários de Cores da Marca */
-        .brand-green { color: #34d399; } /* emerald-400 */
-        .text-brand-hover:hover { color: #34d399; }
+        .brand-green { color: #10b981; } /* emerald-500 */
+        .text-brand-hover:hover { color: #059669; } /* emerald-600 */
         .bg-brand { background-color: #10b981; } /* emerald-500 */
         .bg-brand-hover:hover { background-color: #059669; } /* emerald-600 */
         
         /* Fundos das Seções */
-        .card-bg { background-color: #1e293b; } /* slate-800 */
+        .card-bg { background-color: #ffffff; } /* white */
 
         /* Gradientes e Efeitos */
         .hero-gradient {
-            background: linear-gradient(to top, rgba(10, 16, 31, 1) 10%, rgba(10, 16, 31, 0.8) 60%, rgba(10, 16, 31, 0.5) 100%);
+            background: linear-gradient(to top, #f1f5f9 2%, rgba(15, 23, 42, 0.8) 50%, rgba(15, 23, 42, 0.95) 100%);
         }
         .brand-gradient {
-             background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+             background: linear-gradient(135deg, #10b981 0%, #047857 100%);
         }
 
         /* Animações */
@@ -43,15 +43,16 @@
             transform: translateY(0);
         }
 
-        /* Dropdown Menu Desktop */
+        /* Dropdown Menu - Estilo Escuro (Consistente com a Home) */
         .group:hover .group-hover\:block {
             display: block;
         }
         .dropdown-menu {
-            background-color: #1e293b;
+            background-color: #1e293b; /* slate-800 */
             border: 1px solid #334155;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
         }
+        .dropdown-item { color: #e2e8f0; }
         .dropdown-item:hover {
             background-color: #334155;
             color: #34d399;
@@ -62,11 +63,13 @@
             scroll-margin-top: 140px;
         }
 
-        /* Estilo da Navegação Lateral Ativa */
+        /* Estilo da Navegação Lateral Ativa (Adaptado para fundo claro) */
         .nav-link.active {
-            color: #34d399;
-            border-left-color: #34d399;
-            background-color: rgba(52, 211, 153, 0.1);
+            color: #059669; /* emerald-600 */
+            border-left-color: #10b981;
+            background-color: #ffffff;
+            font-weight: 700;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
     </style>
 </head>
@@ -90,8 +93,8 @@
         </div>
     </div>
 
-    <!-- Cabeçalho Principal -->
-    <header id="header" class="bg-slate-900/90 backdrop-blur-md absolute top-0 left-0 right-0 z-40 md:top-[37px] h-20 shadow-sm border-b border-slate-800/50">
+    <!-- Cabeçalho Principal (Mantido Escuro conforme Home) -->
+    <header id="header" class="bg-slate-900/95 backdrop-blur-md absolute top-0 left-0 right-0 z-40 md:top-[37px] h-20 shadow-lg border-b border-slate-800">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 h-full">
             <div class="flex items-center justify-between h-full">
                 <!-- Logo -->
@@ -103,41 +106,41 @@
                 <nav class="hidden lg:flex space-x-1 items-center font-medium">
                     <!-- Dropdown: Condomínios -->
                     <div class="relative group px-3 py-2">
-                        <button class="flex items-center text-slate-300 text-brand-hover transition-colors">
+                        <button class="flex items-center text-slate-300 text-brand-hover transition-colors font-medium">
                             <span>Condomínios</span>
                             <i data-lucide="chevron-down" class="w-4 h-4 ml-1 opacity-70 group-hover:rotate-180 transition-transform duration-200"></i>
                         </button>
                         <div class="absolute left-0 mt-2 w-56 rounded-md shadow-lg dropdown-menu hidden group-hover:block py-1 z-50 ring-1 ring-black ring-opacity-5 focus:outline-none">
-                            <a href="index.html#portaria-remota-info" class="block px-4 py-2 text-sm text-slate-200 dropdown-item transition-colors">Portaria Remota</a>
-                            <a href="index.html#solucoes" class="block px-4 py-2 text-sm text-slate-200 dropdown-item transition-colors">Controle de Acesso</a>
-                            <a href="index.html#solucoes" class="block px-4 py-2 text-sm text-slate-200 dropdown-item transition-colors">Monitoramento 24h</a>
+                            <a href="index.html#portaria-remota-info" class="block px-4 py-2 text-sm dropdown-item transition-colors">Portaria Remota</a>
+                            <a href="index.html#solucoes" class="block px-4 py-2 text-sm dropdown-item transition-colors">Controle de Acesso</a>
+                            <a href="index.html#solucoes" class="block px-4 py-2 text-sm dropdown-item transition-colors">Monitoramento 24h</a>
                         </div>
                     </div>
 
                     <!-- Dropdown: Empresas -->
                     <div class="relative group px-3 py-2">
-                        <button class="flex items-center text-slate-300 text-brand-hover transition-colors">
+                        <button class="flex items-center text-slate-300 text-brand-hover transition-colors font-medium">
                             <span>Empresas</span>
                             <i data-lucide="chevron-down" class="w-4 h-4 ml-1 opacity-70 group-hover:rotate-180 transition-transform duration-200"></i>
                         </button>
                          <div class="absolute left-0 mt-2 w-56 rounded-md shadow-lg dropdown-menu hidden group-hover:block py-1 z-50 ring-1 ring-black ring-opacity-5 focus:outline-none">
-                            <a href="index.html#solucoes" class="block px-4 py-2 text-sm text-slate-200 dropdown-item transition-colors">Alarmes Monitorados</a>
-                            <a href="index.html#solucoes" class="block px-4 py-2 text-sm text-slate-200 dropdown-item transition-colors">CFTV Inteligente</a>
-                             <a href="index.html#solucoes" class="block px-4 py-2 text-sm text-slate-200 dropdown-item transition-colors">Projetos Personalizados</a>
+                            <a href="index.html#solucoes" class="block px-4 py-2 text-sm dropdown-item transition-colors">Alarmes Monitorados</a>
+                            <a href="index.html#solucoes" class="block px-4 py-2 text-sm dropdown-item transition-colors">CFTV Inteligente</a>
+                             <a href="index.html#solucoes" class="block px-4 py-2 text-sm dropdown-item transition-colors">Projetos Personalizados</a>
                         </div>
                     </div>
 
-                    <!-- Link Simples: Casas -->
-                     <a href="index.html#solucoes" class="px-3 py-2 text-slate-300 text-brand-hover transition-colors">Casas</a>
+                    <!-- Link Simples: Residencias -->
+                     <a href="index.html#solucoes" class="px-3 py-2 text-slate-300 text-brand-hover transition-colors font-medium">Residencias</a>
                     
                      <!-- Links Institucionais -->
-                    <a href="index.html#sobre" class="px-3 py-2 text-slate-300 text-brand-hover transition-colors">Sobre Nós</a>
-                    <a href="index.html#blog" class="px-3 py-2 text-slate-300 text-brand-hover transition-colors">Blog</a>
+                    <a href="index.html#sobre" class="px-3 py-2 text-slate-300 text-brand-hover transition-colors font-medium">Sobre Nós</a>
+                    <a href="index.html#blog" class="px-3 py-2 text-slate-300 text-brand-hover transition-colors font-medium">Blog</a>
                 </nav>
 
                 <!-- Botão CTA Desktop -->
                 <div class="hidden lg:block pl-4">
-                    <a href="index.html#contato" class="bg-brand text-white px-5 py-2.5 rounded-md font-semibold hover:bg-emerald-600 transition-all shadow-lg shadow-emerald-500/10 hover:shadow-emerald-500/30 flex items-center">
+                    <a href="index.html#contato" class="bg-brand text-white px-5 py-2.5 rounded-md font-semibold hover:bg-emerald-600 transition-all shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/40 flex items-center">
                         <i data-lucide="message-square" class="w-4 h-4 mr-2"></i>
                         Solicitar Orçamento
                     </a>
@@ -155,9 +158,9 @@
             <nav class="flex flex-col p-4 space-y-2">
                 <div class="pb-2 border-b border-slate-800">
                     <span class="block px-4 py-2 text-xs uppercase tracking-wider text-slate-500 font-bold">Segmentos</span>
-                    <a href="index.html#solucoes" class="block px-4 py-2 text-slate-200 font-medium hover:bg-slate-800 rounded-md">Condomínios</a>
-                    <a href="index.html#solucoes" class="block px-4 py-2 text-slate-200 font-medium hover:bg-slate-800 rounded-md">Empresas</a>
-                    <a href="index.html#solucoes" class="block px-4 py-2 text-slate-200 font-medium hover:bg-slate-800 rounded-md">Casas</a>
+                    <a href="index.html#solucoes" class="block px-4 py-2 text-slate-300 font-medium hover:bg-slate-800 hover:text-emerald-400 rounded-md">Condomínios</a>
+                    <a href="index.html#solucoes" class="block px-4 py-2 text-slate-300 font-medium hover:bg-slate-800 hover:text-emerald-400 rounded-md">Empresas</a>
+                    <a href="index.html#solucoes" class="block px-4 py-2 text-slate-300 font-medium hover:bg-slate-800 hover:text-emerald-400 rounded-md">Residencias</a>
                 </div>
                 <div class="py-2">
                     <a href="index.html#sobre" class="block px-4 py-2 text-slate-300 hover:text-emerald-400 transition-colors rounded-md">Sobre Nós</a>
@@ -174,46 +177,48 @@
 
     <main class="md:mt-[37px]">
         
-        <!-- Hero da Página de Soluções -->
+        <!-- Hero da Página de Soluções (Mantido Escuro para Impacto) -->
         <section class="relative py-32 md:py-48 flex items-center justify-center text-center overflow-hidden bg-slate-900">
             <!-- Background Image -->
             <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30" style="background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop');"></div>
-            <div class="absolute inset-0 bg-gradient-to-b from-slate-900/90 via-slate-900/80 to-[#0a101f]"></div>
+            <!-- Gradient ajustado para transicionar para o fundo claro -->
+            <div class="absolute inset-0 hero-gradient"></div>
             
             <div class="relative z-10 px-4 max-w-4xl mx-auto">
                 <span class="text-emerald-400 font-bold tracking-wider uppercase text-sm mb-4 block fade-in">Portfólio Completo</span>
                 <h1 class="text-4xl md:text-6xl font-black text-white mb-6 fade-in" style="transition-delay: 100ms;">
                     Nossas <span class="text-transparent bg-clip-text brand-gradient">Soluções</span>
                 </h1>
-                <p class="text-lg md:text-xl text-slate-300 leading-relaxed fade-in" style="transition-delay: 200ms;">
+                <p class="text-lg md:text-xl text-slate-200 leading-relaxed fade-in" style="transition-delay: 200ms;">
                     Tecnologia avançada, expertise humana e atendimento personalizado para garantir a proteção total do seu patrimônio.
                 </p>
             </div>
         </section>
 
-        <!-- Seção Principal com Navegação e Conteúdo -->
+        <!-- Seção Principal com Navegação e Conteúdo (Fundo Claro) -->
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
             <div class="lg:flex lg:space-x-12 relative">
                 
                 <!-- Navegação Lateral (Desktop - Sticky) -->
                 <aside class="hidden lg:block w-1/4 relative">
                     <nav id="sticky-nav" class="sticky top-32 space-y-1">
-                        <h3 class="font-bold text-white text-xs uppercase tracking-wider mb-4 px-4 text-slate-500">Navegue</h3>
-                        <a href="#cftv" class="nav-link block py-3 px-4 rounded-r-lg border-l-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/50 transition-all text-sm font-medium">Câmeras (CFTV)</a>
-                        <a href="#alarmes" class="nav-link block py-3 px-4 rounded-r-lg border-l-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/50 transition-all text-sm font-medium">Sistemas de Alarme</a>
-                        <a href="#condominios" class="nav-link block py-3 px-4 rounded-r-lg border-l-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/50 transition-all text-sm font-medium">Condomínios Inteligentes</a>
-                        <a href="#telefonia" class="nav-link block py-3 px-4 rounded-r-lg border-l-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/50 transition-all text-sm font-medium">Telefonia IP</a>
-                        <a href="#monitoramento" class="nav-link block py-3 px-4 rounded-r-lg border-l-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/50 transition-all text-sm font-medium">Monitoramento 24h</a>
-                        <a href="#portaria" class="nav-link block py-3 px-4 rounded-r-lg border-l-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/50 transition-all text-sm font-medium">Portaria Virtual e Presencial</a>
-                        <a href="#consultoria" class="nav-link block py-3 px-4 rounded-r-lg border-l-2 border-transparent text-slate-400 hover:text-white hover:bg-slate-800/50 transition-all text-sm font-medium">Consultoria de Segurança</a>
+                        <h3 class="font-bold text-slate-400 text-xs uppercase tracking-wider mb-4 px-4">Navegue</h3>
+                        <!-- Cores adaptadas para fundo claro -->
+                        <a href="#cftv" class="nav-link block py-3 px-4 rounded-r-lg border-l-2 border-transparent text-slate-600 hover:text-emerald-600 hover:bg-white transition-all text-sm font-medium">Câmeras (CFTV)</a>
+                        <a href="#alarmes" class="nav-link block py-3 px-4 rounded-r-lg border-l-2 border-transparent text-slate-600 hover:text-emerald-600 hover:bg-white transition-all text-sm font-medium">Sistemas de Alarme</a>
+                        <a href="#condominios" class="nav-link block py-3 px-4 rounded-r-lg border-l-2 border-transparent text-slate-600 hover:text-emerald-600 hover:bg-white transition-all text-sm font-medium">Condomínios Inteligentes</a>
+                        <a href="#telefonia" class="nav-link block py-3 px-4 rounded-r-lg border-l-2 border-transparent text-slate-600 hover:text-emerald-600 hover:bg-white transition-all text-sm font-medium">Telefonia IP</a>
+                        <a href="#monitoramento" class="nav-link block py-3 px-4 rounded-r-lg border-l-2 border-transparent text-slate-600 hover:text-emerald-600 hover:bg-white transition-all text-sm font-medium">Monitoramento 24h</a>
+                        <a href="#portaria" class="nav-link block py-3 px-4 rounded-r-lg border-l-2 border-transparent text-slate-600 hover:text-emerald-600 hover:bg-white transition-all text-sm font-medium">Portaria Virtual e Presencial</a>
+                        <a href="#consultoria" class="nav-link block py-3 px-4 rounded-r-lg border-l-2 border-transparent text-slate-600 hover:text-emerald-600 hover:bg-white transition-all text-sm font-medium">Consultoria de Segurança</a>
                     </nav>
                 </aside>
 
-                <!-- Menu Dropdown (Mobile) -->
-                <div class="lg:hidden mb-12 sticky top-24 z-30 bg-[#0a101f]/90 backdrop-blur-md py-4 -mx-4 px-4 border-b border-slate-800">
-                    <label for="solutions-select" class="block text-xs font-bold text-emerald-400 uppercase mb-2">Ir para solução:</label>
+                <!-- Menu Dropdown (Mobile) - Adaptado para Branco -->
+                <div class="lg:hidden mb-12 sticky top-24 z-30 bg-white/95 backdrop-blur-md py-4 -mx-4 px-4 border-b border-slate-200 shadow-md">
+                    <label for="solutions-select" class="block text-xs font-bold text-emerald-600 uppercase mb-2">Ir para solução:</label>
                     <div class="relative">
-                        <select id="solutions-select" class="w-full bg-slate-800 border border-slate-700 rounded-lg py-3 px-4 text-white appearance-none focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                        <select id="solutions-select" class="w-full bg-slate-50 border border-slate-300 rounded-lg py-3 px-4 text-slate-700 appearance-none focus:outline-none focus:ring-2 focus:ring-emerald-500">
                             <option value="" disabled selected>Selecione...</option>
                             <option value="#cftv">Câmeras (CFTV)</option>
                             <option value="#alarmes">Sistemas de Alarme</option>
@@ -223,36 +228,37 @@
                             <option value="#portaria">Portaria Virtual e Presencial</option>
                             <option value="#consultoria">Consultoria de Segurança</option>
                         </select>
-                        <i data-lucide="chevron-down" class="absolute right-4 top-3.5 w-5 h-5 text-slate-400 pointer-events-none"></i>
+                        <i data-lucide="chevron-down" class="absolute right-4 top-3.5 w-5 h-5 text-slate-500 pointer-events-none"></i>
                     </div>
                 </div>
 
                 <!-- Conteúdo das Soluções -->
                 <div class="lg:w-3/4 space-y-24">
                     
-                    <!-- CFTV -->
+                    <!-- CFTV (Card Branco) -->
                     <article id="cftv" class="fade-in scroll-mt-32">
-                        <div class="card-bg rounded-3xl overflow-hidden border border-slate-800 shadow-2xl">
+                        <div class="card-bg rounded-3xl overflow-hidden border border-slate-200 shadow-lg hover:shadow-xl transition-shadow">
                             <div class="md:grid md:grid-cols-2">
                                 <div class="h-64 md:h-auto relative">
                                     <img src="imgs-solucoes/cftv.jpg" onerror="this.src='https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=2070&auto=format&fit=crop'" alt="Sistema de CFTV" class="absolute inset-0 w-full h-full object-cover">
-                                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent md:bg-gradient-to-r"></div>
+                                    <!-- Gradiente ajustado para Branco -->
+                                    <div class="absolute inset-0 bg-gradient-to-t from-white/90 to-transparent md:bg-gradient-to-r md:from-transparent md:to-white"></div>
                                 </div>
-                                <div class="p-8 md:p-10">
+                                <div class="p-8 md:p-10 relative z-10">
                                     <div class="flex items-center mb-4">
-                                        <div class="p-2 bg-emerald-500/10 rounded-lg mr-3"><i data-lucide="camera" class="w-6 h-6 text-emerald-400"></i></div>
-                                        <h2 class="text-2xl font-bold text-white">Câmeras (CFTV)</h2>
+                                        <div class="p-2 bg-emerald-100 rounded-lg mr-3"><i data-lucide="camera" class="w-6 h-6 text-emerald-600"></i></div>
+                                        <h2 class="text-2xl font-bold text-slate-800">Câmeras (CFTV)</h2>
                                     </div>
-                                    <p class="text-slate-400 leading-relaxed mb-6">
+                                    <p class="text-slate-600 leading-relaxed mb-6">
                                         O Circuito Fechado de Televisão é fundamental para assegurar o controle visual de pessoas e veículos. Um projeto especializado possui excelente custo-benefício para prevenir incidentes.
                                     </p>
-                                    <h3 class="text-white font-semibold text-lg mb-3">Destaques:</h3>
+                                    <h3 class="text-slate-800 font-semibold text-lg mb-3">Destaques:</h3>
                                     <ul class="space-y-2 mb-6">
-                                        <li class="flex items-start text-slate-400 text-sm"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0"></i> Imagens em Alta Definição (Full HD/4K)</li>
-                                        <li class="flex items-start text-slate-400 text-sm"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0"></i> Acesso remoto via Smartphone e Tablet</li>
-                                        <li class="flex items-start text-slate-400 text-sm"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0"></i> Estudo de vulnerabilidade do local</li>
+                                        <li class="flex items-start text-slate-600 text-sm"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0"></i> Imagens em Alta Definição (Full HD/4K)</li>
+                                        <li class="flex items-start text-slate-600 text-sm"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0"></i> Acesso remoto via Smartphone e Tablet</li>
+                                        <li class="flex items-start text-slate-600 text-sm"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 mr-2 mt-0.5 shrink-0"></i> Estudo de vulnerabilidade do local</li>
                                     </ul>
-                                    <a href="index.html#contato" class="text-emerald-400 font-bold text-sm hover:text-emerald-300 inline-flex items-center group">
+                                    <a href="index.html#contato" class="text-emerald-600 font-bold text-sm hover:text-emerald-500 inline-flex items-center group">
                                         Solicitar Orçamento CFTV <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
                                     </a>
                                 </div>
@@ -260,130 +266,131 @@
                         </div>
                     </article>
 
-                    <!-- Alarmes -->
+                    <!-- Alarmes (Card Branco) -->
                     <article id="alarmes" class="fade-in scroll-mt-32">
-                        <div class="card-bg rounded-3xl overflow-hidden border border-slate-800 shadow-2xl">
+                        <div class="card-bg rounded-3xl overflow-hidden border border-slate-200 shadow-lg hover:shadow-xl transition-shadow">
                             <div class="md:grid md:grid-cols-2">
-                                <div class="p-8 md:p-10 order-2 md:order-1">
+                                <div class="p-8 md:p-10 order-2 md:order-1 relative z-10">
                                     <div class="flex items-center mb-4">
-                                        <div class="p-2 bg-emerald-500/10 rounded-lg mr-3"><i data-lucide="bell-ring" class="w-6 h-6 text-emerald-400"></i></div>
-                                        <h2 class="text-2xl font-bold text-white">Sistemas de Alarme</h2>
+                                        <div class="p-2 bg-emerald-100 rounded-lg mr-3"><i data-lucide="bell-ring" class="w-6 h-6 text-emerald-600"></i></div>
+                                        <h2 class="text-2xl font-bold text-slate-800">Sistemas de Alarme</h2>
                                     </div>
-                                    <p class="text-slate-400 leading-relaxed mb-6">
+                                    <p class="text-slate-600 leading-relaxed mb-6">
                                         Tenha controle total sobre a segurança do seu imóvel. Receba notificações instantâneas no seu celular sempre que houver disparo ou arme/desarme do sistema.
                                     </p>
-                                    <h3 class="text-white font-semibold text-lg mb-3">Sensores Disponíveis:</h3>
+                                    <h3 class="text-slate-800 font-semibold text-lg mb-3">Sensores Disponíveis:</h3>
                                     <div class="grid grid-cols-1 gap-2 mb-6">
-                                        <div class="flex items-center text-slate-400 text-sm bg-slate-900/50 p-2 rounded"><i data-lucide="scan-line" class="w-4 h-4 text-emerald-500 mr-2"></i> Sensor de Barreira (Perímetro)</div>
-                                        <div class="flex items-center text-slate-400 text-sm bg-slate-900/50 p-2 rounded"><i data-lucide="door-open" class="w-4 h-4 text-emerald-500 mr-2"></i> Magnéticos (Portas/Janelas)</div>
-                                        <div class="flex items-center text-slate-400 text-sm bg-slate-900/50 p-2 rounded"><i data-lucide="activity" class="w-4 h-4 text-emerald-500 mr-2"></i> Sensor de Movimento (IVP)</div>
+                                        <div class="flex items-center text-slate-600 text-sm bg-slate-50 border border-slate-200 p-2 rounded"><i data-lucide="scan-line" class="w-4 h-4 text-emerald-500 mr-2"></i> Sensor de Barreira (Perímetro)</div>
+                                        <div class="flex items-center text-slate-600 text-sm bg-slate-50 border border-slate-200 p-2 rounded"><i data-lucide="door-open" class="w-4 h-4 text-emerald-500 mr-2"></i> Magnéticos (Portas/Janelas)</div>
+                                        <div class="flex items-center text-slate-600 text-sm bg-slate-50 border border-slate-200 p-2 rounded"><i data-lucide="activity" class="w-4 h-4 text-emerald-500 mr-2"></i> Sensor de Movimento (IVP)</div>
                                     </div>
-                                    <a href="index.html#contato" class="text-emerald-400 font-bold text-sm hover:text-emerald-300 inline-flex items-center group">
+                                    <a href="index.html#contato" class="text-emerald-600 font-bold text-sm hover:text-emerald-500 inline-flex items-center group">
                                         Cotar Sistema de Alarme <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
                                     </a>
                                 </div>
                                 <div class="h-64 md:h-auto relative order-1 md:order-2">
                                     <img src="imgs-solucoes/alarmes.jpg" onerror="this.src='https://images.unsplash.com/photo-1558002038-1091a1661116?q=80&w=2070&auto=format&fit=crop'" alt="Sistema de Alarme" class="absolute inset-0 w-full h-full object-cover">
-                                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent md:bg-gradient-to-l"></div>
+                                    <div class="absolute inset-0 bg-gradient-to-t from-white/90 to-transparent md:bg-gradient-to-l md:from-transparent md:to-white"></div>
                                 </div>
                             </div>
                         </div>
                     </article>
 
-                    <!-- Condomínios -->
+                    <!-- Condomínios (Texto Escuro) -->
                     <article id="condominios" class="fade-in scroll-mt-32">
                         <div class="border-l-4 border-emerald-500 pl-6 py-2 mb-6">
-                            <h2 class="text-3xl font-bold text-white mb-2">Condomínios Inteligentes</h2>
-                            <p class="text-emerald-400 font-medium">Tecnologia integrada para gestão e segurança</p>
+                            <h2 class="text-3xl font-bold text-slate-900 mb-2">Condomínios Inteligentes</h2>
+                            <p class="text-emerald-600 font-medium">Tecnologia integrada para gestão e segurança</p>
                         </div>
-                        <p class="text-slate-300 text-lg mb-8 leading-relaxed">
+                        <p class="text-slate-600 text-lg mb-8 leading-relaxed">
                             Transforme seu condomínio em um ambiente mais seguro e valorizado. Planejamos a infraestrutura desde a construção ou adaptamos sistemas existentes para garantir conforto e proteção.
                         </p>
                         
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-emerald-500/50 transition-colors">
-                                <i data-lucide="fingerprint" class="w-8 h-8 text-emerald-400 mb-4"></i>
-                                <h3 class="text-white font-bold mb-2">Biometria & Facial</h3>
-                                <p class="text-slate-400 text-sm">Acesso sem chaves, usando impressão digital ou reconhecimento facial de alta precisão.</p>
+                            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-md hover:border-emerald-400 transition-colors">
+                                <i data-lucide="fingerprint" class="w-8 h-8 text-emerald-600 mb-4"></i>
+                                <h3 class="text-slate-800 font-bold mb-2">Biometria & Facial</h3>
+                                <p class="text-slate-500 text-sm">Acesso sem chaves, usando impressão digital ou reconhecimento facial de alta precisão.</p>
                             </div>
-                            <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-emerald-500/50 transition-colors">
-                                <i data-lucide="smartphone" class="w-8 h-8 text-emerald-400 mb-4"></i>
-                                <h3 class="text-white font-bold mb-2">Interfone Mobile</h3>
-                                <p class="text-slate-400 text-sm">Atenda o interfone pelo celular onde estiver, simulando presença em casa.</p>
+                            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-md hover:border-emerald-400 transition-colors">
+                                <i data-lucide="smartphone" class="w-8 h-8 text-emerald-600 mb-4"></i>
+                                <h3 class="text-slate-800 font-bold mb-2">Interfone Mobile</h3>
+                                <p class="text-slate-500 text-sm">Atenda o interfone pelo celular onde estiver, simulando presença em casa.</p>
                             </div>
-                            <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-emerald-500/50 transition-colors">
-                                <i data-lucide="alert-circle" class="w-8 h-8 text-emerald-400 mb-4"></i>
-                                <h3 class="text-white font-bold mb-2">Botão de Pânico</h3>
-                                <p class="text-slate-400 text-sm">Dispositivos discretos ou "dedo de pânico" na biometria para solicitar socorro silencioso.</p>
+                            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-md hover:border-emerald-400 transition-colors">
+                                <i data-lucide="alert-circle" class="w-8 h-8 text-emerald-600 mb-4"></i>
+                                <h3 class="text-slate-800 font-bold mb-2">Botão de Pânico</h3>
+                                <p class="text-slate-500 text-sm">Dispositivos discretos ou "dedo de pânico" na biometria para solicitar socorro silencioso.</p>
                             </div>
                         </div>
                     </article>
 
-                    <!-- Telefonia -->
+                    <!-- Telefonia (Card Branco) -->
                     <article id="telefonia" class="fade-in scroll-mt-32">
-                        <div class="card-bg rounded-3xl overflow-hidden border border-slate-800 shadow-2xl p-8 md:p-12 relative">
-                            <div class="absolute top-0 right-0 -mt-10 -mr-10 w-32 h-32 bg-emerald-500/20 rounded-full blur-2xl"></div>
+                        <div class="card-bg rounded-3xl overflow-hidden border border-slate-200 shadow-lg hover:shadow-xl transition-shadow p-8 md:p-12 relative">
+                            <!-- Efeito de fundo sutil -->
+                            <div class="absolute top-0 right-0 -mt-10 -mr-10 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl"></div>
                             
                             <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-8">
                                 <div>
-                                    <h2 class="text-2xl font-bold text-white mb-2">Telefonia IP</h2>
-                                    <p class="text-slate-400">Comunicação empresarial moderna e econômica.</p>
+                                    <h2 class="text-2xl font-bold text-slate-800 mb-2">Telefonia IP</h2>
+                                    <p class="text-slate-500">Comunicação empresarial moderna e econômica.</p>
                                 </div>
-                                <div class="mt-4 md:mt-0 p-3 bg-emerald-500/10 rounded-full">
-                                    <i data-lucide="phone-call" class="w-8 h-8 text-emerald-400"></i>
+                                <div class="mt-4 md:mt-0 p-3 bg-emerald-100 rounded-full">
+                                    <i data-lucide="phone-call" class="w-8 h-8 text-emerald-600"></i>
                                 </div>
                             </div>
 
                             <div class="space-y-4">
                                 <div class="flex gap-4">
-                                    <div class="w-12 h-12 rounded-full bg-slate-900 flex items-center justify-center shrink-0 border border-slate-700 text-emerald-400 font-bold">1</div>
+                                    <div class="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center shrink-0 border border-slate-200 text-emerald-600 font-bold shadow-sm">1</div>
                                     <div>
-                                        <h3 class="text-white font-bold text-lg">Redução Drástica de Custos</h3>
-                                        <p class="text-slate-400 text-sm mt-1">Ligações via internet eliminam as altas tarifas das operadoras tradicionais.</p>
+                                        <h3 class="text-slate-800 font-bold text-lg">Redução Drástica de Custos</h3>
+                                        <p class="text-slate-600 text-sm mt-1">Ligações via internet eliminam as altas tarifas das operadoras tradicionais.</p>
                                     </div>
                                 </div>
                                 <div class="flex gap-4">
-                                    <div class="w-12 h-12 rounded-full bg-slate-900 flex items-center justify-center shrink-0 border border-slate-700 text-emerald-400 font-bold">2</div>
+                                    <div class="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center shrink-0 border border-slate-200 text-emerald-600 font-bold shadow-sm">2</div>
                                     <div>
-                                        <h3 class="text-white font-bold text-lg">Infraestrutura Simplificada</h3>
-                                        <p class="text-slate-400 text-sm mt-1">Utiliza o mesmo cabeamento da rede de computadores, sem obras extras.</p>
+                                        <h3 class="text-slate-800 font-bold text-lg">Infraestrutura Simplificada</h3>
+                                        <p class="text-slate-600 text-sm mt-1">Utiliza o mesmo cabeamento da rede de computadores, sem obras extras.</p>
                                     </div>
                                 </div>
                                 <div class="flex gap-4">
-                                    <div class="w-12 h-12 rounded-full bg-slate-900 flex items-center justify-center shrink-0 border border-slate-700 text-emerald-400 font-bold">3</div>
+                                    <div class="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center shrink-0 border border-slate-200 text-emerald-600 font-bold shadow-sm">3</div>
                                     <div>
-                                        <h3 class="text-white font-bold text-lg">Mobilidade Total</h3>
-                                        <p class="text-slate-400 text-sm mt-1">Leve seu ramal para qualquer lugar com internet. Conectou, funcionou.</p>
+                                        <h3 class="text-slate-800 font-bold text-lg">Mobilidade Total</h3>
+                                        <p class="text-slate-600 text-sm mt-1">Leve seu ramal para qualquer lugar com internet. Conectou, funcionou.</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </article>
 
-                    <!-- Monitoramento -->
+                    <!-- Monitoramento (Card Branco) -->
                     <article id="monitoramento" class="fade-in scroll-mt-32">
-                        <div class="card-bg rounded-3xl overflow-hidden border border-slate-800 shadow-2xl">
+                        <div class="card-bg rounded-3xl overflow-hidden border border-slate-200 shadow-lg hover:shadow-xl transition-shadow">
                             <div class="md:grid md:grid-cols-2">
                                 <div class="h-64 md:h-auto relative">
                                     <img src="imgs-solucoes/monitoramento.jpg" onerror="this.src='https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2032&auto=format&fit=crop'" alt="Central de Monitoramento" class="absolute inset-0 w-full h-full object-cover">
-                                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent md:bg-gradient-to-r"></div>
+                                    <div class="absolute inset-0 bg-gradient-to-t from-white/90 to-transparent md:bg-gradient-to-r md:from-transparent md:to-white"></div>
                                 </div>
-                                <div class="p-8 md:p-10">
+                                <div class="p-8 md:p-10 relative z-10">
                                     <div class="flex items-center mb-4">
-                                        <div class="p-2 bg-emerald-500/10 rounded-lg mr-3"><i data-lucide="eye" class="w-6 h-6 text-emerald-400"></i></div>
-                                        <h2 class="text-2xl font-bold text-white">Monitoramento 24 Horas</h2>
+                                        <div class="p-2 bg-emerald-100 rounded-lg mr-3"><i data-lucide="eye" class="w-6 h-6 text-emerald-600"></i></div>
+                                        <h2 class="text-2xl font-bold text-slate-800">Monitoramento 24 Horas</h2>
                                     </div>
-                                    <p class="text-slate-400 leading-relaxed mb-6">
+                                    <p class="text-slate-600 leading-relaxed mb-6">
                                         Nossa base tática acompanha ocorrências em tempo real. Utilizamos conexão via GPRS, IP e linha telefônica para garantir que o sinal de alerta chegue sempre.
                                     </p>
                                     <div class="space-y-4 mb-6">
-                                        <div class="bg-slate-900/50 p-4 rounded-lg border-l-2 border-emerald-500">
-                                            <h4 class="text-white font-bold text-sm">Pronta Resposta</h4>
-                                            <p class="text-slate-400 text-xs mt-1">Acionamento imediato de equipe tática e Polícia em caso de invasão confirmada.</p>
+                                        <div class="bg-slate-50 p-4 rounded-lg border-l-2 border-emerald-500">
+                                            <h4 class="text-slate-800 font-bold text-sm">Pronta Resposta</h4>
+                                            <p class="text-slate-500 text-xs mt-1">Acionamento imediato de equipe tática e Polícia em caso de invasão confirmada.</p>
                                         </div>
-                                        <div class="bg-slate-900/50 p-4 rounded-lg border-l-2 border-emerald-500">
-                                            <h4 class="text-white font-bold text-sm">Verificação por Vídeo</h4>
-                                            <p class="text-slate-400 text-xs mt-1">Acesso às câmeras do local para confirmar a ocorrência e evitar falsos alarmes.</p>
+                                        <div class="bg-slate-50 p-4 rounded-lg border-l-2 border-emerald-500">
+                                            <h4 class="text-slate-800 font-bold text-sm">Verificação por Vídeo</h4>
+                                            <p class="text-slate-500 text-xs mt-1">Acesso às câmeras do local para confirmar a ocorrência e evitar falsos alarmes.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -391,66 +398,68 @@
                         </div>
                     </article>
 
-                    <!-- Portaria -->
+                    <!-- Portaria (Texto Escuro e Cards Brancos) -->
                     <article id="portaria" class="fade-in scroll-mt-32">
-                        <h2 class="text-3xl font-bold text-white mb-6 flex items-center">
-                            <i data-lucide="building-2" class="w-8 h-8 text-emerald-400 mr-3"></i>
+                        <h2 class="text-3xl font-bold text-slate-900 mb-6 flex items-center">
+                            <i data-lucide="building-2" class="w-8 h-8 text-emerald-600 mr-3"></i>
                             Portaria Virtual e Presencial
                         </h2>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="card-bg p-8 rounded-2xl border border-slate-800 hover:border-emerald-500/30 transition-all">
-                                <h3 class="text-xl font-bold text-white mb-4">Portaria Remota (Virtual)</h3>
-                                <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                            <div class="card-bg p-8 rounded-2xl border border-slate-200 shadow-md hover:border-emerald-400 transition-all">
+                                <h3 class="text-xl font-bold text-slate-800 mb-4">Portaria Remota (Virtual)</h3>
+                                <p class="text-slate-600 text-sm leading-relaxed mb-4">
                                     Controle de acesso feito à distância pela nossa central blindada.
                                 </p>
                                 <ul class="space-y-2 mb-6">
-                                    <li class="flex items-center text-slate-400 text-sm"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2"></i> Redução de até 50% nos custos</li>
-                                    <li class="flex items-center text-slate-400 text-sm"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2"></i> Monitoramento de entradas/saídas</li>
-                                    <li class="flex items-center text-slate-400 text-sm"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2"></i> Eclusas de segurança</li>
+                                    <li class="flex items-center text-slate-500 text-sm"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2"></i> Redução de até 50% nos custos</li>
+                                    <li class="flex items-center text-slate-500 text-sm"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2"></i> Monitoramento de entradas/saídas</li>
+                                    <li class="flex items-center text-slate-500 text-sm"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2"></i> Eclusas de segurança</li>
                                 </ul>
-                                <a href="index.html#portaria-remota-info" class="text-emerald-400 text-sm font-bold hover:underline">Saiba mais sobre Remota &rarr;</a>
+                                <a href="index.html#portaria-remota-info" class="text-emerald-600 text-sm font-bold hover:underline">Saiba mais sobre Remota &rarr;</a>
                             </div>
-                            <div class="card-bg p-8 rounded-2xl border border-slate-800 hover:border-emerald-500/30 transition-all">
-                                <h3 class="text-xl font-bold text-white mb-4">Portaria Presencial</h3>
-                                <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                            <div class="card-bg p-8 rounded-2xl border border-slate-200 shadow-md hover:border-emerald-400 transition-all">
+                                <h3 class="text-xl font-bold text-slate-800 mb-4">Portaria Presencial</h3>
+                                <p class="text-slate-600 text-sm leading-relaxed mb-4">
                                     Profissional qualificado in-loco 24 horas por dia.
                                 </p>
                                 <ul class="space-y-2 mb-6">
-                                    <li class="flex items-center text-slate-400 text-sm"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2"></i> Recebimento de encomendas</li>
-                                    <li class="flex items-center text-slate-400 text-sm"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2"></i> Contato humano direto</li>
-                                    <li class="flex items-center text-slate-400 text-sm"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2"></i> Ronda nas áreas comuns</li>
+                                    <li class="flex items-center text-slate-500 text-sm"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2"></i> Recebimento de encomendas</li>
+                                    <li class="flex items-center text-slate-500 text-sm"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2"></i> Contato humano direto</li>
+                                    <li class="flex items-center text-slate-500 text-sm"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mr-2"></i> Ronda nas áreas comuns</li>
                                 </ul>
-                                <a href="index.html#contato" class="text-emerald-400 text-sm font-bold hover:underline">Cotar Presencial &rarr;</a>
+                                <a href="index.html#contato" class="text-emerald-600 text-sm font-bold hover:underline">Cotar Presencial &rarr;</a>
                             </div>
                         </div>
                     </article>
 
-                    <!-- Consultoria -->
+                    <!-- Consultoria (Card Branco Especial) -->
                     <article id="consultoria" class="fade-in scroll-mt-32">
-                        <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl p-8 md:p-12 border border-slate-700">
-                            <div class="flex flex-col items-center text-center">
+                        <div class="bg-white rounded-3xl p-8 md:p-12 border border-slate-200 shadow-xl relative overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-br from-emerald-50/50 to-transparent pointer-events-none"></div>
+                            
+                            <div class="flex flex-col items-center text-center relative z-10">
                                 <div class="w-16 h-16 bg-emerald-500 rounded-full flex items-center justify-center mb-6 shadow-lg shadow-emerald-500/20">
                                     <i data-lucide="clipboard-list" class="w-8 h-8 text-white"></i>
                                 </div>
-                                <h2 class="text-3xl font-bold text-white mb-4">Consultoria de Segurança</h2>
-                                <p class="text-slate-300 text-lg max-w-2xl mx-auto mb-8">
+                                <h2 class="text-3xl font-bold text-slate-900 mb-4">Consultoria de Segurança</h2>
+                                <p class="text-slate-600 text-lg max-w-2xl mx-auto mb-8">
                                     Não vendemos apenas equipamentos. Analisamos as vulnerabilidades do seu imóvel e desenhamos a estratégia perfeita para proteger o que é seu.
                                 </p>
                                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full mb-8">
-                                    <div class="bg-slate-950/50 p-4 rounded-lg">
-                                        <span class="block text-emerald-400 font-bold mb-1">Análise</span>
-                                        <span class="text-slate-400 text-sm">Mapeamento de riscos</span>
+                                    <div class="bg-slate-50 border border-slate-200 p-4 rounded-lg">
+                                        <span class="block text-emerald-600 font-bold mb-1">Análise</span>
+                                        <span class="text-slate-500 text-sm">Mapeamento de riscos</span>
                                     </div>
-                                    <div class="bg-slate-950/50 p-4 rounded-lg">
-                                        <span class="block text-emerald-400 font-bold mb-1">Projeto</span>
-                                        <span class="text-slate-400 text-sm">Plano personalizado</span>
+                                    <div class="bg-slate-50 border border-slate-200 p-4 rounded-lg">
+                                        <span class="block text-emerald-600 font-bold mb-1">Projeto</span>
+                                        <span class="text-slate-500 text-sm">Plano personalizado</span>
                                     </div>
-                                    <div class="bg-slate-950/50 p-4 rounded-lg">
-                                        <span class="block text-emerald-400 font-bold mb-1">Suporte</span>
-                                        <span class="text-slate-400 text-sm">Acompanhamento total</span>
+                                    <div class="bg-slate-50 border border-slate-200 p-4 rounded-lg">
+                                        <span class="block text-emerald-600 font-bold mb-1">Suporte</span>
+                                        <span class="text-slate-500 text-sm">Acompanhamento total</span>
                                     </div>
                                 </div>
-                                <a href="index.html#contato" class="bg-emerald-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-emerald-600 transition-colors shadow-lg">
+                                <a href="index.html#contato" class="bg-emerald-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-emerald-700 transition-colors shadow-lg">
                                     Agendar Consultoria Gratuita
                                 </a>
                             </div>
@@ -463,8 +472,8 @@
 
     </main>
     
-    <!-- Rodapé -->
-    <footer class="bg-slate-950 border-t border-slate-900 pt-16 pb-8 relative z-20">
+    <!-- Rodapé (Mantido Escuro) -->
+    <footer class="bg-slate-900 border-t border-slate-800 pt-16 pb-8 relative z-20">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
                 <!-- Coluna 1 -->
@@ -525,8 +534,8 @@
                 </div>
             </div>
 
-            <div class="border-t border-slate-900 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-sm">
-                <p class="text-slate-500">&copy; 2025 Segurança Jaraguá. Todos os direitos reservados.</p>
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-sm">
+                <p class="text-slate-500">&copy; 2025 Segurança Jaraguá. Todos os direitos reservados. CNPJ: 26.682.630/0001-87</p>
                 <div class="flex space-x-6 text-slate-500">
                     <a href="#" class="hover:text-slate-300 transition-colors">Política de Privacidade</a>
                     <a href="#" class="hover:text-slate-300 transition-colors">Termos de Uso</a>
@@ -590,14 +599,10 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     navLinks.forEach(link => {
-                        link.classList.remove('active', 'text-emerald-400', 'bg-slate-800/50');
+                        link.classList.remove('active', 'text-emerald-600', 'bg-white', 'shadow-md');
                         if (link.getAttribute('href').substring(1) === entry.target.id) {
-                            link.classList.add('active', 'text-emerald-400', 'bg-slate-800/50');
-                            
-                            // Atualiza o select mobile também se estiver visível
-                            if(window.innerWidth < 1024) {
-                                solutionsSelect.value = `#${entry.target.id}`;
-                            }
+                            // Adiciona estilos ativos para o tema claro
+                            link.classList.add('active');
                         }
                     });
                 }

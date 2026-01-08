@@ -1,0 +1,271 @@
+<div class="haky-form-container">
+    <h2 class="haky-title">Faça seu Pedido</h2>
+    <p class="haky-subtitle">
+        Garanta sua peça exclusiva HAKY. Preencha os dados abaixo e entraremos em contato para finalizar o pagamento.
+    </p>
+
+    <form class="haky-form" id="hakyForm" action="https://formsubmit.co/hakyclub@gmail.com" method="POST">
+
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_subject" value="Novo Pedido HAKY CLUB">
+        <input type="hidden" name="_next" value="https://hakyclub.com/obrigado">
+
+        <h3 class="haky-section-title">Seus Dados</h3>
+        
+        <label for="nome">Nome Completo</label>
+        <input type="text" id="nome" name="Nome" required placeholder="Seu nome">
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="Email" required placeholder="seu@email.com">
+
+        <label for="whatsapp">Whatsapp</label>
+        <input type="text" id="whatsapp" name="Whatsapp" required placeholder="(00) 00000-0000">
+
+        <label for="instagram">Instagram (Opcional)</label>
+        <input type="text" id="instagram" name="Instagram" placeholder="@seuusuario">
+
+        <h3 class="haky-section-title">Endereço de Entrega</h3>
+
+        <div class="haky-flex-group">
+            <div class="haky-col-small">
+                <label for="cep">CEP</label>
+                <input type="text" id="cep" name="CEP" required placeholder="00000-000" maxlength="9">
+            </div>
+             <div class="haky-col-large">
+                <label for="rua">Rua / Logradouro</label>
+                <input type="text" id="rua" name="Rua" required placeholder="Av. Exemplo">
+            </div>
+        </div>
+
+        <div class="haky-flex-group">
+            <div class="haky-col-small">
+                <label for="numero">Número</label>
+                <input type="text" id="numero" name="Numero" required placeholder="123">
+            </div>
+            <div class="haky-col-large">
+                <label for="complemento">Complemento (Opcional)</label>
+                <input type="text" id="complemento" name="Complemento" placeholder="Apto 101, Bloco B">
+            </div>
+        </div>
+
+        <label for="bairro">Bairro</label>
+        <input type="text" id="bairro" name="Bairro" required placeholder="Seu Bairro">
+
+        <div class="haky-flex-group">
+            <div class="haky-col-large">
+                <label for="cidade">Cidade</label>
+                <input type="text" id="cidade" name="Cidade" required placeholder="Sua Cidade">
+            </div>
+            <div class="haky-col-small">
+                <label for="estado">Estado (UF)</label>
+                <input type="text" id="estado" name="Estado" required placeholder="SC" maxlength="2" style="text-transform: uppercase;">
+            </div>
+        </div>
+
+        <h3 class="haky-section-title">O Pedido</h3>
+
+        <label for="modelo">Modelo da Camiseta</label>
+        <select id="modelo" name="Modelo" required>
+            <option value="" disabled selected>Selecione o modelo...</option>
+            <option value="Haky x Hannya">Haky x Hannya</option>
+            <option value="Haky Culture Tiger">Haky Culture Tiger</option>
+            <option value="Haky Basic">Haky Basic</option>
+        </select>
+
+        <label for="tamanho">Tamanho</label>
+        <select id="tamanho" name="Tamanho" required>
+            <option value="" disabled selected>Selecione o tamanho...</option>
+            <option value="P">P</option>
+            <option value="M">M</option>
+            <option value="G">G</option>
+            <option value="GG">GG</option>
+            <option value="G2">G2</option>
+        </select>
+
+        <div class="haky-checkbox-group">
+            <input type="checkbox" id="termos" name="Termos_Aceitos" value="Sim" required>
+            <label for="termos">
+                Li e concordo com as condições da <a href="https://hakyclub.com/politicas-pre-venda">pré-venda</a>, incluindo o prazo estimado de envio.
+            </label>
+        </div>
+
+        <button type="submit" class="haky-btn">Solicitar Pedido</button>
+
+        <p class="haky-info">
+            Após o envio, entraremos em contato via WhatsApp/Email com o link de pagamento.
+        </p>
+    </form>
+</div>
+
+<style>
+    .haky-form-container {
+        max-width: 650px;
+        margin: 0 auto;
+        padding: 25px;
+        text-align: center;
+        color: #fff;
+        font-family: Arial, sans-serif;
+    }
+
+    .haky-title {
+        font-size: 1.9rem;
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+
+    .haky-subtitle {
+        font-size: 1rem;
+        color: #ccc;
+        margin-bottom: 25px;
+        line-height: 1.4;
+    }
+
+    .haky-section-title {
+        text-align: left;
+        font-size: 1.1rem;
+        color: #9A0404; /* Cor de destaque para separar seções */
+        margin-top: 25px;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-bottom: 1px solid #333;
+        padding-bottom: 5px;
+    }
+
+    .haky-form label {
+        display: block;
+        text-align: left;
+        font-size: 0.9rem;
+        margin-bottom: 6px;
+        color: #ddd;
+    }
+
+    /* Inputs e Selects */
+    .haky-form input[type="text"],
+    .haky-form input[type="email"],
+    .haky-form select {
+        width: 100%;
+        padding: 14px;
+        font-size: 1rem;
+        border-radius: 8px;
+        border: 1px solid #444;
+        background: #111;
+        color: #fff;
+        margin-bottom: 15px;
+        box-sizing: border-box;
+        transition: border 0.3s ease;
+        appearance: none;
+        -webkit-appearance: none;
+    }
+
+    .haky-form select {
+        background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23FFFFFF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+        background-repeat: no-repeat;
+        background-position: right 15px top 50%;
+        background-size: 12px auto;
+        cursor: pointer;
+    }
+
+    .haky-form input:focus,
+    .haky-form select:focus {
+        border: 1px solid #9A0404;
+        outline: none;
+    }
+
+    /* Grid System para campos lado a lado */
+    .haky-flex-group {
+        display: flex;
+        gap: 15px;
+    }
+
+    .haky-col-small {
+        flex: 1; /* Ocupa 1 parte */
+        min-width: 80px;
+    }
+
+    .haky-col-large {
+        flex: 3; /* Ocupa 3 partes */
+    }
+
+    /* Checkbox */
+    .haky-checkbox-group {
+        display: flex;
+        align-items: flex-start;
+        margin-top: 10px;
+        margin-bottom: 25px;
+        text-align: left;
+        gap: 10px;
+    }
+
+    .haky-checkbox-group input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        margin: 0;
+        accent-color: #9A0404;
+        cursor: pointer;
+        flex-shrink: 0;
+    }
+
+    .haky-checkbox-group label {
+        margin: 0;
+        font-size: 0.9rem;
+        line-height: 1.4;
+        cursor: pointer;
+        color: #ccc;
+    }
+
+    .haky-btn {
+        width: 100%;
+        padding: 16px;
+        font-size: 1.1rem;
+        border: none;
+        border-radius: 10px;
+        background: #9A0404;
+        color: #fff;
+        cursor: pointer;
+        transition: 0.3s;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .haky-btn:hover {
+        background: #b30606;
+    }
+
+    .haky-info {
+        font-size: 0.85rem;
+        color: #bbb;
+        margin-top: 20px;
+        line-height: 1.4;
+    }
+
+    @media (max-width: 480px) {
+        .haky-form-container { padding: 15px; }
+        /* No mobile, campos lado a lado podem ficar um embaixo do outro se preferir, 
+           mas mantive lado a lado pois Numero e UF são pequenos */
+    }
+</style>
+
+<script>
+    // Máscara WhatsApp
+    document.getElementById("whatsapp").addEventListener("input", function (e) {
+        let v = e.target.value.replace(/\D/g, "");
+        if (v.length > 11) v = v.slice(0, 11);
+        if (v.length > 6) e.target.value = `(${v.slice(0,2)}) ${v.slice(2,7)}-${v.slice(7)}`;
+        else if (v.length > 2) e.target.value = `(${v.slice(0,2)}) ${v.slice(2)}`;
+        else e.target.value = v;
+    });
+
+    // Máscara CEP
+    document.getElementById("cep").addEventListener("input", function (e) {
+        let v = e.target.value.replace(/\D/g, "");
+        if (v.length > 8) v = v.slice(0, 8);
+        if (v.length > 5) {
+            e.target.value = `${v.slice(0,5)}-${v.slice(5)}`;
+        } else {
+            e.target.value = v;
+        }
+    });
+</script>

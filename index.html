@@ -711,58 +711,61 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Formulário -->
+                    <!--Formulario-->
                     <div class="bg-white p-8 md:p-10 rounded-3xl shadow-2xl border border-slate-200 fade-in" style="transition-delay: 200ms;">
-                        <h3 class="text-2xl font-bold text-slate-800 mb-8">Solicite seu Orçamento</h3>
-                        <form action="#" method="POST" class="space-y-6">
-                            <!-- Inputs Mantidos -->
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                <div class="space-y-2">
-                                    <label for="name" class="block text-sm font-medium text-slate-600">Nome Completo *</label>
-                                    <input type="text" name="name" id="name" class="w-full bg-slate-50 border border-slate-300 rounded-lg py-3 px-4 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all" placeholder="Seu nome" required>
-                                </div>
-                                <div class="space-y-2">
-                                    <label for="phone" class="block text-sm font-medium text-slate-600">Telefone/WhatsApp *</label>
-                                    <input type="tel" name="phone" id="phone" class="w-full bg-slate-50 border border-slate-300 rounded-lg py-3 px-4 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all" placeholder="(DD) 99999-9999" required>
-                                </div>
-                            </div>
-                            <div class="space-y-2">
-                                <label for="email" class="block text-sm font-medium text-slate-600">Email *</label>
-                                <input type="email" name="email" id="email" class="w-full bg-slate-50 border border-slate-300 rounded-lg py-3 px-4 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all" placeholder="seu@email.com" required>
-                            </div>
-                            <div class="space-y-2">
-                                <label for="segment" class="block text-sm font-medium text-slate-600">Qual seu perfil? *</label>
-                                <select id="segment" name="segment" class="w-full bg-slate-50 border border-slate-300 rounded-lg py-3 px-4 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all appearance-none" style="background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2364748b%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; background-position: right 1rem center; background-size: 0.75rem auto;" required>
-                                    <option value="" disabled selected>Selecione uma opção</option>
-                                    <option value="condominio">Condomínio</option>
-                                    <option value="empresa">Empresa/Comércio</option>
-                                    <option value="residencial">Residencial</option>
-                                </select>
-                            </div>
-                             <div class="space-y-2">
-                                <label for="service_interest" class="block text-sm font-medium text-slate-600">Solução de Interesse</label>
-                                 <select id="service_interest" name="service_interest" class="w-full bg-slate-50 border border-slate-300 rounded-lg py-3 px-4 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all appearance-none" style="background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2364748b%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; background-position: right 1rem center; background-size: 0.75rem auto;">
-                                    <option value="" disabled selected>Selecione (Opcional)</option>
-                                    <option value="portaria">Portaria Remota</option>
-                                    <option value="alarme">Alarme Monitorado</option>
-                                    <option value="cftv">CFTV / Câmeras</option>
-                                     <option value="acesso">Controle de Acesso</option>
-                                    <option value="outro">Outro / Projetos</option>
-                                </select>
-                            </div>
-                            <div class="space-y-2">
-                                <label for="message" class="block text-sm font-medium text-slate-600">Mensagem (Opcional)</label>
-                                <textarea name="message" id="message" rows="4" class="w-full bg-slate-50 border border-slate-300 rounded-lg py-3 px-4 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all resize-none" placeholder="Descreva sua necessidade..."></textarea>
-                            </div>
-                            <button type="submit" class="w-full bg-brand brand-bg-hover text-white font-bold py-4 px-6 rounded-xl transition-all text-lg hover:shadow-lg hover:shadow-emerald-500/20 flex items-center justify-center group">
-                                Enviar Solicitação
-                                <i data-lucide="send" class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"></i>
-                            </button>
-                            <p class="text-xs text-slate-400 text-center mt-4">Prometemos não enviar spam. Seus dados estão seguros conosco.</p>
-                        </form>
-                    </div>
-                </div>
+    <h3 class="text-2xl font-bold text-slate-800 mb-8">Solicite seu Orçamento</h3>
+    
+    <form action="https://formsubmit.co/vendas@segurancajaragua.com.br" method="POST" class="space-y-6">
+        
+        <input type="hidden" name="_next" value="https://segurancajaragua.com.br/">
+        <input type="hidden" name="_subject" value="Novo Lead do Site - Segurança Jaraguá">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="space-y-2">
+                <label for="name" class="block text-sm font-medium text-slate-600">Nome Completo *</label>
+                <input type="text" name="name" id="name" class="w-full bg-slate-50 border border-slate-300 rounded-lg py-3 px-4 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all" placeholder="Seu nome" required>
+            </div>
+            <div class="space-y-2">
+                <label for="phone" class="block text-sm font-medium text-slate-600">Telefone/WhatsApp *</label>
+                <input type="tel" name="phone" id="phone" class="w-full bg-slate-50 border border-slate-300 rounded-lg py-3 px-4 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all" placeholder="(DD) 99999-9999" required>
+            </div>
+        </div>
+        <div class="space-y-2">
+            <label for="email" class="block text-sm font-medium text-slate-600">Email *</label>
+            <input type="email" name="email" id="email" class="w-full bg-slate-50 border border-slate-300 rounded-lg py-3 px-4 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all" placeholder="seu@email.com" required>
+        </div>
+        <div class="space-y-2">
+            <label for="segment" class="block text-sm font-medium text-slate-600">Qual seu perfil? *</label>
+            <select id="segment" name="segment" class="w-full bg-slate-50 border border-slate-300 rounded-lg py-3 px-4 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all appearance-none" style="background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2364748b%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; background-position: right 1rem center; background-size: 0.75rem auto;" required>
+                <option value="" disabled selected>Selecione uma opção</option>
+                <option value="condominio">Condomínio</option>
+                <option value="empresa">Empresa/Comércio</option>
+                <option value="residencial">Residencial</option>
+            </select>
+        </div>
+            <div class="space-y-2">
+            <label for="service_interest" class="block text-sm font-medium text-slate-600">Solução de Interesse</label>
+                <select id="service_interest" name="service_interest" class="w-full bg-slate-50 border border-slate-300 rounded-lg py-3 px-4 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all appearance-none" style="background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2364748b%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'); background-repeat: no-repeat; background-position: right 1rem center; background-size: 0.75rem auto;">
+                <option value="" disabled selected>Selecione (Opcional)</option>
+                <option value="portaria">Portaria Remota</option>
+                <option value="alarme">Alarme Monitorado</option>
+                <option value="cftv">CFTV / Câmeras</option>
+                    <option value="acesso">Controle de Acesso</option>
+                <option value="outro">Outro / Projetos</option>
+            </select>
+        </div>
+        <div class="space-y-2">
+            <label for="message" class="block text-sm font-medium text-slate-600">Mensagem (Opcional)</label>
+            <textarea name="message" id="message" rows="4" class="w-full bg-slate-50 border border-slate-300 rounded-lg py-3 px-4 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all resize-none" placeholder="Descreva sua necessidade..."></textarea>
+        </div>
+        <button type="submit" class="w-full bg-brand brand-bg-hover text-white font-bold py-4 px-6 rounded-xl transition-all text-lg hover:shadow-lg hover:shadow-emerald-500/20 flex items-center justify-center group">
+            Enviar Solicitação
+            <i data-lucide="send" class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"></i>
+        </button>
+        <p class="text-xs text-slate-400 text-center mt-4">Prometemos não enviar spam. Seus dados estão seguros conosco.</p>
+    </form>
+</div>
                  <!-- Mapa -->
                 <div class="mt-20 fade-in rounded-3xl overflow-hidden shadow-2xl border border-slate-200 h-[400px] relative z-10">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3574.62145329598!2d-49.09848868496696!3d-26.37122198336338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94de95e7c813a453%3A0x644265538e3e4a36!2sR.%20Expedicion%C3%A1rio%20Ant%C3%B4nio%20Carlos%20Ferreira%2C%201740%20-%20Vila%20Lenzi%2C%20Jaragu%C3%A1%20do%20Sul%20-%20SC%2C%2089252-300!5e0!3m2!1spt-BR!2sbr!4v1678886453210!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
